@@ -1,0 +1,1576 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pokédex Glazed · Tunod, Johto y Rankor</title>
+<meta name="description" content="Catálogo completo de las 412 especies de Pokémon Glazed con sus sprites y ubicaciones.">
+<style>
+  :root{
+    --bg:#080a0f;
+    --bg2:#0d1118;
+    --panel:#121722;
+    --panel2:#171d2a;
+    --line:#232c3d;
+    --line2:#33405a;
+    --txt:#e8edf7;
+    --muted:#8b98b0;
+    --dim:#5f6b82;
+    --red:#e3350d;
+    --red2:#ff5a3c;
+    --blue:#3b82f6;
+    --gold:#f5c542;
+    --radius:14px;
+    --shadow:0 18px 40px -18px rgba(0,0,0,.9);
+  }
+  *{box-sizing:border-box}
+  html{scrollbar-color:var(--line2) transparent}
+  body{
+    margin:0;
+    min-height:100vh;
+    color:var(--txt);
+    background:
+      radial-gradient(1100px 600px at 12% -10%, rgba(227,53,13,.16), transparent 60%),
+      radial-gradient(900px 520px at 92% 0%, rgba(59,130,246,.12), transparent 60%),
+      linear-gradient(180deg,var(--bg2),var(--bg) 480px);
+    background-attachment:fixed;
+    font-family:"Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    background-image:linear-gradient(rgba(255,255,255,.022) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.022) 1px,transparent 1px);
+    background-size:44px 44px;
+    mask-image:radial-gradient(ellipse at 50% 0%,#000 0%,transparent 75%);
+    z-index:0;
+  }
+  .wrap{position:relative;z-index:1;max-width:1400px;margin:0 auto;padding:0 22px 60px}
+
+  /* ---------- header ---------- */
+  header.top{
+    position:sticky;
+    top:0;
+    z-index:40;
+    display:flex;
+    align-items:center;
+    gap:26px;
+    padding:16px 22px;
+    margin:0 -22px;
+    background:rgba(8,10,15,.82);
+    backdrop-filter:blur(14px) saturate(1.2);
+    border-bottom:1px solid var(--line);
+  }
+  .brand{display:flex;align-items:center;gap:14px;flex:0 0 auto}
+  .lens{
+    position:relative;
+    width:46px;height:46px;border-radius:50%;
+    background:radial-gradient(circle at 32% 28%,#9fd4ff 0 18%,#2b8ce6 19% 55%,#0b4f9c 56% 100%);
+    box-shadow:0 0 0 5px #dfe6f2,0 0 0 7px #3a4356,0 0 26px rgba(59,130,246,.55);
+    flex:0 0 auto;
+  }
+  .lens::after{
+    content:"";position:absolute;inset:auto 9px 8px auto;width:9px;height:9px;border-radius:50%;
+    background:#eaf5ff;opacity:.85;box-shadow:0 0 8px #eaf5ff;
+  }
+  h1{
+    margin:0;font-size:22px;line-height:1.1;letter-spacing:.5px;font-weight:800;text-transform:uppercase;
+  }
+  h1 span{color:var(--red2)}
+  .brand p{margin:3px 0 0;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+
+  .searchbox{
+    position:relative;display:flex;align-items:center;gap:10px;flex:1 1 auto;max-width:640px;
+    background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:0 14px;height:46px;
+    transition:border-color .18s,box-shadow .18s;
+  }
+  .searchbox:focus-within{border-color:var(--red);box-shadow:0 0 0 3px rgba(227,53,13,.18)}
+  .searchbox svg{width:18px;height:18px;color:var(--dim);flex:0 0 auto}
+  .searchbox input{
+    flex:1;min-width:0;background:none;border:0;outline:0;color:var(--txt);font-size:15px;font-family:inherit;
+  }
+  .searchbox input::placeholder{color:var(--dim)}
+  .searchbox kbd{
+    font:600 11px/1 ui-monospace,Consolas,monospace;color:var(--muted);
+    border:1px solid var(--line2);border-bottom-width:2px;border-radius:6px;padding:4px 7px;background:var(--bg2);
+  }
+  .header-stats{
+    display:flex;gap:22px;flex:0 0 auto
+  }
+  .stat{text-align:right}
+  .stat b{display:block;font-size:19px;font-variant-numeric:tabular-nums;line-height:1}
+  .stat small{display:block;margin-top:4px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+
+  /* ---------- controls ---------- */
+  .controls{
+    display:flex;align-items:flex-start;gap:18px;flex-wrap:wrap;
+    padding:18px 0 14px;
+  }
+  .filters{flex:1 1 640px;min-width:0}
+  .filter-label{
+    display:flex;align-items:center;gap:8px;margin-bottom:9px;font-size:10.5px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--dim);font-weight:700;
+  }
+  .chips{display:flex;flex-wrap:wrap;gap:7px}
+  .chip{
+    --c:#8b98b0;
+    display:inline-flex;align-items:center;gap:7px;
+    border:1px solid var(--line);background:var(--panel);color:var(--muted);
+    border-radius:999px;padding:6px 11px 6px 9px;font:600 12px/1 inherit;cursor:pointer;
+    transition:.15s ease;user-select:none;
+  }
+  .chip .dot{width:8px;height:8px;border-radius:50%;background:var(--c);box-shadow:0 0 8px color-mix(in srgb,var(--c) 70%,transparent)}
+  .chip .cnt{color:var(--dim);font-weight:600;font-variant-numeric:tabular-nums;font-size:11px}
+  .chip:hover{border-color:var(--line2);color:var(--txt);transform:translateY(-1px)}
+  .chip.on{background:color-mix(in srgb,var(--c) 16%,var(--panel));border-color:color-mix(in srgb,var(--c) 55%,var(--line));color:var(--txt)}
+  .chip.on .cnt{color:var(--txt);opacity:.65}
+  .chip.all{--c:#e8edf7}
+
+  .toolbar{display:flex;align-items:center;gap:12px;flex:0 0 auto;padding-top:4px}
+  .count{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+  .count b{color:var(--txt)}
+  select{
+    appearance:none;background:var(--panel) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238b98b0' stroke-width='3'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 12px center;
+    border:1px solid var(--line);color:var(--txt);border-radius:9px;padding:9px 34px 9px 12px;font:600 12.5px/1 inherit;cursor:pointer;outline:0;
+  }
+  select:focus{border-color:var(--red)}
+
+  /* ---------- grid ---------- */
+  .grid{
+    display:grid;gap:12px;
+    grid-template-columns:repeat(auto-fill,minmax(152px,1fr));
+    padding-top:6px;
+  }
+  .card{
+    --tc:#8b98b0;
+    position:relative;
+    display:flex;flex-direction:column;align-items:center;
+    gap:2px;padding:16px 10px 13px;
+    background:linear-gradient(180deg,color-mix(in srgb,var(--tc) 7%,var(--panel)) 0%,var(--panel) 60%);
+    border:1px solid var(--line);border-radius:var(--radius);
+    color:inherit;font:inherit;text-align:center;cursor:pointer;
+    transition:transform .16s ease,border-color .16s ease,box-shadow .16s ease;
+    overflow:hidden;
+  }
+  .card::before{
+    content:"";position:absolute;inset:0 0 auto 0;height:1px;
+    background:linear-gradient(90deg,transparent,color-mix(in srgb,var(--tc) 70%,transparent),transparent);opacity:.7;
+  }
+  .card::after{
+    content:"";position:absolute;width:120px;height:120px;left:50%;top:34px;transform:translateX(-50%);
+    background:radial-gradient(circle,color-mix(in srgb,var(--tc) 26%,transparent),transparent 68%);
+    opacity:0;transition:opacity .2s;pointer-events:none;
+  }
+  .card:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--tc) 45%,var(--line2));box-shadow:var(--shadow)}
+  .card:hover::after{opacity:1}
+  .card:focus-visible{outline:2px solid var(--red2);outline-offset:2px}
+  .card-hit{position:absolute;inset:0;z-index:1;border:0;background:none;border-radius:inherit;cursor:pointer}
+  .card-hit:focus-visible{outline:2px solid var(--red2);outline-offset:-2px}
+  .card .add{
+    position:absolute;right:7px;top:7px;z-index:2;
+    width:24px;height:24px;display:grid;place-items:center;
+    border:1px solid var(--line2);border-radius:8px;background:rgba(8,10,15,.78);color:var(--muted);
+    font:700 14px/1 inherit;cursor:pointer;opacity:0;transform:scale(.9) translateY(-2px);
+    transition:opacity .15s,transform .15s,background .15s,color .15s,border-color .15s;
+  }
+  .card:hover .add,.card:focus-within .add,.card.in-pool .add{opacity:1;transform:none}
+  .card .add:hover{color:#fff;background:var(--red);border-color:var(--red2)}
+  .card.in-pool{border-color:rgba(227,53,13,.55);box-shadow:inset 0 0 0 1px rgba(227,53,13,.22)}
+  .card.in-pool .add{background:rgba(227,53,13,.92);border-color:var(--red2);color:#fff}
+  .card .num{
+    position:absolute;top:9px;left:11px;
+    font:700 10.5px/1 ui-monospace,Consolas,monospace;letter-spacing:.04em;color:var(--dim);
+  }
+  .card .spr{
+    position:relative;display:grid;place-items:center;width:86px;height:74px;margin-top:8px;
+  }
+  .card .spr img{
+    width:64px;height:64px;image-rendering:pixelated;filter:drop-shadow(0 6px 8px rgba(0,0,0,.55));
+    transition:transform .18s ease;
+  }
+  .card:hover .spr img{transform:translateY(-2px) scale(1.09)}
+  .card .name{
+    font-size:13.5px;font-weight:700;letter-spacing:.01em;line-height:1.2;
+    max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  }
+  .card .types{display:flex;gap:4px;justify-content:center;margin-top:4px;min-height:15px}
+  .tbadge{
+    --c:#8b98b0;
+    display:inline-flex;align-items:center;gap:4px;
+    font-size:8.5px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;
+    padding:2.5px 6px;border-radius:5px;
+    color:#0b0e14;background:var(--c);
+  }
+  .tbadge.dark{color:#fff}
+  .card .where{
+    margin-top:6px;font-size:10px;line-height:1.35;color:var(--dim);
+    display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden;
+    max-width:100%;min-height:13px;
+  }
+
+  /* ---------- empty ---------- */
+  .empty{
+    margin:60px auto;max-width:480px;text-align:center;color:var(--muted);
+    border:1px dashed var(--line2);border-radius:18px;padding:40px 28px;background:rgba(18,23,34,.5);
+  }
+  .empty b{display:block;color:var(--txt);font-size:17px;margin-bottom:6px}
+  .empty span{font-size:13px}
+
+  /* ---------- footer ---------- */
+  footer{
+    margin-top:46px;padding-top:20px;border-top:1px solid var(--line);
+    display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
+    font-size:11.5px;line-height:1.6;color:var(--dim);
+  }
+  footer a{color:var(--muted);text-decoration:none;border-bottom:1px dotted var(--line2)}
+  footer a:hover{color:var(--txt)}
+
+  /* ---------- planner ---------- */
+  .team{
+    position:relative;
+    margin-top:20px;
+    border:1px solid var(--line);
+    border-radius:16px;
+    background:linear-gradient(180deg,rgba(23,29,42,.92),rgba(15,20,29,.82));
+    box-shadow:0 20px 50px -30px #000;
+    overflow:hidden;
+  }
+  .team::before{
+    content:"";position:absolute;inset:0 0 auto 0;height:1px;
+    background:linear-gradient(90deg,transparent,rgba(227,53,13,.55),rgba(59,130,246,.35),transparent);
+  }
+  .team-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:10px 14px;border-bottom:1px solid var(--line)}
+  .team-head h2{margin:0;font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--txt)}
+  .team-badge{
+    display:inline-grid;place-items:center;min-width:22px;height:22px;padding:0 7px;border-radius:99px;
+    background:rgba(227,53,13,.16);border:1px solid rgba(227,53,13,.45);color:#ff9b87;
+    font:800 11px/1 ui-monospace,Consolas,monospace;
+  }
+  .team-hint{flex:0 1 auto;min-width:0;font-size:11px;color:var(--dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:46vw}
+  .team-actions{margin-left:auto;display:flex;align-items:center;gap:6px;flex:0 0 auto}
+  .tbtn{
+    display:inline-flex;align-items:center;gap:6px;
+    border:1px solid var(--line);background:var(--bg2);color:var(--muted);
+    border-radius:8px;padding:6px 9px;font:600 11px/1 inherit;cursor:pointer;transition:.15s;
+  }
+  .tbtn:hover{color:var(--txt);border-color:var(--line2);background:var(--panel2)}
+  .tbtn.danger:hover{color:#ff9b87;border-color:rgba(227,53,13,.6);background:rgba(227,53,13,.12)}
+  .tbtn.icon{width:27px;padding:6px 0;justify-content:center;font-size:14px}
+  .team.collapsed .pool-block,.team.collapsed .team-body{display:none}
+
+  /* pool */
+  .pool-block{border-bottom:1px solid var(--line);padding:10px 14px 11px;background:rgba(8,10,15,.2)}
+  .pool-head{display:flex;align-items:baseline;gap:10px;margin-bottom:8px;min-width:0}
+  .sub-label{font-size:9px;letter-spacing:.17em;text-transform:uppercase;color:var(--dim);font-weight:800;flex:0 0 auto}
+  .pool-sub{font-size:10.5px;color:var(--dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+  .pool-sub b{color:var(--muted);font-weight:700}
+  .pool-slots{
+    display:flex;gap:8px;align-items:center;overflow-x:auto;overflow-y:hidden;
+    min-height:98px;scrollbar-width:thin;scrollbar-color:var(--line2) transparent;
+  }
+  .pool-slots::-webkit-scrollbar{height:8px}
+  .pool-slots::-webkit-scrollbar-thumb{background:var(--line2);border-radius:99px}
+  .pool-empty{display:flex;align-items:center;gap:12px;color:var(--dim);font-size:12px;line-height:1.5;max-width:660px;padding:2px 0}
+  .pool-empty .plus{
+    flex:0 0 auto;display:grid;place-items:center;width:38px;height:38px;border-radius:50%;
+    border:1px dashed var(--line2);color:var(--muted);font:300 22px/1 inherit;background:rgba(255,255,255,.02);
+  }
+  .pool-empty b{display:block;color:var(--muted);font-size:12px;margin-bottom:1px}
+  .pool-empty strong{color:var(--txt)}
+  .pool-slot{
+    --tc:#8b98b0;
+    position:relative;flex:0 0 92px;height:98px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;
+    padding:6px 5px;border:1px solid var(--line);border-radius:10px;
+    background:linear-gradient(180deg,color-mix(in srgb,var(--tc) 12%,var(--panel)),var(--panel));
+    transition:border-color .15s,transform .15s;
+  }
+  .pool-slot:hover{border-color:color-mix(in srgb,var(--tc) 45%,var(--line2));transform:translateY(-2px)}
+  .pool-slot.in-team{border-color:rgba(122,199,76,.65);box-shadow:inset 0 0 0 1px rgba(122,199,76,.22)}
+  .pool-slot img{width:44px;height:44px;image-rendering:pixelated;filter:drop-shadow(0 3px 5px rgba(0,0,0,.5));pointer-events:none}
+  .pool-name{font-size:9.5px;font-weight:700;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;pointer-events:none}
+  .pool-tags{display:flex;gap:2px;min-height:9px;pointer-events:none}
+  .pool-tags i{
+    font:800 7.5px/1 ui-monospace,Consolas,monospace;font-style:normal;color:var(--muted);
+    background:rgba(255,255,255,.07);border-radius:3px;padding:1px 3px;
+  }
+  .pool-open{position:absolute;inset:0;z-index:1;border:0;background:none;border-radius:inherit;cursor:pointer}
+  .pool-open:focus-visible{outline:2px solid var(--red2);outline-offset:-2px}
+  .pool-x{
+    position:absolute;left:4px;top:4px;z-index:3;width:18px;height:18px;display:grid;place-items:center;
+    border:0;border-radius:6px;background:rgba(8,10,15,.8);color:var(--muted);font:700 12px/1 inherit;cursor:pointer;
+    opacity:0;transform:scale(.85);transition:.15s;
+  }
+  .pool-slot:hover .pool-x,.pool-x:focus-visible{opacity:1;transform:none}
+  .pool-x:hover{background:var(--red);color:#fff}
+  .pool-add{
+    position:absolute;right:4px;top:4px;z-index:3;width:20px;height:20px;display:grid;place-items:center;
+    border:1px solid var(--line2);border-radius:6px;background:rgba(8,10,15,.82);color:var(--muted);
+    font:800 12px/1 inherit;cursor:pointer;opacity:.85;transition:.15s;
+  }
+  .pool-add:hover{opacity:1;background:var(--red);border-color:var(--red2);color:#fff}
+  .pool-add.on{opacity:1;background:rgba(122,199,76,.92);border-color:#9be36b;color:#0b1405}
+
+  /* team boards */
+  .team-body{display:grid;grid-template-columns:minmax(0,1fr) 344px}
+  .teams-main{min-width:0;padding:11px 14px 13px}
+  .team-tabs{display:flex;align-items:center;gap:6px;margin-bottom:9px;min-width:0}
+  .tabs{display:flex;align-items:center;gap:6px;overflow-x:auto;padding-bottom:2px;scrollbar-width:none;min-width:0}
+  .tabs::-webkit-scrollbar{display:none}
+  .ttab{
+    display:flex;align-items:center;flex:0 0 auto;border:1px solid var(--line);background:var(--bg2);
+    border-radius:9px;overflow:hidden;transition:.15s;max-width:190px;
+  }
+  .ttab:hover{border-color:var(--line2)}
+  .ttab.on{border-color:rgba(227,53,13,.62);background:rgba(227,53,13,.12)}
+  .ttab-main{
+    display:flex;align-items:center;gap:6px;min-width:0;max-width:164px;
+    border:0;background:none;color:var(--muted);padding:7px 8px;font:700 11px/1 inherit;cursor:pointer;
+  }
+  .ttab-main span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .ttab-main small{
+    flex:0 0 auto;font:800 8.5px/1 ui-monospace,Consolas,monospace;color:var(--dim);
+    background:rgba(255,255,255,.07);padding:2px 4px;border-radius:4px;
+  }
+  .ttab.on .ttab-main{color:var(--txt)}
+  .ttab-x{
+    flex:0 0 auto;align-self:stretch;width:22px;border:0;border-left:1px solid var(--line);background:none;
+    color:var(--dim);font:700 11px/1 inherit;cursor:pointer;
+  }
+  .ttab-x:hover{color:#ff9b87;background:rgba(227,53,13,.16)}
+  .active-head{display:flex;align-items:center;gap:8px;margin-bottom:8px;min-width:0}
+  .active-head .name{font-size:12.5px;font-weight:800;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .active-head .count{flex:0 0 auto;font:800 10px/1 ui-monospace,Consolas,monospace;color:var(--dim)}
+  .active-head .actions{margin-left:auto;display:flex;gap:5px;flex:0 0 auto}
+  .mini-btn{
+    border:1px solid var(--line);background:var(--bg2);color:var(--dim);border-radius:7px;padding:5px 7px;
+    font:600 10px/1 inherit;cursor:pointer;transition:.15s;
+  }
+  .mini-btn:hover{color:var(--txt);border-color:var(--line2);background:var(--panel2)}
+  .mini-btn.danger:hover{color:#ff9b87;border-color:rgba(227,53,13,.55);background:rgba(227,53,13,.1)}
+
+  .team-slots{
+    display:flex;gap:9px;align-items:center;
+    min-height:118px;overflow-x:auto;overflow-y:hidden;
+    scrollbar-width:thin;scrollbar-color:var(--line2) transparent;
+  }
+  .team-slots::-webkit-scrollbar{height:8px}
+  .team-slots::-webkit-scrollbar-thumb{background:var(--line2);border-radius:99px}
+  .slot{
+    --tc:#8b98b0;
+    position:relative;flex:0 0 108px;display:flex;flex-direction:column;align-items:center;gap:2px;
+    padding:10px 6px 8px;border:1px solid var(--line);border-radius:12px;cursor:grab;
+    background:linear-gradient(180deg,color-mix(in srgb,var(--tc) 13%,var(--panel)),var(--panel));
+    transition:border-color .15s,transform .15s,opacity .15s;
+  }
+  .slot:hover{border-color:color-mix(in srgb,var(--tc) 45%,var(--line2));transform:translateY(-2px)}
+  .slot.dragging{opacity:.35}
+  .slot.over{border-color:var(--red2);box-shadow:0 0 0 2px rgba(227,53,13,.22)}
+  .slot img{width:52px;height:52px;image-rendering:pixelated;filter:drop-shadow(0 4px 6px rgba(0,0,0,.5));pointer-events:none}
+  .slot .ord{position:absolute;left:7px;top:5px;font:800 9px/1 ui-monospace,Consolas,monospace;color:var(--dim);pointer-events:none}
+  .slot-name{font-size:10.5px;font-weight:700;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;pointer-events:none}
+  .slot-types{display:flex;gap:3px;pointer-events:none;min-height:11px}
+  .slot-types .tbadge{font-size:7px;padding:1.5px 4px;letter-spacing:.04em}
+  .slot-open{position:absolute;inset:0;z-index:1;border:0;background:none;border-radius:inherit;cursor:pointer}
+  .slot-open:focus-visible{outline:2px solid var(--red2);outline-offset:-2px}
+  .slot-x{
+    position:absolute;right:4px;top:4px;z-index:2;width:18px;height:18px;display:grid;place-items:center;
+    border:0;border-radius:6px;background:rgba(8,10,15,.8);color:var(--muted);font:700 12px/1 inherit;cursor:pointer;
+    opacity:0;transform:scale(.85);transition:.15s;
+  }
+  .slot:hover .slot-x,.slot-x:focus-visible{opacity:1;transform:none}
+  .slot-x:hover{background:var(--red);color:#fff}
+  .slot-empty{
+    border-style:dashed;background:rgba(255,255,255,.015);cursor:pointer;
+    justify-content:center;gap:2px;color:var(--dim);box-shadow:none;
+  }
+  .slot-empty:hover{border-color:var(--line2);color:var(--muted);transform:none}
+  .slot-empty span{font:800 16px/1 ui-monospace,Consolas,monospace;opacity:.5}
+  .slot-empty small{font-size:8px;letter-spacing:.13em;text-transform:uppercase;opacity:.65}
+
+  .team-analysis{
+    border-left:1px solid var(--line);background:rgba(8,10,15,.28);
+    padding:11px 14px;display:flex;flex-direction:column;gap:10px;min-width:0;
+  }
+  .pa-row{display:flex;flex-direction:column;gap:5px;min-width:0}
+  .pa-label{display:flex;align-items:baseline;justify-content:space-between;gap:8px;font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--dim);font-weight:700}
+  .pa-label b{font-size:10.5px;color:var(--muted);letter-spacing:0;font-variant-numeric:tabular-nums}
+  .pa-chips{display:flex;flex-wrap:wrap;gap:4px;min-height:17px}
+  .pa-chips .tbadge{font-size:8px;padding:2px 5px}
+  .pa-chips .tbadge b{font-size:8px;margin-left:2px;opacity:.72}
+  .pa-empty{font-size:10.5px;color:var(--dim);font-style:italic}
+  .pa-missing{font-size:9.5px;color:var(--dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .pa-missing b{color:var(--muted);font-weight:700}
+  .cover{display:flex;align-items:center;gap:9px}
+  .cover .bar{flex:1;height:7px;border:1px solid var(--line);border-radius:99px;background:var(--bg2);overflow:hidden}
+  .cover .bar i{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,#6390f0,#7ac74c,#f7d02c);transition:width .3s ease}
+
+  /* ---------- modal ---------- */
+  dialog{
+    width:min(760px,calc(100vw - 32px));
+    padding:0;border:1px solid var(--line2);border-radius:22px;
+    background:linear-gradient(180deg,var(--panel2),var(--panel) 55%);
+    color:var(--txt);box-shadow:0 40px 100px -20px #000;
+    overflow:hidden;
+  }
+  dialog::backdrop{background:rgba(3,5,9,.72);backdrop-filter:blur(6px)}
+  dialog:focus{outline:none}
+  dialog[open]{animation:pop .18s ease-out}
+  @keyframes pop{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
+  .modal-top{
+    --tc:#8b98b0;
+    position:relative;display:flex;align-items:center;gap:10px;
+    padding:14px 18px;border-bottom:1px solid var(--line);
+    background:linear-gradient(90deg,color-mix(in srgb,var(--tc) 16%,transparent),transparent 70%);
+  }
+  .modal-top .dexn{font:800 12px/1 ui-monospace,Consolas,monospace;color:var(--muted);letter-spacing:.08em}
+  .modal-top .spacer{flex:1}
+  .iconbtn{
+    display:grid;place-items:center;width:34px;height:34px;border-radius:10px;
+    border:1px solid var(--line);background:var(--bg2);color:var(--muted);cursor:pointer;transition:.15s;
+  }
+  .iconbtn:hover{color:var(--txt);border-color:var(--line2);background:var(--panel2)}
+  .iconbtn:disabled{opacity:.3;cursor:default}
+  .modal-body{display:grid;grid-template-columns:250px 1fr;gap:24px;padding:24px 24px 26px}
+  .hero-spr{
+    position:relative;display:grid;place-items:center;border-radius:18px;
+    border:1px solid var(--line);
+    background:
+      radial-gradient(circle at 50% 42%,color-mix(in srgb,var(--tc) 26%,transparent),transparent 62%),
+      repeating-conic-gradient(rgba(255,255,255,.028) 0% 25%,transparent 0% 50%) 50%/22px 22px,
+      var(--bg2);
+    min-height:250px;
+  }
+  .hero-spr img{width:256px;height:256px;max-width:100%;image-rendering:pixelated;filter:drop-shadow(0 16px 22px rgba(0,0,0,.6))}
+  .hero-spr .ball{
+    position:absolute;width:150px;height:150px;border-radius:50%;border:14px solid rgba(255,255,255,.05);
+    top:50%;left:50%;transform:translate(-50%,-50%);
+  }
+  .hero-spr .ball::after{content:"";position:absolute;left:-14px;right:-14px;top:50%;height:14px;background:rgba(255,255,255,.05);transform:translateY(-50%)}
+  .hero-spr .ball::before{content:"";position:absolute;width:44px;height:44px;border-radius:50%;background:var(--bg2);border:12px solid rgba(255,255,255,.05);top:50%;left:50%;transform:translate(-50%,-50%);z-index:2}
+  .meta h2{margin:0;font-size:30px;line-height:1.05;letter-spacing:-.01em}
+  .meta .types{display:flex;gap:7px;margin-top:12px}
+  .meta .tbadge{font-size:10px;padding:4px 9px;border-radius:6px}
+  .locs{margin-top:22px}
+  .locs h3{
+    margin:0 0 10px;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);
+  }
+  .locs ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:7px;max-height:280px;overflow:auto;padding-right:4px}
+  .locs li{
+    display:flex;align-items:flex-start;gap:9px;font-size:13.5px;line-height:1.4;
+    background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:9px 11px;
+  }
+  .locs li .pin{flex:0 0 auto;width:14px;height:14px;margin-top:2px;color:var(--red2)}
+  .locs li.evo{border-color:rgba(168,85,247,.35);background:linear-gradient(90deg,rgba(168,85,247,.10),var(--bg2))}
+  .locs li.evo .pin{color:#c084fc}
+  .locs li.breed{border-color:rgba(236,72,153,.32);background:linear-gradient(90deg,rgba(236,72,153,.09),var(--bg2))}
+  .locs li.breed .pin{color:#f472b6}
+  .locs .empty-loc{color:var(--dim);font-style:italic;background:none;border-style:dashed}
+  .modal-foot{
+    display:flex;align-items:center;justify-content:space-between;gap:12px;
+    padding:12px 20px;border-top:1px solid var(--line);background:rgba(8,10,15,.35);
+    font-size:11px;color:var(--dim);
+  }
+  .modal-foot a{color:var(--muted);text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+  .modal-foot a:hover{color:var(--txt)}
+  .foot-actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:flex-end}
+  .dadd{
+    display:inline-flex;align-items:center;gap:7px;
+    border:1px solid rgba(227,53,13,.55);background:rgba(227,53,13,.14);color:#ffb3a3;
+    border-radius:9px;padding:7px 12px;font:700 11.5px/1 inherit;cursor:pointer;transition:.15s;
+  }
+  .dadd:hover{background:rgba(227,53,13,.24);color:#fff;border-color:var(--red2)}
+  .dadd.on{border-color:rgba(122,199,76,.55);background:rgba(122,199,76,.13);color:#b9e88f}
+  .dadd.on:hover{background:rgba(227,53,13,.2);border-color:rgba(227,53,13,.6);color:#ffb3a3}
+  .toast{
+    position:fixed;left:50%;bottom:24px;transform:translate(-50%,18px);z-index:90;
+    max-width:min(90vw,480px);padding:10px 16px;border-radius:11px;
+    border:1px solid var(--line2);background:#1a2231;color:var(--txt);
+    font-size:12.5px;font-weight:600;box-shadow:0 18px 40px -12px #000;
+    opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;
+  }
+  .toast.show{opacity:1;transform:translate(-50%,0)}
+
+  @media (max-width:820px){
+    header.top{flex-wrap:wrap;gap:14px;padding:12px 18px}
+    .header-stats{display:none}
+    .searchbox{order:3;flex-basis:100%;max-width:none}
+    .team-body{grid-template-columns:1fr}
+    .team-analysis{border-left:0;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:10px}
+    .team-hint{max-width:32vw}
+    .pa-missing{white-space:normal}
+    .pool-sub{white-space:normal;overflow:visible;text-overflow:clip}
+    .modal-body{grid-template-columns:1fr;gap:18px;padding:18px}
+    .hero-spr{min-height:200px}
+    .hero-spr img{width:192px;height:192px}
+    .meta h2{font-size:25px}
+    .grid{grid-template-columns:repeat(auto-fill,minmax(132px,1fr));gap:10px}
+  }
+  @media (max-width:680px){
+    .team-slots{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;overflow:visible;min-height:0}
+    .slot{flex:none;width:auto}
+    .slot-empty{min-height:102px}
+    #renameTeam{display:none}
+  }
+  @media (max-width:640px){
+    .team-hint{display:none}
+  }
+  @media (max-width:480px){
+    .wrap{padding:0 14px 40px}
+    header.top{margin:0 -14px}
+    h1{font-size:18px}
+    .lens{width:38px;height:38px}
+    .toolbar{width:100%;justify-content:space-between}
+    .team{margin-top:14px}
+    .team-head{padding:9px 12px}
+    .team-hint{display:none}
+    .pool-block{padding:9px 12px 10px}
+    .teams-main{padding:10px 12px 12px}
+    .team-slots{min-height:112px}
+    .active-head .actions .mini-btn{padding:5px 6px}
+    .pool-slot{flex-basis:88px;height:94px}
+    .card{padding:14px 8px 11px}
+    .grid{grid-template-columns:repeat(auto-fill,minmax(116px,1fr));gap:8px}
+    .card .spr{width:76px;height:64px}
+    .card .spr img{width:56px;height:56px}
+  }
+  @media (hover:none){
+    .card .add,.slot-x,.pool-x{opacity:1;transform:none}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none!important;animation:none!important}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <div class="brand">
+      <div class="lens" aria-hidden="true"></div>
+      <div>
+        <h1>Pokédex <span>Glazed</span></h1>
+        <p>Tunod · Johto · Rankor</p>
+      </div>
+    </div>
+
+    <label class="searchbox" for="q">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg>
+      <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="Buscar por nombre, número, tipo o lugar…" aria-label="Buscar Pokémon">
+      <kbd>/</kbd>
+    </label>
+
+    <div class="header-stats">
+      <div class="stat"><b id="statCount">412</b><small>Especies</small></div>
+      <div class="stat"><b id="statTypes">18</b><small>Tipos</small></div>
+      <div class="stat"><b id="statLocs">233</b><small>Lugares</small></div>
+    </div>
+  </header>
+
+  <section class="team" id="teamPanel" aria-label="Planificador de equipos">
+    <div class="team-head">
+      <h2>Planificador</h2>
+      <span class="team-badge" id="poolCount">0</span>
+      <span class="team-hint" id="teamHint">Pool vacío · pulsa + en una tarjeta</span>
+      <div class="team-actions">
+        <button class="tbtn" id="teamShare" type="button" title="Copiar enlace con el pool y todos los equipos">Enlace</button>
+        <button class="tbtn danger" id="teamClearAll" type="button" title="Vaciar el pool y todos los equipos">Vaciar todo</button>
+        <button class="tbtn icon" id="teamCollapse" type="button" aria-label="Contraer planificador" aria-expanded="true" title="Contraer planificador">−</button>
+      </div>
+    </div>
+
+    <div class="pool-block">
+      <div class="pool-head">
+        <span class="sub-label">Pool general</span>
+        <span class="pool-sub" id="poolSub">Sin límite · guarda aquí todos los candidatos y reparte después</span>
+      </div>
+      <div class="pool-slots" id="poolSlots"></div>
+    </div>
+
+    <div class="team-body">
+      <div class="teams-main">
+        <div class="team-tabs">
+          <div class="tabs" id="teamTabs"></div>
+          <button class="tbtn icon" id="newTeam" type="button" title="Crear un equipo nuevo" aria-label="Crear un equipo nuevo">+</button>
+        </div>
+
+        <div class="active-head">
+          <span class="name" id="activeTeamName">Equipo 1</span>
+          <span class="count" id="activeTeamCount">0/6</span>
+          <div class="actions">
+            <button class="mini-btn" id="renameTeam" type="button" title="Renombrar el equipo activo">Renombrar</button>
+            <button class="mini-btn" id="duplicateTeam" type="button" title="Duplicar el equipo activo">Duplicar</button>
+            <button class="mini-btn danger" id="clearTeam" type="button" title="Vaciar el equipo activo">Vaciar</button>
+          </div>
+        </div>
+
+        <div class="team-slots" id="teamSlots"></div>
+      </div>
+
+      <div class="team-analysis">
+        <div class="pa-row">
+          <div class="pa-label"><span>Cobertura ofensiva</span><b id="paCoverN">0/18</b></div>
+          <div class="cover"><div class="bar"><i id="paCoverBar"></i></div></div>
+          <div class="pa-missing" id="paMissing">—</div>
+        </div>
+        <div class="pa-row">
+          <div class="pa-label"><span>Debilidades del equipo</span></div>
+          <div class="pa-chips" id="paWeak"><span class="pa-empty">Añade Pokémon al equipo activo</span></div>
+        </div>
+        <div class="pa-row">
+          <div class="pa-label"><span>Tipos repetidos</span></div>
+          <div class="pa-chips" id="paDup"><span class="pa-empty">—</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="controls">
+    <div class="filters">
+      <div class="filter-label"><span>Tipo</span><span style="color:var(--line2)">·</span><span style="text-transform:none;letter-spacing:0;font-weight:500">filtra por uno o varios</span></div>
+      <div class="chips" id="typeFilters"></div>
+    </div>
+    <div class="toolbar">
+      <span class="count"><b id="shown">412</b> / 412</span>
+      <select id="sort" aria-label="Ordenar">
+        <option value="dex">Nº Pokédex</option>
+        <option value="az">Nombre A–Z</option>
+        <option value="za">Nombre Z–A</option>
+        <option value="locs">Más ubicaciones</option>
+      </select>
+    </div>
+  </div>
+
+  <main>
+    <div class="grid" id="grid"></div>
+    <div class="empty" id="empty" hidden>
+      <b>No hay Pokémon con esos filtros</b>
+      <span>Prueba con otro nombre, tipo o lugar. Pulsa «Todos» para reiniciar.</span>
+    </div>
+  </main>
+
+  <footer>
+    <div>
+      Datos de ubicación: <a href="https://fanmadepokemonglazed.fandom.com/wiki/Pokemon_Locations_and_Availability" target="_blank" rel="noopener">Fanmade Pokémon Glazed Wiki</a>.<br>
+      Sprites: <a href="https://www.pokecommunity.com/showthread.php?t=267728" target="_blank" rel="noopener">DS-style 64×64 Pokémon Sprite Resource</a>, vía el <a href="http://thatswhatyouget.github.io/tpp-progress/pokedex.html?dex=Tunod" target="_blank" rel="noopener">TPP Global Pokédex</a>.
+    </div>
+    <div style="text-align:right">
+      Proyecto de fans sin ánimo de lucro.<br>Pokémon © Nintendo · Creatures · GAME FREAK.
+    </div>
+  </footer>
+</div>
+
+<dialog id="detail" aria-labelledby="dName" tabindex="-1">
+  <div class="modal-top" id="dTop">
+    <span class="dexn" id="dNum">#001</span>
+    <span class="spacer"></span>
+    <button class="iconbtn" id="prev" aria-label="Anterior" title="Anterior (←)">‹</button>
+    <button class="iconbtn" id="next" aria-label="Siguiente" title="Siguiente (→)">›</button>
+    <button class="iconbtn" id="close" aria-label="Cerrar" title="Cerrar (Esc)">✕</button>
+  </div>
+
+  <div class="modal-body">
+    <div class="hero-spr" id="dHero">
+      <span class="ball" aria-hidden="true"></span>
+      <img id="dImg" alt="" width="256" height="256">
+    </div>
+    <div class="meta">
+      <h2 id="dName">—</h2>
+      <div class="types" id="dTypes"></div>
+      <div class="locs">
+        <h3>Dónde encontrarlo</h3>
+        <ul id="dLocs"></ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-foot">
+    <span id="dPos">—</span>
+    <div class="foot-actions">
+      <button class="dadd" id="dAdd" type="button" aria-pressed="false">+ Añadir al equipo</button>
+      <a id="dDownload" href="#" download>Descargar sprite ↓</a>
+    </div>
+  </div>
+</dialog>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+const DEX = __DEX_DATA__;
+
+const TYPES = {
+  normal:   { c:"#a8a77a", dark:false, label:"Normal" },
+  fire:     { c:"#ee8130", dark:false, label:"Fuego" },
+  water:    { c:"#6390f0", dark:false, label:"Agua" },
+  electric: { c:"#f7d02c", dark:true,  label:"Eléctrico" },
+  grass:    { c:"#7ac74c", dark:true,  label:"Planta" },
+  ice:      { c:"#96d9d6", dark:true,  label:"Hielo" },
+  fighting: { c:"#c22e28", dark:false, label:"Lucha" },
+  poison:   { c:"#a33ea1", dark:false, label:"Veneno" },
+  ground:   { c:"#e2bf65", dark:true,  label:"Tierra" },
+  flying:   { c:"#a98ff3", dark:false, label:"Volador" },
+  psychic:  { c:"#f95587", dark:false, label:"Psíquico" },
+  bug:      { c:"#a6b91a", dark:true,  label:"Bicho" },
+  rock:     { c:"#b6a136", dark:false, label:"Roca" },
+  ghost:    { c:"#735797", dark:false, label:"Fantasma" },
+  dragon:   { c:"#6f35fc", dark:false, label:"Dragón" },
+  dark:     { c:"#705746", dark:false, label:"Siniestro" },
+  steel:    { c:"#b7b7ce", dark:true,  label:"Acero" },
+  fairy:    { c:"#d685ad", dark:false, label:"Hada" },
+  "?":      { c:"#68a090", dark:false, label:"???" }
+};
+const TYPE_ORDER = Object.keys(TYPES);
+
+const $ = (s) => document.querySelector(s);
+const grid = $("#grid");
+const empty = $("#empty");
+const q = $("#q");
+const sortSel = $("#sort");
+const shownEl = $("#shown");
+
+const typeSet = new Set();
+let view = [];
+let current = -1;
+
+const norm = (s) => s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
+const pad = (n) => String(n).padStart(3,"0");
+const typeKey = (t) => t && TYPES[t.toLowerCase()] ? t.toLowerCase() : "?";
+const typeInfo = (t) => TYPES[typeKey(t)];
+const isEvo = (s) => /^Evolve\b/i.test(s);
+const isBreed = (s) => /^Breed\b/i.test(s);
+
+function locLabel(s){
+  if (isEvo(s)) return s.replace(/^Evolve\s*/i, "Evoluciona de ");
+  if (isBreed(s)) return s.replace(/^Breed\s*/i, "Cría de ");
+  return s;
+}
+function shortLoc(p){
+  if (!p.loc.length) return "Sin datos";
+  const first = p.loc[0];
+  const label = isEvo(first) ? "Evoluciona de " + first.replace(/^Evolve\s*/i,"") :
+                isBreed(first) ? "Cría de " + first.replace(/^Breed\s*/i,"") : first;
+  return p.loc.length > 1 ? label + " +" + (p.loc.length-1) : label;
+}
+
+/* ---------- filters ---------- */
+const counts = {};
+for (const t of TYPE_ORDER) counts[t] = 0;
+for (const p of DEX) for (const t of p.types) counts[typeKey(t)]++;
+
+const typeFilters = $("#typeFilters");
+const allChip = document.createElement("button");
+allChip.className = "chip all on";
+allChip.type = "button";
+allChip.innerHTML = '<span class="dot"></span>Todos';
+allChip.addEventListener("click", () => {
+  typeSet.clear();
+  [...typeFilters.querySelectorAll(".chip")].forEach(c => c.classList.toggle("on", c === allChip));
+  render();
+});
+typeFilters.appendChild(allChip);
+
+for (const key of TYPE_ORDER) {
+  if (!counts[key]) continue;
+  const t = TYPES[key];
+  const b = document.createElement("button");
+  b.type = "button";
+  b.className = "chip";
+  b.style.setProperty("--c", t.c);
+  b.dataset.type = key;
+  b.innerHTML = `<span class="dot"></span>${t.label}<span class="cnt">${counts[key]}</span>`;
+  b.addEventListener("click", () => {
+    if (typeSet.has(key)) typeSet.delete(key); else typeSet.add(key);
+    b.classList.toggle("on", typeSet.has(key));
+    allChip.classList.toggle("on", typeSet.size === 0);
+    render();
+  });
+  typeFilters.appendChild(b);
+}
+
+/* ---------- render ---------- */
+function matches(p, term){
+  if (!term) return true;
+  if (norm(p.name).includes(term)) return true;
+  if (pad(p.n).includes(term) || String(p.n) === term) return true;
+  for (const t of p.types) if (norm(typeInfo(t).label).includes(term)) return true;
+  for (const l of p.loc) if (norm(l).includes(term)) return true;
+  return false;
+}
+
+function apply(){
+  const term = norm(q.value.trim());
+  let list = DEX.filter(p => {
+    if (typeSet.size) {
+      let ok = false;
+      for (const t of p.types) if (typeSet.has(typeKey(t))) { ok = true; break; }
+      if (!ok) return false;
+    }
+    return matches(p, term);
+  });
+
+  const mode = sortSel.value;
+  if (mode === "az") list.sort((a,b)=>a.name.localeCompare(b.name,"en"));
+  else if (mode === "za") list.sort((a,b)=>b.name.localeCompare(a.name,"en"));
+  else if (mode === "locs") list.sort((a,b)=>b.loc.length - a.loc.length || a.n - b.n);
+  else list.sort((a,b)=>a.n - b.n);
+  return list;
+}
+
+function typeBadge(t){
+  const key = typeKey(t);
+  const info = TYPES[key];
+  return `<span class="tbadge${info.dark ? "" : " dark"}" style="--c:${info.c}">${info.label}</span>`;
+}
+
+function card(p, idx){
+  const primary = typeInfo(p.types[0] || "?").c;
+  const types = p.types.map(typeBadge).join("");
+  return `<article class="card" data-i="${idx}" data-n="${p.n}" style="--tc:${primary}">
+    <button class="card-hit" type="button" data-i="${idx}" aria-label="Ver ficha de ${p.name}"></button>
+    <span class="num">#${pad(p.n)}</span>
+    <span class="spr"><img src="sprites/${pad(p.n)}.png" alt="${p.name}" width="64" height="64" decoding="async"></span>
+    <span class="name">${p.name}</span>
+    <span class="types">${types}</span>
+    <span class="where">${shortLoc(p)}</span>
+    <button class="add" type="button" data-add="${p.n}" aria-pressed="false" aria-label="Añadir ${p.name} al pool" title="Añadir al pool">+</button>
+  </article>`;
+}
+
+function render(){
+  view = apply();
+  grid.innerHTML = view.map(card).join("");
+  shownEl.textContent = view.length;
+  empty.hidden = view.length > 0;
+  grid.hidden = view.length === 0;
+  syncCards();
+}
+
+grid.addEventListener("click", (e) => {
+  const add = e.target.closest(".add");
+  if (add) { togglePool(Number(add.dataset.add)); return; }
+  const hit = e.target.closest(".card-hit");
+  if (hit) openDetail(Number(hit.dataset.i), view);
+});
+
+q.addEventListener("input", render);
+sortSel.addEventListener("change", render);
+
+document.addEventListener("keydown", (e) => {
+  const modal = $("#detail");
+  if (e.key === "/" && document.activeElement !== q && !modal.open) {
+    e.preventDefault(); q.focus(); q.select();
+  }
+  if (e.key === "Escape" && document.activeElement === q && q.value) {
+    q.value = ""; render(); q.blur();
+  }
+  if (modal.open) {
+    if (e.key === "ArrowLeft") step(-1);
+    if (e.key === "ArrowRight") step(1);
+  }
+});
+
+/* ---------- modal ---------- */
+const dlg = $("#detail");
+const dImg = $("#dImg");
+const dName = $("#dName");
+const dNum = $("#dNum");
+const dTypes = $("#dTypes");
+const dLocs = $("#dLocs");
+const dTop = $("#dTop");
+const dHero = $("#dHero");
+const dPos = $("#dPos");
+const dDownload = $("#dDownload");
+const dAdd = $("#dAdd");
+const prevBtn = $("#prev");
+const nextBtn = $("#next");
+let modalList = null;
+
+function openDetail(idx, list){
+  if (list) modalList = list;
+  else if (!modalList) modalList = view;
+  if (!modalList || idx < 0 || idx >= modalList.length) return;
+  current = idx;
+  const p = modalList[idx];
+  const primary = typeInfo(p.types[0] || "?").c;
+
+  dlg.style.setProperty("--tc", primary);
+  dTop.style.setProperty("--tc", primary);
+  dHero.style.setProperty("--tc", primary);
+
+  dNum.textContent = "#" + pad(p.n);
+  dName.textContent = p.name;
+  dImg.src = "sprites/" + pad(p.n) + ".png";
+  dImg.alt = p.name;
+  dTypes.innerHTML = p.types.map(t => typeBadge(t).replace('class="tbadge','class="tbadge big')).join("");
+
+  if (p.loc.length) {
+    dLocs.innerHTML = p.loc.map(l => {
+      const cls = isEvo(l) ? "evo" : isBreed(l) ? "breed" : "";
+      const icon = isEvo(l)
+        ? '<svg class="pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M8 7l4-4 4 4M8 17l4 4 4-4"/></svg>'
+        : isBreed(l)
+          ? '<svg class="pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.4-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 11c0 5.6-7 10-7 10Z"/></svg>'
+          : '<svg class="pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.6"/></svg>';
+      return `<li class="${cls}">${icon}<span>${locLabel(l)}</span></li>`;
+    }).join("");
+  } else {
+    dLocs.innerHTML = '<li class="empty-loc">La wiki no registra una ubicación para esta especie.</li>';
+  }
+
+  dPos.textContent = `${idx + 1} de ${modalList.length}`;
+  dDownload.href = "sprites/" + pad(p.n) + ".png";
+  dDownload.setAttribute("download", pad(p.n) + "-" + p.name.replace(/\s+/g,"-").toLowerCase() + ".png");
+  prevBtn.disabled = idx <= 0;
+  nextBtn.disabled = idx >= modalList.length - 1;
+  updateDAdd(p.n);
+
+  if (!dlg.open) dlg.showModal();
+  dlg.focus();
+  dlg.scrollTop = 0;
+  try { history.replaceState(null, "", location.pathname + "?p=" + pad(p.n)); } catch(e) {}
+}
+
+function step(delta){
+  if (!dlg.open || !modalList) return;
+  const n = current + delta;
+  if (n >= 0 && n < modalList.length) openDetail(n);
+}
+
+prevBtn.addEventListener("click", () => step(-1));
+nextBtn.addEventListener("click", () => step(1));
+$("#close").addEventListener("click", () => dlg.close());
+
+dlg.addEventListener("click", (e) => {
+  if (e.target === dlg) dlg.close();
+});
+
+dlg.addEventListener("close", () => {
+  try { history.replaceState(null, "", location.pathname); } catch(e) {}
+});
+
+/* ---------- planner ---------- */
+const byDex = new Map(DEX.map(p => [p.n, p]));
+const POOL_KEY = "glazed-planner-v2";
+const OLD_TEAM_KEY = "glazed-team-v1";
+const COLLAPSE_KEY = "glazed-planner-collapsed";
+const MAX_TEAM = 6;
+
+let pool = [];
+let teams = [{ name: "Equipo 1", members: [] }];
+let activeTeam = 0;
+
+const CHART = {
+  normal:   { s:["rock","steel"], n:[], i:["ghost"] },
+  fire:     { s:["grass","ice","bug","steel"], n:["fire","water","rock","dragon"], i:[] },
+  water:    { s:["fire","ground","rock"], n:["water","grass","dragon"], i:[] },
+  electric: { s:["water","flying"], n:["electric","grass","dragon"], i:["ground"] },
+  grass:    { s:["water","ground","rock"], n:["fire","grass","poison","flying","bug","dragon","steel"], i:[] },
+  ice:      { s:["grass","ground","flying","dragon"], n:["fire","water","ice","steel"], i:[] },
+  fighting: { s:["normal","ice","rock","dark","steel"], n:["poison","flying","psychic","bug","fairy"], i:["ghost"] },
+  poison:   { s:["grass","fairy"], n:["poison","ground","rock","ghost"], i:["steel"] },
+  ground:   { s:["fire","electric","poison","rock","steel"], n:["grass","bug"], i:["flying"] },
+  flying:   { s:["grass","fighting","bug"], n:["electric","rock","steel"], i:[] },
+  psychic:  { s:["fighting","poison"], n:["psychic","steel"], i:["dark"] },
+  bug:      { s:["grass","psychic","dark"], n:["fire","fighting","poison","flying","ghost","steel","fairy"], i:[] },
+  rock:     { s:["fire","ice","flying","bug"], n:["fighting","ground","steel"], i:[] },
+  ghost:    { s:["psychic","ghost"], n:["dark"], i:["normal"] },
+  dragon:   { s:["dragon"], n:["steel"], i:["fairy"] },
+  dark:     { s:["psychic","ghost"], n:["fighting","dark","fairy"], i:[] },
+  steel:    { s:["ice","rock","fairy"], n:["fire","water","electric","steel"], i:[] },
+  fairy:    { s:["fighting","dragon","dark"], n:["fire","poison","steel"], i:[] }
+};
+
+function defenseMult(types, atk){
+  const c = CHART[atk];
+  let m = 1;
+  for (const raw of types){
+    const d = typeKey(raw);
+    if (c.s.includes(d)) m *= 2;
+    else if (c.n.includes(d)) m *= 0.5;
+    else if (c.i.includes(d)) m *= 0;
+  }
+  return m;
+}
+
+function sanitizePool(list){
+  return [...new Set((Array.isArray(list) ? list : []).map(Number).filter(n => byDex.has(n)))];
+}
+function sanitizeMembers(list){
+  return sanitizePool(list).slice(0, MAX_TEAM);
+}
+
+function normalizeState(){
+  if (!Array.isArray(teams) || !teams.length) {
+    teams = [{ name: "Equipo 1", members: [] }];
+  }
+  teams = teams.map((t, i) => {
+    const name = String((t && t.name) || ("Equipo " + (i + 1))).trim().slice(0, 34) || ("Equipo " + (i + 1));
+    return { name, members: sanitizeMembers(t && t.members) };
+  });
+  const used = new Set(teams.flatMap(t => t.members));
+  for (const n of used) if (!pool.includes(n)) pool.push(n);
+  pool = sanitizePool(pool);
+  activeTeam = Math.min(Math.max(Number(activeTeam) || 0, 0), teams.length - 1);
+}
+
+function saveState(){
+  try {
+    localStorage.setItem(POOL_KEY, JSON.stringify({ pool, teams, active: activeTeam }));
+  } catch(e) {}
+}
+
+function loadState(){
+  let data = null;
+  try { data = JSON.parse(localStorage.getItem(POOL_KEY) || "null"); } catch(e) {}
+
+  if (data && typeof data === "object"){
+    pool = sanitizePool(data.pool);
+    teams = Array.isArray(data.teams) && data.teams.length
+      ? data.teams.map((t, i) => ({
+          name: String((t && t.name) || ("Equipo " + (i + 1))).trim().slice(0, 34),
+          members: sanitizeMembers(t && t.members)
+        }))
+      : [];
+    activeTeam = Number.isInteger(data.active) ? data.active : 0;
+  } else {
+    // migrate the old single-team version
+    try {
+      const old = JSON.parse(localStorage.getItem(OLD_TEAM_KEY) || "null");
+      if (Array.isArray(old) && old.length){
+        const members = sanitizeMembers(old);
+        pool = [...members];
+        teams = [{ name: "Equipo 1", members }];
+      }
+    } catch(e) {}
+  }
+  normalizeState();
+}
+
+function loadFromUrl(params){
+  let touched = false;
+
+  const teamsParam = params.get("teams");
+  if (teamsParam !== null){
+    const parsed = teamsParam.split("|").map((chunk, i) => {
+      const cut = chunk.indexOf(":");
+      let name = "Equipo " + (i + 1);
+      let body = chunk;
+      if (cut >= 0){
+        try { name = decodeURIComponent(chunk.slice(0, cut)) || name; } catch(e) { name = "Equipo " + (i + 1); }
+        body = chunk.slice(cut + 1);
+      }
+      return { name: name.trim().slice(0, 34), members: sanitizeMembers(body ? body.split(".").map(Number) : []) };
+    }).filter(Boolean);
+    if (parsed.length){ teams = parsed; touched = true; }
+    const t = parseInt(params.get("t"), 10);
+    if (Number.isFinite(t)) activeTeam = t;
+  } else if (params.get("team") !== null){
+    const members = sanitizeMembers(params.get("team").split(",").map(Number));
+    teams = [{ name: "Equipo 1", members }];
+    pool = [...members];
+    activeTeam = 0;
+    touched = true;
+  }
+
+  if (params.get("pool") !== null){
+    pool = sanitizePool(params.get("pool").split(",").map(Number));
+    touched = true;
+  } else if (touched){
+    pool = [...new Set(teams.flatMap(t => t.members))];
+  }
+
+  if (touched){
+    normalizeState();
+    saveState();
+  }
+  return touched;
+}
+
+const teamPanel = $("#teamPanel");
+const poolSlots = $("#poolSlots");
+const poolCount = $("#poolCount");
+const teamHint = $("#teamHint");
+const poolSub = $("#poolSub");
+const teamTabs = $("#teamTabs");
+const teamSlots = $("#teamSlots");
+const activeTeamName = $("#activeTeamName");
+const activeTeamCount = $("#activeTeamCount");
+const paCoverN = $("#paCoverN");
+const paCoverBar = $("#paCoverBar");
+const paMissing = $("#paMissing");
+const paWeak = $("#paWeak");
+const paDup = $("#paDup");
+
+function poolMons(){ return pool.map(n => byDex.get(n)).filter(Boolean); }
+function activeMons(){ return teams[activeTeam].members.map(n => byDex.get(n)).filter(Boolean); }
+
+const esc = (s) => String(s).replace(/[&<>"']/g, c => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[c]));
+
+function syncCards(){
+  document.querySelectorAll(".card").forEach(card => {
+    const n = Number(card.dataset.n);
+    const inPool = pool.includes(n);
+    card.classList.toggle("in-pool", inPool);
+    const btn = card.querySelector(".add");
+    if (!btn) return;
+    const name = (byDex.get(n) || {}).name || "Pokémon";
+    btn.textContent = inPool ? "✓" : "+";
+    btn.setAttribute("aria-pressed", inPool ? "true" : "false");
+    btn.setAttribute("aria-label", (inPool ? "Quitar " : "Añadir ") + name + (inPool ? " del pool" : " al pool"));
+    btn.title = inPool ? "Quitar del pool" : "Añadir al pool";
+  });
+}
+
+function renderPool(){
+  if (!pool.length){
+    poolSlots.innerHTML = `<div class="pool-empty">
+      <span class="plus" aria-hidden="true">+</span>
+      <div>
+        <b>El pool está vacío</b>
+        <span>Pulsa el <strong>+</strong> de cualquier tarjeta del catálogo para guardar candidatos aquí. El pool no tiene límite: después reparte esos Pokémon entre varios equipos.</span>
+      </div>
+    </div>`;
+    return;
+  }
+
+  const members = new Set(teams[activeTeam].members);
+  const full = teams[activeTeam].members.length >= MAX_TEAM;
+
+  poolSlots.innerHTML = pool.map(n => {
+    const p = byDex.get(n);
+    const inTeam = members.has(n);
+    const teamIdxs = [];
+    teams.forEach((t, i) => { if (t.members.includes(n)) teamIdxs.push(i); });
+    const tagTitle = teamIdxs.length ? "En: " + teamIdxs.map(i => teams[i].name).join(", ") : "Todavía no está en ningún equipo";
+    const tags = teamIdxs.slice(0, 4).map(i => `<i>${i + 1}</i>`).join("") + (teamIdxs.length > 4 ? `<i>+${teamIdxs.length - 4}</i>` : "");
+    const primary = typeInfo(p.types[0] || "?").c;
+    const blocked = full && !inTeam;
+    return `<div class="pool-slot${inTeam ? " in-team" : ""}" data-n="${n}" style="--tc:${primary}" title="${esc(p.name)}">
+      <button class="pool-open" type="button" aria-label="Ver ficha de ${esc(p.name)}"></button>
+      <button class="pool-x" type="button" data-poolrm="${n}" aria-label="Quitar ${esc(p.name)} del pool" title="Quitar del pool">×</button>
+      <img src="sprites/${pad(p.n)}.png" alt="" width="44" height="44">
+      <span class="pool-name">${esc(p.name)}</span>
+      <span class="pool-tags" title="${esc(tagTitle)}">${tags}</span>
+      <button class="pool-add${inTeam ? " on" : ""}${blocked ? " blocked" : ""}" type="button" data-pooladd="${n}"
+        aria-pressed="${inTeam ? "true" : "false"}"
+        aria-label="${inTeam ? "Quitar " + esc(p.name) + " del equipo activo" : "Añadir " + esc(p.name) + " al equipo activo"}"
+        title="${inTeam ? "Quitar del equipo activo" : blocked ? "Equipo lleno (6/6)" : "Añadir al equipo activo"}">${inTeam ? "✓" : "+"}</button>
+    </div>`;
+  }).join("");
+}
+
+function renderTeamTabs(){
+  teamTabs.innerHTML = teams.map((t, i) => `<div class="ttab${i === activeTeam ? " on" : ""}">
+    <button class="ttab-main" type="button" data-tabmain="${i}" title="${esc(t.name)} · doble clic para renombrar">
+      <span>${esc(t.name)}</span><small>${t.members.length}</small>
+    </button>
+    ${teams.length > 1 ? `<button class="ttab-x" type="button" data-delteam="${i}" title="Eliminar ${esc(t.name)}" aria-label="Eliminar ${esc(t.name)}">×</button>` : ""}
+  </div>`).join("");
+}
+
+function renderActiveTeam(){
+  const t = teams[activeTeam];
+  activeTeamName.textContent = t.name;
+  activeTeamCount.textContent = t.members.length + "/" + MAX_TEAM;
+
+  let html = "";
+  for (let i = 0; i < MAX_TEAM; i++){
+    const n = t.members[i];
+    if (n === undefined){
+      html += `<div class="slot slot-empty" data-slot="${i}" title="Hueco ${i + 1}">
+        <span>${i + 1}</span><small>vacío</small>
+      </div>`;
+      continue;
+    }
+    const p = byDex.get(n);
+    const primary = typeInfo(p.types[0] || "?").c;
+    html += `<div class="slot" draggable="true" data-t="${i}" data-n="${n}" style="--tc:${primary}" title="${esc(p.name)} · arrastra para ordenar">
+      <span class="ord">${i + 1}</span>
+      <button class="slot-x" type="button" data-rmteam="${n}" aria-label="Quitar ${esc(p.name)} del equipo" title="Quitar del equipo (sigue en el pool)">×</button>
+      <img src="sprites/${pad(p.n)}.png" alt="" width="52" height="52" draggable="false">
+      <span class="slot-name">${esc(p.name)}</span>
+      <span class="slot-types">${p.types.map(typeBadge).join("")}</span>
+      <button class="slot-open" type="button" aria-label="Ver ficha de ${esc(p.name)}"></button>
+    </div>`;
+  }
+  teamSlots.innerHTML = html;
+}
+
+function renderAnalysis(){
+  const mons = activeMons();
+  const stab = new Set();
+  for (const p of mons) for (const t of p.types){
+    const k = typeKey(t);
+    if (k !== "?") stab.add(k);
+  }
+
+  const missing = [];
+  let covered = 0;
+  for (const def of TYPE_ORDER){
+    if (def === "?") continue;
+    let ok = false;
+    for (const k of stab){
+      if (CHART[k].s.includes(def)){ ok = true; break; }
+    }
+    if (ok) covered++;
+    else missing.push(TYPES[def].label);
+  }
+
+  paCoverN.textContent = covered + "/18";
+  paCoverBar.style.width = Math.round(covered / 18 * 100) + "%";
+
+  if (!mons.length){
+    paMissing.textContent = "—";
+    paMissing.title = "";
+    paWeak.innerHTML = '<span class="pa-empty">Añade Pokémon al equipo activo</span>';
+    paDup.innerHTML = '<span class="pa-empty">—</span>';
+    return;
+  }
+
+  if (missing.length){
+    paMissing.innerHTML = "<b>Faltan:</b> " + missing.join(" · ");
+    paMissing.title = "Sin cobertura súper eficaz contra: " + missing.join(", ");
+  } else {
+    paMissing.innerHTML = "<b>Cubre los 18 tipos</b>";
+    paMissing.title = "Cobertura súper eficaz completa";
+  }
+
+  const weakRows = [];
+  for (const atk of TYPE_ORDER){
+    if (atk === "?") continue;
+    let w = 0;
+    for (const p of mons) if (defenseMult(p.types, atk) > 1) w++;
+    if (w) weakRows.push({ atk, w });
+  }
+  weakRows.sort((a, b) => b.w - a.w || TYPE_ORDER.indexOf(a.atk) - TYPE_ORDER.indexOf(b.atk));
+  paWeak.innerHTML = weakRows.length
+    ? weakRows.map(r => {
+        const t = TYPES[r.atk];
+        return `<span class="tbadge${t.dark ? "" : " dark"}" style="--c:${t.c}" title="${r.w} Pokémon débiles a ${t.label}">${t.label}<b>${r.w}</b></span>`;
+      }).join("")
+    : '<span class="pa-empty">Sin debilidades: equipo equilibrado</span>';
+
+  const usage = {};
+  for (const p of mons) for (const t of p.types){
+    const k = typeKey(t);
+    if (k !== "?") usage[k] = (usage[k] || 0) + 1;
+  }
+  const dupRows = Object.entries(usage).filter(([, v]) => v > 1).sort((a, b) => b[1] - a[1]);
+  paDup.innerHTML = dupRows.length
+    ? dupRows.map(([k, v]) => {
+        const t = TYPES[k];
+        return `<span class="tbadge${t.dark ? "" : " dark"}" style="--c:${t.c}" title="${v} Pokémon comparten el tipo ${t.label}">${t.label}<b>${v}</b></span>`;
+      }).join("")
+    : '<span class="pa-empty">Sin tipos repetidos</span>';
+}
+
+function renderPlanner(){
+  const poolScroll = poolSlots.scrollLeft;
+  const tabsScroll = teamTabs.scrollLeft;
+  const slotsScroll = teamSlots.scrollLeft;
+
+  poolCount.textContent = pool.length;
+  teamHint.textContent = pool.length
+    ? `${pool.length} en el pool · ${teams.length} equipo${teams.length === 1 ? "" : "s"}`
+    : "Pool vacío · pulsa + en una tarjeta";
+  poolSub.textContent = pool.length
+    ? "Sin límite · pulsa + en un Pokémon para sumarlo al equipo activo"
+    : "Sin límite · guarda aquí todos los candidatos y reparte después";
+
+  renderPool();
+  renderTeamTabs();
+  renderActiveTeam();
+  renderAnalysis();
+
+  poolSlots.scrollLeft = poolScroll;
+  teamTabs.scrollLeft = tabsScroll;
+  teamSlots.scrollLeft = slotsScroll;
+}
+
+function updateDAdd(n){
+  const inPool = pool.includes(n);
+  dAdd.classList.toggle("on", inPool);
+  dAdd.textContent = inPool ? "✓ En el pool · quitar" : "+ Añadir al pool";
+  dAdd.setAttribute("aria-pressed", inPool ? "true" : "false");
+}
+
+function commit(){
+  saveState();
+  renderPlanner();
+  syncCards();
+  if (dlg.open && modalList && modalList[current]) updateDAdd(modalList[current].n);
+}
+
+let toastTimer = null;
+function toast(msg){
+  const t = $("#toast");
+  t.textContent = msg;
+  t.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove("show"), 2300);
+}
+
+function addToPool(n){
+  if (!byDex.has(n) || pool.includes(n)) return;
+  pool.push(n);
+  commit();
+  toast(`${byDex.get(n).name} añadido al pool · ${pool.length}`);
+}
+
+function removeFromPool(n){
+  if (!pool.includes(n)) return;
+  const p = byDex.get(n);
+  pool = pool.filter(x => x !== n);
+  teams.forEach(t => { t.members = t.members.filter(x => x !== n); });
+  commit();
+  toast(`${p.name} eliminado del pool y de sus equipos`);
+}
+
+function togglePool(n){
+  if (pool.includes(n)) removeFromPool(n);
+  else addToPool(n);
+}
+
+function toggleActiveTeam(n){
+  const team = teams[activeTeam];
+  const i = team.members.indexOf(n);
+  if (i >= 0){
+    team.members.splice(i, 1);
+    commit();
+    toast(`${byDex.get(n).name} quitado de ${team.name} (sigue en el pool)`);
+    return;
+  }
+  if (team.members.length >= MAX_TEAM){
+    toast(`${team.name} está lleno (${MAX_TEAM}/${MAX_TEAM}). Crea otro equipo para seguir.`);
+    return;
+  }
+  if (!pool.includes(n)) addToPool(n);
+  team.members.push(n);
+  commit();
+  toast(`${byDex.get(n).name} añadido a ${team.name} (${team.members.length}/${MAX_TEAM})`);
+}
+
+function nextDefaultName(){
+  let i = 1;
+  while (teams.some(t => t.name === "Equipo " + i)) i++;
+  return "Equipo " + i;
+}
+
+function createTeam(){
+  const t = { name: nextDefaultName(), members: [] };
+  teams.push(t);
+  activeTeam = teams.length - 1;
+  commit();
+  toast(`${t.name} creado`);
+}
+
+function duplicateTeam(){
+  const src = teams[activeTeam];
+  if (!src.members.length){ toast("El equipo está vacío"); return; }
+  let name = src.name + " (copia)";
+  let k = 2;
+  while (teams.some(t => t.name === name)) name = src.name + " (copia " + (k++) + ")";
+  teams.push({ name, members: [...src.members] });
+  activeTeam = teams.length - 1;
+  commit();
+  toast(`${name} creado con ${src.members.length} Pokémon`);
+}
+
+function deleteTeam(i){
+  if (teams.length <= 1){ toast("Debe quedar al menos un equipo"); return; }
+  const t = teams[i];
+  if (t.members.length && !confirm(`¿Eliminar "${t.name}"? Sus Pokémon seguirán en el pool.`)) return;
+  teams.splice(i, 1);
+  if (i < activeTeam) activeTeam--;
+  else if (i === activeTeam) activeTeam = Math.min(activeTeam, teams.length - 1);
+  commit();
+  toast(`${t.name} eliminado`);
+}
+
+function renameTeamAt(i){
+  const cur = teams[i].name;
+  const name = prompt("Nombre del equipo:", cur);
+  if (name === null) return;
+  const clean = name.trim().slice(0, 34);
+  if (!clean || clean === cur) return;
+  teams[i].name = clean;
+  commit();
+}
+
+function clearActiveTeam(){
+  const t = teams[activeTeam];
+  if (!t.members.length){ toast("El equipo ya está vacío"); return; }
+  if (!confirm(`¿Vaciar "${t.name}"? Sus Pokémon seguirán en el pool.`)) return;
+  t.members = [];
+  commit();
+  toast(`${t.name} vaciado`);
+}
+
+function clearEverything(){
+  if (!pool.length && !teams.some(t => t.members.length)){ toast("No hay nada que vaciar"); return; }
+  if (!confirm("¿Vaciar el pool y todos los equipos?")) return;
+  pool = [];
+  teams = [{ name: "Equipo 1", members: [] }];
+  activeTeam = 0;
+  commit();
+  toast("Planificador vaciado");
+}
+
+function setActiveTeam(i){
+  if (i === activeTeam) return;
+  activeTeam = i;
+  saveState();
+  renderPlanner();
+}
+
+function shareStateUrl(){
+  const base = location.href.split("?")[0].split("#")[0];
+  const list = teams.map(t => encodeURIComponent(t.name) + ":" + t.members.join(".")).join("|");
+  return base + "?pool=" + pool.join(",") + "&teams=" + list + "&t=" + activeTeam;
+}
+
+function setCollapsed(c){
+  teamPanel.classList.toggle("collapsed", c);
+  const b = $("#teamCollapse");
+  b.textContent = c ? "+" : "−";
+  b.setAttribute("aria-expanded", String(!c));
+  b.title = c ? "Expandir planificador" : "Contraer planificador";
+  b.setAttribute("aria-label", b.title);
+  try { localStorage.setItem(COLLAPSE_KEY, c ? "1" : "0"); } catch(e) {}
+}
+
+/* ---------- planner events ---------- */
+$("#teamCollapse").addEventListener("click", () => setCollapsed(!teamPanel.classList.contains("collapsed")));
+$("#newTeam").addEventListener("click", createTeam);
+$("#renameTeam").addEventListener("click", () => renameTeamAt(activeTeam));
+$("#duplicateTeam").addEventListener("click", duplicateTeam);
+$("#clearTeam").addEventListener("click", clearActiveTeam);
+$("#teamClearAll").addEventListener("click", clearEverything);
+
+$("#teamShare").addEventListener("click", async () => {
+  if (!pool.length && !teams.some(t => t.members.length)){ toast("Añade algún Pokémon antes de compartir"); return; }
+  const url = shareStateUrl();
+  try {
+    await navigator.clipboard.writeText(url);
+    toast("Enlace del planificador copiado");
+  } catch(e) {
+    window.prompt("Copia el enlace de tu planificador:", url);
+  }
+});
+
+dAdd.addEventListener("click", () => {
+  if (modalList && modalList[current]) togglePool(modalList[current].n);
+});
+
+poolSlots.addEventListener("click", (e) => {
+  const rm = e.target.closest(".pool-x");
+  if (rm){ removeFromPool(Number(rm.dataset.poolrm)); return; }
+  const add = e.target.closest(".pool-add");
+  if (add){ toggleActiveTeam(Number(add.dataset.pooladd)); return; }
+  const open = e.target.closest(".pool-open");
+  if (open){
+    const slot = open.closest(".pool-slot");
+    const n = Number(slot.dataset.n);
+    openDetail(pool.indexOf(n), poolMons());
+  }
+});
+
+teamTabs.addEventListener("click", (e) => {
+  const del = e.target.closest(".ttab-x");
+  if (del){ e.stopPropagation(); deleteTeam(Number(del.dataset.delteam)); return; }
+  const main = e.target.closest(".ttab-main");
+  if (main) setActiveTeam(Number(main.dataset.tabmain));
+});
+
+teamTabs.addEventListener("dblclick", (e) => {
+  const main = e.target.closest(".ttab-main");
+  if (main) renameTeamAt(Number(main.dataset.tabmain));
+});
+
+teamSlots.addEventListener("click", (e) => {
+  if (dragging) return;
+  const rm = e.target.closest(".slot-x");
+  if (rm){ toggleActiveTeam(Number(rm.dataset.rmteam)); return; }
+  const empty = e.target.closest(".slot-empty");
+  if (empty){
+    document.querySelector(".pool-block").scrollIntoView({ behavior: "smooth", block: "nearest" });
+    toast("Elige un Pokémon del pool y pulsa su +");
+    return;
+  }
+  const open = e.target.closest(".slot-open");
+  if (open){
+    const slot = open.closest(".slot");
+    openDetail(Number(slot.dataset.t), activeMons());
+  }
+});
+
+let dragging = false;
+let dragFrom = null;
+
+teamSlots.addEventListener("dragstart", (e) => {
+  const slot = e.target.closest(".slot:not(.slot-empty)");
+  if (!slot){ e.preventDefault(); return; }
+  dragging = true;
+  dragFrom = Number(slot.dataset.t);
+  slot.classList.add("dragging");
+  e.dataTransfer.effectAllowed = "move";
+  try { e.dataTransfer.setData("text/plain", String(dragFrom)); } catch(err) {}
+});
+
+teamSlots.addEventListener("dragover", (e) => {
+  const slot = e.target.closest(".slot:not(.slot-empty)");
+  if (!slot || dragFrom === null) return;
+  e.preventDefault();
+  teamSlots.querySelectorAll(".slot.over").forEach(x => x.classList.remove("over"));
+  if (Number(slot.dataset.t) !== dragFrom) slot.classList.add("over");
+});
+
+teamSlots.addEventListener("drop", (e) => {
+  const slot = e.target.closest(".slot:not(.slot-empty)");
+  if (!slot || dragFrom === null) return;
+  e.preventDefault();
+  const to = Number(slot.dataset.t);
+  const members = teams[activeTeam].members;
+  if (to !== dragFrom && to >= 0 && to < members.length){
+    const [moved] = members.splice(dragFrom, 1);
+    members.splice(to, 0, moved);
+    saveState();
+    renderPlanner();
+    toast("Orden del equipo actualizado");
+  }
+  dragFrom = null;
+  teamSlots.querySelectorAll(".dragging,.over").forEach(x => x.classList.remove("dragging", "over"));
+});
+
+teamSlots.addEventListener("dragend", () => {
+  dragFrom = null;
+  teamSlots.querySelectorAll(".dragging,.over").forEach(x => x.classList.remove("dragging", "over"));
+  setTimeout(() => { dragging = false; }, 80);
+});
+
+/* ---------- boot ---------- */
+$("#statCount").textContent = DEX.length;
+$("#statTypes").textContent = TYPE_ORDER.filter(t => t !== "?" && counts[t]).length;
+$("#statLocs").textContent = new Set(DEX.flatMap(p => p.loc.filter(l => !isEvo(l) && !isBreed(l)))).size;
+
+// restore pool + teams: the URL wins over localStorage so shared links work
+loadState();
+const params = new URLSearchParams(location.search);
+loadFromUrl(params);
+
+render();
+renderPlanner();
+let storedCollapsed = false;
+try { storedCollapsed = localStorage.getItem(COLLAPSE_KEY) === "1"; } catch(e) {}
+setCollapsed(storedCollapsed && pool.length > 0);
+
+const want = params.get("p");
+if (want) {
+  const key = want.trim();
+  const idx = view.findIndex(p => pad(p.n) === key.padStart(3, "0") || norm(p.name) === norm(key));
+  if (idx >= 0) openDetail(idx, view);
+}
+</script>
+</body>
+</html>

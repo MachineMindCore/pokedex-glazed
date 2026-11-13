@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Equipo · Pokédex Glazed</title>
+<style>
+  :root{
+    --bg:#080a0f; --panel:#121722; --panel2:#171d2a;
+    --line:#232c3d; --line2:#33405a;
+    --txt:#e8edf7; --muted:#8b98b0; --dim:#5f6b82;
+    --red:#e3350d; --red2:#ff5a3c;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;width:1200px;height:700px;overflow:hidden;background:var(--bg)}
+  body{
+    font-family:"Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;
+    color:var(--txt);-webkit-font-smoothing:antialiased;
+  }
+  .canvas{
+    position:fixed;left:0;top:0;width:1200px;height:700px;
+    padding:32px 40px 22px;
+    display:flex;flex-direction:column;
+    background:
+      radial-gradient(820px 440px at 6% -12%, rgba(227,53,13,.20), transparent 62%),
+      radial-gradient(760px 420px at 96% -6%, rgba(59,130,246,.16), transparent 62%),
+      linear-gradient(180deg,#0d1118,#080a0f 72%);
+    overflow:hidden;
+  }
+  .canvas::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background-image:linear-gradient(rgba(255,255,255,.022) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.022) 1px,transparent 1px);
+    background-size:40px 40px;
+    mask-image:radial-gradient(ellipse at 50% 0%,#000 0%,transparent 76%);
+  }
+  .head{position:relative;z-index:1;display:flex;align-items:flex-start;justify-content:space-between;gap:24px}
+  .brand{display:flex;align-items:center;gap:14px}
+  .lens{
+    width:48px;height:48px;border-radius:50%;
+    background:radial-gradient(circle at 32% 28%,#9fd4ff 0 18%,#2b8ce6 19% 55%,#0b4f9c 56% 100%);
+    box-shadow:0 0 0 5px #dfe6f2,0 0 0 7px #3a4356,0 0 26px rgba(59,130,246,.55);
+    flex:0 0 auto;
+  }
+  .brand h1{margin:0;font-size:22px;line-height:1.05;letter-spacing:.5px;font-weight:800;text-transform:uppercase}
+  .brand h1 span{color:var(--red2)}
+  .brand p{margin:4px 0 0;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:600}
+
+  .team-head{text-align:right;max-width:520px}
+  .kicker{font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:var(--dim);font-weight:800}
+  .team-head h2{margin:2px 0 0;font-size:38px;line-height:1;letter-spacing:-.015em;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .team-meta{display:flex;align-items:center;justify-content:flex-end;gap:8px;margin-top:8px}
+  .pill{
+    display:inline-flex;align-items:center;gap:5px;border-radius:99px;padding:4px 9px;
+    font:800 10px/1 ui-monospace,Consolas,monospace;letter-spacing:.04em;
+    color:#b9e88f;background:rgba(122,199,76,.12);border:1px solid rgba(122,199,76,.4);
+  }
+  .team-meta small{font-size:10px;color:var(--dim);letter-spacing:.08em}
+
+  .members{position:relative;z-index:1;display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:20px}
+  .member{
+    --tc:#8b98b0;
+    position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    min-height:320px;padding:14px 8px 13px;
+    border:1px solid var(--line);border-radius:15px;
+    background:linear-gradient(180deg,color-mix(in srgb,var(--tc) 13%,var(--panel)) 0%,var(--panel) 62%);
+    overflow:hidden;
+  }
+  .member::before{
+    content:"";position:absolute;inset:0 0 auto 0;height:1px;
+    background:linear-gradient(90deg,transparent,color-mix(in srgb,var(--tc) 70%,transparent),transparent);opacity:.75;
+  }
+  .member::after{
+    content:"";position:absolute;width:190px;height:190px;left:50%;top:44%;transform:translate(-50%,-50%);
+    background:radial-gradient(circle,color-mix(in srgb,var(--tc) 22%,transparent),transparent 68%);
+    pointer-events:none;
+  }
+  .member .num{position:absolute;left:10px;top:8px;font:700 9.5px/1 ui-monospace,Consolas,monospace;color:var(--dim);letter-spacing:.04em;z-index:1}
+  .member img{
+    position:relative;z-index:1;width:128px;height:128px;image-rendering:pixelated;
+    filter:drop-shadow(0 12px 14px rgba(0,0,0,.6));margin:6px 0 2px;
+  }
+  .member .name{
+    position:relative;z-index:1;font-size:19px;font-weight:800;line-height:1.15;margin-top:2px;
+    max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  }
+  .member .types{position:relative;z-index:1;display:flex;gap:4px;margin-top:8px;flex-wrap:wrap;justify-content:center}
+
+  .tb{
+    --c:#8b98b0;
+    display:inline-flex;align-items:center;gap:3px;
+    font-size:8.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;
+    padding:3px 6px;border-radius:5px;color:#0b0e14;background:var(--c);white-space:nowrap;
+  }
+  .tb.dk{color:#fff}
+  .tb b{font-size:8.5px;opacity:.72;font-weight:800;margin-left:1px}
+
+  .stats{position:relative;z-index:1;display:grid;grid-template-columns:300px minmax(0,1fr) 260px;gap:12px;margin-top:16px}
+  .stat{
+    border:1px solid var(--line);border-radius:14px;padding:13px 15px;
+    background:rgba(18,23,34,.78);min-height:156px;min-width:0;
+  }
+  .stat-label{display:flex;align-items:baseline;justify-content:space-between;gap:8px;font-size:8.5px;letter-spacing:.17em;text-transform:uppercase;color:var(--dim);font-weight:800}
+  .stat-label b{font-size:11px;letter-spacing:0;color:var(--muted);font-variant-numeric:tabular-nums}
+  .cover-num{font-size:27px;font-weight:800;line-height:1;margin-top:8px;letter-spacing:-.02em}
+  .cover-num small{font-size:12px;color:var(--dim);font-weight:700;margin-left:2px}
+  .bar{height:7px;border-radius:99px;background:var(--bg);border:1px solid var(--line);overflow:hidden;margin-top:8px}
+  .bar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,#6390f0,#7ac74c,#f7d02c)}
+  .missing{font-size:9.5px;line-height:1.45;color:var(--muted);margin-top:7px}
+  .missing b{color:var(--dim)}
+  .chips{display:flex;flex-wrap:wrap;gap:4px;margin-top:9px;align-content:flex-start}
+  .chips .tb{font-size:8.5px;padding:3px 6px}
+  .empty{font-size:10.5px;color:var(--dim);font-style:italic;margin-top:10px}
+
+  .footer{
+    position:relative;z-index:1;margin-top:auto;padding-top:14px;
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+    border-top:1px solid rgba(35,44,61,.65);
+    font-size:9px;color:#4d5971;letter-spacing:.02em;
+  }
+  .footer b{color:var(--dim);font-weight:600}
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="head">
+    <div class="brand">
+      <div class="lens" aria-hidden="true"></div>
+      <div>
+        <h1>Pokédex <span>Glazed</span></h1>
+        <p>Planificador de equipos</p>
+      </div>
+    </div>
+    <div class="team-head">
+      <div class="kicker">Equipo</div>
+      <h2 id="teamName">Equipo</h2>
+      <div class="team-meta">
+        <span class="pill" id="teamCount">6/6</span>
+        <small id="teamSub">6 Pokémon</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="members" id="members"></div>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-label"><span>Cobertura ofensiva</span></div>
+      <div class="cover-num" id="coverBig">0<small>/18</small></div>
+      <div class="bar"><i id="coverBar" style="width:0%"></i></div>
+      <div class="missing" id="missing"></div>
+    </div>
+    <div class="stat">
+      <div class="stat-label"><span>Debilidades del equipo</span><b id="weakN"></b></div>
+      <div class="chips" id="weak"></div>
+    </div>
+    <div class="stat">
+      <div class="stat-label"><span>Tipos repetidos</span><b id="dupN"></b></div>
+      <div class="chips" id="dup"></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span><b>Pokémon Glazed</b> · Tunod · Johto · Rankor</span>
+    <span>Datos: Fanmade Pokémon Glazed Wiki · Sprites: DS-style 64×64 / TPP</span>
+  </div>
+</div>
+
+<script>
+const TEAMS = __TEAMS__;
+
+const TYPES = {
+  normal:   { c:"#a8a77a", dark:false, label:"Normal" },
+  fire:     { c:"#ee8130", dark:false, label:"Fuego" },
+  water:    { c:"#6390f0", dark:false, label:"Agua" },
+  electric: { c:"#f7d02c", dark:true,  label:"Eléctrico" },
+  grass:    { c:"#7ac74c", dark:true,  label:"Planta" },
+  ice:      { c:"#96d9d6", dark:true,  label:"Hielo" },
+  fighting: { c:"#c22e28", dark:false, label:"Lucha" },
+  poison:   { c:"#a33ea1", dark:false, label:"Veneno" },
+  ground:   { c:"#e2bf65", dark:true,  label:"Tierra" },
+  flying:   { c:"#a98ff3", dark:false, label:"Volador" },
+  psychic:  { c:"#f95587", dark:false, label:"Psíquico" },
+  bug:      { c:"#a6b91a", dark:true,  label:"Bicho" },
+  rock:     { c:"#b6a136", dark:false, label:"Roca" },
+  ghost:    { c:"#735797", dark:false, label:"Fantasma" },
+  dragon:   { c:"#6f35fc", dark:false, label:"Dragón" },
+  dark:     { c:"#705746", dark:false, label:"Siniestro" },
+  steel:    { c:"#b7b7ce", dark:true,  label:"Acero" },
+  fairy:    { c:"#d685ad", dark:false, label:"Hada" },
+  "?":      { c:"#68a090", dark:false, label:"???" }
+};
+const TYPE_ORDER = Object.keys(TYPES);
+
+const CHART = {
+  normal:   { s:["rock","steel"], n:[], i:["ghost"] },
+  fire:     { s:["grass","ice","bug","steel"], n:["fire","water","rock","dragon"], i:[] },
+  water:    { s:["fire","ground","rock"], n:["water","grass","dragon"], i:[] },
+  electric: { s:["water","flying"], n:["electric","grass","dragon"], i:["ground"] },
+  grass:    { s:["water","ground","rock"], n:["fire","grass","poison","flying","bug","dragon","steel"], i:[] },
+  ice:      { s:["grass","ground","flying","dragon"], n:["fire","water","ice","steel"], i:[] },
+  fighting: { s:["normal","ice","rock","dark","steel"], n:["poison","flying","psychic","bug","fairy"], i:["ghost"] },
+  poison:   { s:["grass","fairy"], n:["poison","ground","rock","ghost"], i:["steel"] },
+  ground:   { s:["fire","electric","poison","rock","steel"], n:["grass","bug"], i:["flying"] },
+  flying:   { s:["grass","fighting","bug"], n:["electric","rock","steel"], i:[] },
+  psychic:  { s:["fighting","poison"], n:["psychic","steel"], i:["dark"] },
+  bug:      { s:["grass","psychic","dark"], n:["fire","fighting","poison","flying","ghost","steel","fairy"], i:[] },
+  rock:     { s:["fire","ice","flying","bug"], n:["fighting","ground","steel"], i:[] },
+  ghost:    { s:["psychic","ghost"], n:["dark"], i:["normal"] },
+  dragon:   { s:["dragon"], n:["steel"], i:["fairy"] },
+  dark:     { s:["psychic","ghost"], n:["fighting","dark","fairy"], i:[] },
+  steel:    { s:["ice","rock","fairy"], n:["fire","water","electric","steel"], i:[] },
+  fairy:    { s:["fighting","dragon","dark"], n:["fire","poison","steel"], i:[] }
+};
+
+const typeKey = t => (t && TYPES[String(t).toLowerCase()]) ? String(t).toLowerCase() : "?";
+const pad = n => String(n).padStart(3, "0");
+const team = TEAMS[Number(new URLSearchParams(location.search).get("t") || 0)] || TEAMS[0];
+
+function badge(t){
+  const k = typeKey(t), info = TYPES[k];
+  return `<span class="tb${info.dark ? "" : " dk"}" style="--c:${info.c}">${info.label}</span>`;
+}
+
+document.title = team.name + " · Pokédex Glazed";
+document.getElementById("teamName").textContent = team.name;
+document.getElementById("teamCount").textContent = team.members.length + "/6";
+document.getElementById("teamSub").textContent = team.members.length + " Pokémon";
+
+document.getElementById("members").innerHTML = team.members.map(p => {
+  const primary = TYPES[typeKey(p.types[0] || "?")].c;
+  return `<div class="member" style="--tc:${primary}">
+    <span class="num">#${pad(p.n)}</span>
+    <img src="sprites/${pad(p.n)}.png" alt="" width="128" height="128">
+    <span class="name">${p.name}</span>
+    <span class="types">${p.types.map(badge).join("")}</span>
+  </div>`;
+}).join("");
+
+function defenseMult(types, atk){
+  const c = CHART[atk];
+  let m = 1;
+  for (const raw of types){
+    const d = typeKey(raw);
+    if (c.s.includes(d)) m *= 2;
+    else if (c.n.includes(d)) m *= 0.5;
+    else if (c.i.includes(d)) m *= 0;
+  }
+  return m;
+}
+
+const stab = new Set();
+for (const p of team.members) for (const t of p.types) {
+  const k = typeKey(t);
+  if (k !== "?") stab.add(k);
+}
+
+let covered = 0;
+const missing = [];
+for (const def of TYPE_ORDER){
+  if (def === "?") continue;
+  let ok = false;
+  for (const k of stab) if (CHART[k].s.includes(def)) { ok = true; break; }
+  if (ok) covered++;
+  else missing.push(TYPES[def].label);
+}
+
+document.getElementById("coverBig").innerHTML = covered + "<small>/18</small>";
+document.getElementById("coverBar").style.width = Math.round(covered / 18 * 100) + "%";
+document.getElementById("missing").innerHTML = missing.length
+  ? "<b>Faltan:</b> " + missing.join(" · ")
+  : "<b>Cubre los 18 tipos</b>";
+
+const weakRows = [];
+for (const atk of TYPE_ORDER){
+  if (atk === "?") continue;
+  let w = 0;
+  for (const p of team.members) if (defenseMult(p.types, atk) > 1) w++;
+  if (w) weakRows.push({ atk, w });
+}
+weakRows.sort((a, b) => b.w - a.w || TYPE_ORDER.indexOf(a.atk) - TYPE_ORDER.indexOf(b.atk));
+document.getElementById("weakN").textContent = weakRows.length + (weakRows.length === 1 ? " tipo" : " tipos");
+document.getElementById("weak").innerHTML = weakRows.length
+  ? weakRows.map(r => {
+      const t = TYPES[r.atk];
+      return `<span class="tb${t.dark ? "" : " dk"}" style="--c:${t.c}">${t.label}<b>${r.w}</b></span>`;
+    }).join("")
+  : '<span class="empty">Sin debilidades</span>';
+
+const usage = {};
+for (const p of team.members) for (const t of p.types) {
+  const k = typeKey(t);
+  if (k !== "?") usage[k] = (usage[k] || 0) + 1;
+}
+const dupRows = Object.entries(usage).filter(([, v]) => v > 1).sort((a, b) => b[1] - a[1]);
+document.getElementById("dupN").textContent = dupRows.length + (dupRows.length === 1 ? " tipo" : " tipos");
+document.getElementById("dup").innerHTML = dupRows.length
+  ? dupRows.map(([k, v]) => {
+      const t = TYPES[k];
+      return `<span class="tb${t.dark ? "" : " dk"}" style="--c:${t.c}">${t.label}<b>${v}</b></span>`;
+    }).join("")
+  : '<span class="empty">Sin tipos repetidos</span>';
+</script>
+</body>
+</html>

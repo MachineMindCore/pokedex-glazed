@@ -1,0 +1,35 @@
+[
+  {
+    "name": "Equipo 1",
+    "members": [
+      { "n": 134, "name": "Vaporeon", "types": ["Water"] },
+      { "n": 135, "name": "Jolteon", "types": ["Electric"] },
+      { "n": 136, "name": "Flareon", "types": ["Fire"] },
+      { "n": 197, "name": "Umbreon", "types": ["Dark"] },
+      { "n": 196, "name": "Espeon", "types": ["Psychic"] },
+      { "n": 336, "name": "Glaceon", "types": ["Ice"] }
+    ]
+  },
+  {
+    "name": "Equipo 2",
+    "members": [
+      { "n": 409, "name": "Jirachi", "types": ["Steel", "Psychic"] },
+      { "n": 162, "name": "Furret", "types": ["Normal"] },
+      { "n": 251, "name": "Celebi", "types": ["Psychic", "Grass"] },
+      { "n": 303, "name": "Shedinja", "types": ["Bug", "Ghost"] },
+      { "n": 319, "name": "Togekiss", "types": ["Fairy", "Flying"] },
+      { "n": 312, "name": "Terrakion", "types": ["Rock", "Fighting"] }
+    ]
+  },
+  {
+    "name": "Equipo 3",
+    "members": [
+      { "n": 409, "name": "Jirachi", "types": ["Steel", "Psychic"] },
+      { "n": 162, "name": "Furret", "types": ["Normal"] },
+      { "n": 362, "name": "Frosslass", "types": ["Ice", "Ghost"] },
+      { "n": 303, "name": "Shedinja", "types": ["Bug", "Ghost"] },
+      { "n": 251, "name": "Celebi", "types": ["Psychic", "Grass"] },
+      { "n": 203, "name": "Mawile", "types": ["Steel", "Fairy"] }
+    ]
+  }
+]

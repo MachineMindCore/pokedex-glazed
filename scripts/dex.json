@@ -1,0 +1,2886 @@
+﻿[
+    {
+        "id":  0,
+        "name":  "MissingNo",
+        "type1":  "?",
+        "type2":  "",
+        "location":  "Forest Pass (sea); Cherrygrove City (sea)"
+    },
+    {
+        "id":  1,
+        "name":  "Bulbasaur",
+        "type1":  "Grass",
+        "type2":  "Poison",
+        "location":  "Mystery Island"
+    },
+    {
+        "id":  2,
+        "name":  "Ivysaur",
+        "type1":  "Grass",
+        "type2":  "Poison",
+        "location":  "Evolve Bulbasaur"
+    },
+    {
+        "id":  3,
+        "name":  "Venusaur",
+        "type1":  "Grass",
+        "type2":  "Poison",
+        "location":  "Evolve Ivysaur"
+    },
+    {
+        "id":  4,
+        "name":  "Charmander",
+        "type1":  "Fire",
+        "type2":  "",
+        "location":  "Mystery Island"
+    },
+    {
+        "id":  5,
+        "name":  "Charmeleon",
+        "type1":  "Fire",
+        "type2":  "",
+        "location":  "Evolve Charmander"
+    },
+    {
+        "id":  6,
+        "name":  "Charizard",
+        "type1":  "Fire",
+        "type2":  "Flying",
+        "location":  "Evolve Charmeleon"
+    },
+    {
+        "id":  7,
+        "name":  "Squirtle",
+        "type1":  "Water",
+        "type2":  "",
+        "location":  "Mystery Island"
+    },
+    {
+        "id":  8,
+        "name":  "Wartortle",
+        "type1":  "Water",
+        "type2":  "",
+        "location":  "Evolve Squirtle"
+    },
+    {
+        "id":  9,
+        "name":  "Blastoise",
+        "type1":  "Water",
+        "type2":  "",
+        "location":  "Evolve Wartortle"
+    },
+    {
+        "id":  10,
+        "name":  "Caterpie",
+        "type1":  "Bug",
+        "type2":  "",
+        "location":  "Milkshake Swamp; National Park (Bug Contest)"
+    },
+    {
+        "id":  11,
+        "name":  "Metapod",
+        "type1":  "Bug",
+        "type2":  "",
+        "location":  "Evolve Caterpie; National Park (Bug Contest)"
+    },
+    {
+        "id":  12,
+        "name":  "Butterfree",
+        "type1":  "Bug",
+        "type2":  "Flying",
+        "location":  "Palmtree Park; Route 30; Route 31; National Park (Normal/Bug Contest)"
+    },
+    {
+        "id":  13,
+        "name":  "Weedle",
+        "type1":  "Bug",
+        "type2":  "Poison",
+        "location":  "Milkshake Swamp; National Park (Bug Contest)"
+    },
+    {
+        "id":  14,
+        "name":  "Kakuna",
+        "type1":  "Bug",
+        "type2":  "Poison",
+        "location":  "Evolve Weedle; National Park (Bug Contest)"
+    },
+    {
+        "id":  15,
+        "name":  "Beedrill",
+        "type1":  "Bug",
+        "type2":  "Poison",
+        "location":  "Palmtree Park; Route 30; Route 31; National Park (Normal/Bug Contest)"
+    },
+    {
+        "id":  16,
+        "name":  "Pidgey",
+        "type1":  "Normal",
+        "type2":  "Flying",
+        "location":  ""
+    },
+    {
+        "id":  17,
+        "name":  "Pidgeotto",
+        "type1":  "Normal",
+        "type2":  "Flying",
+        "location":  "Waterfall Gorge; Cianvine Bridge; Johto Safari Zone (Forest)"
+    },
+    {
+        "id":  18,
+        "name":  "Pidgeot",
+        "type1":  "Normal",
+        "type2":  "Flying",
+        "location":  "Route 29; Route 31; Route 32; Route 37; Route 38; Route 42; Brass Tower; Cianvine Bridge; Peaks of Alpha; Path of Victory"
+    },
+    {
+        "id":  19,
+        "name":  "Rattata",
+        "type1":  "Normal",
+        "type2":  "",
+        "location":  "Forest Pass; Johto Safari Zone (Plains); Bell Tower"
+    },
+    {
+        "id":  20,
+        "name":  "Raticate",
+        "type1":  "Normal",
+        "type2":  "",
+        "location":  "Route 29; Route 30; Route 31; Route 31; Route 38; Route 39; Route 46; Union Cave; Mt. Mortar; Johto Safari Zone (Plains); Brass Tower"
+    },
+    {
+        "id":  21,
+        "name":  "Spearow",
+        "type1":  "Normal",
+        "type2":  "Flying",
+        "location":  "Route 29 (Headbutt); Route 30 (Headbutt); Route 31 (Headbutt); Route 42; Johto Safari Zone (Wetland)"
+    },
+    {
+        "id":  22,
+        "name":  "Fearow",
+        "type1":  "Normal",
+        "type2":  "Flying",
+        "location":  "Route 46; Johto Safari Zone (Wasteland/Desert)"
+    },
+    {
+        "id":  23,
+        "name":  "Ekans",
+        "type1":  "Poison",
+        "type2":  "",
+        "location":  "Milkshake Swamp; Route 42; Johto Safari Zone (Marsh)"
+    },
+    {
+        "id":  24,
+        "name":  "Arbok",
+        "type1":  "Poison",
+        "type2":  "",
+        "location":  "Evolve Ekans; Route 32; Johto Safari Zone (Marsh)"
+    },
+    {
+        "id":  25,
+        "name":  "Pikachu",
+        "type1":  "Electric",
+        "type2":  "",
+        "location":  "Abandoned Power Plant (Oceanview City); Seaspray Dam; Fusion Co. Hideout; Nitro Isle"
+    },
+    {
+        "id":  26,
+        "name":  "Raichu",
+        "type1":  "Electric",
+        "type2":  "",
+        "location":  "Evolve Pikachu; Brass Tower"
+    },
+    {
+        "id":  27,
+        "name":  "Sandshrew",
+        "type1":  "Ground",
+        "type2":  "",
+        "location":  "Forest Pass; Johto Safari Zone (Desert); Route 45 (Underground)"
+    },
+    {
+        "id":  28,
+        "name":  "Sandslash",
+        "type1":  "Ground",
+        "type2":  "",
+        "location":  "Johto Safari Zone (Desert); Union Cave; Route 45 (Underground); Mt. Silver; Undersea Grotto"
+    },
+    {
+        "id":  29,
+        "name":  "Nidoran♀",
+        "type1":  "Poison",
+        "type2":  "",
+        "location":  "Johto Safari Zone (Savannah)"
+    },
+    {
+        "id":  30,
+        "name":  "Nidorina",
+        "type1":  "Poison",
+        "type2":  "",
+        "location":  "National Park; Johto Safari Zone (Savannah)"
+    },
+    {
+        "id":  31,
+        "name":  "Nidoqueen",
+        "type1":  "Poison",
+        "type2":  "Ground",
+        "location":  "Evolve Nidorina"
+    },
+    {
+        "id":  32,
+        "name":  "Nidoran♂",
+        "type1":  "Poison",
+        "type2":  "",
+        "location":  "Johto Safari Zone (Savannah)"
+    },
+    {
+        "id":  33,
+        "name":  "Nidorino",
+        "type1":  "Poison",
+        "type2":  "",
+        "location":  "National Park; Johto Safari Zone (Savannah)"
+    },
+    {
+        "id":  34,
+        "name":  "Nidoking",
+        "type1":  "Poison",
+        "type2":  "Ground",
+        "location":  "Evolve Nidorino"
+    },
+    {
+        "id":  35,
+        "name":  "Clefairy",
+        "type1":  "Fairy",
+        "type2":  "",
+        "location":  "Johto Safari Zone (Meadow)"
+    },
+    {
+        "id":  36,
+        "name":  "Clefable",
+        "type1":  "Fairy",
+        "type2":  "",
+        "location":  "Evolve Clefairy"
+    },
+    {
+        "id":  37,
+        "name":  "Vulpix",
+        "type1":  "Fire",
+        "type2":  "",
+        "location":  "Mt. Furnace"
+    },
+    {
+        "id":  38,
+        "name":  "Ninetales",
+        "type1":  "Fire",
+        "type2":  "",
+        "location":  "Southerly City (Trading/Kirlia); Mt. Tritorch"
+    },
+    {
+        "id":  39,
+        "name":  "Jigglypuff",
+        "type1":  "Normal",
+        "type2":  "Fairy",
+        "location":  "Route 35; Johto Safari Zone (Meadow)"
+    },
+    {
+        "id":  40,
+        "name":  "Wigglytuff",
+        "type1":  "Normal",
+        "type2":  "Fairy",
+        "location":  "Evolve Wigglytuff"
+    },
+    {
+        "id":  41,
+        "name":  "Zubat",
+        "type1":  "Poison",
+        "type2":  "Flying",
+        "location":  "Haunted Rock; Mt. Stratus; Icicle Tunnel; Embedded Tower"
+    },
+    {
+        "id":  42,
+        "name":  "Golbat",
+        "type1":  "Poison",
+        "type2":  "Flying",
+        "location":  "Mt. Stratus; Icicle Tunnel; Victory Road; Slowpoke\u0027s Well; Ice Path; Mt. Mortar; Cliff Edge Cave; Johto Safari Zone (Savannah); Embedded Tower; Mt. Silver; Mt. Dyno; Alpha Sewers; Undersea Grotto"
+    },
+    {
+        "id":  43,
+        "name":  "Deino",
+        "type1":  "Dark",
+        "type2":  "Dragon",
+        "location":  ""
+    },
+    {
+        "id":  44,
+        "name":  "Zweilous",
+        "type1":  "Dark",
+        "type2":  "Dragon",
+        "location":  ""
+    },
+    {
+        "id":  45,
+        "name":  "Hydreigon",
+        "type1":  "Dark",
+        "type2":  "Dragon",
+        "location":  ""
+    },
+    {
+        "id":  46,
+        "name":  "Paras",
+        "type1":  "Bug",
+        "type2":  "Grass",
+        "location":  "Mt. Silver"
+    },
+    {
+        "id":  47,
+        "name":  "Parasect",
+        "type1":  "Bug",
+        "type2":  "Grass",
+        "location":  "Mt. Silver"
+    },
+    {
+        "id":  48,
+        "name":  "Joltik",
+        "type1":  "Bug",
+        "type2":  "Electric",
+        "location":  "Geminite River"
+    },
+    {
+        "id":  49,
+        "name":  "Galvantula",
+        "type1":  "Bug",
+        "type2":  "Electric",
+        "location":  "Evolve Joltik"
+    },
+    {
+        "id":  50,
+        "name":  "Diglett",
+        "type1":  "Ground",
+        "type2":  "",
+        "location":  "Route 45 (Underground)"
+    },
+    {
+        "id":  51,
+        "name":  "Dugtrio",
+        "type1":  "Ground",
+        "type2":  "",
+        "location":  "Route 45 (Underground); Undersea Grotto"
+    },
+    {
+        "id":  52,
+        "name":  "Meowth",
+        "type1":  "Normal",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  53,
+        "name":  "Persian",
+        "type1":  "Normal",
+        "type2":  "",
+        "location":  "Route 38; Route 39"
+    },
+    {
+        "id":  54,
+        "name":  "Psyduck",
+        "type1":  "Water",
+        "type2":  "",
+        "location":  "Springside Path; Seaspray Town; Geminite River; Tunod Safari Zone; Johto Safari Zone (Wetland)"
+    },
+    {
+        "id":  55,
+        "name":  "Golduck",
+        "type1":  "Water",
+        "type2":  "",
+        "location":  "Route 35; Johto Safari Zone (Wetland); Alpha Sewers"
+    },
+    {
+        "id":  56,
+        "name":  "Mankey",
+        "type1":  "Fighting",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  57,
+        "name":  "Primeape",
+        "type1":  "Fighting",
+        "type2":  "",
+        "location":  "Darkwood Grotto; Peaks of Alpha"
+    },
+    {
+        "id":  58,
+        "name":  "Growlithe",
+        "type1":  "Fire",
+        "type2":  "",
+        "location":  "Oceanview Park; Seaspray Dam; Route 37"
+    },
+    {
+        "id":  59,
+        "name":  "Arcanine",
+        "type1":  "Fire",
+        "type2":  "",
+        "location":  "Mt. Furnace; Johto Victory Road (Magma); Olcan Isle; Mt. Tritorch; Evolve Growlithe"
+    },
+    {
+        "id":  60,
+        "name":  "Poliwag",
+        "type1":  "Water",
+        "type2":  "",
+        "location":  "Johto Safari Zone (Rocky Beach); Route 30; Route 31; Route 44"
+    },
+    {
+        "id":  61,
+        "name":  "Poliwhirl",
+        "type1":  "Water",
+        "type2":  "",
+        "location":  "Johto Safari Zone (Rocky Beach); Route 30; Route 31; Route 44; Nitro Isle"
+    },
+    {
+        "id":  62,
+        "name":  "Poliwrath",
+        "type1":  "Water",
+        "type2":  "Fighting",
+        "location":  "Route 30; Route 31"
+    },
+    {
+        "id":  63,
+        "name":  "Abra",
+        "type1":  "Psychic",
+        "type2":  "",
+        "location":  "Mt. Stratus; Espo Forest; Spatial Ruins; Goldenrod Game Corner; Johto Safari Zone (Plains)"
+    },
+    {
+        "id":  64,
+        "name":  "Kadabra",
+        "type1":  "Psychic",
+        "type2":  "",
+        "location":  "Espo Forest; Route 35"
+    },
+    {
+        "id":  65,
+        "name":  "Alakazam",
+        "type1":  "Psychic",
+        "type2":  "",
+        "location":  "Goldenrod\u0027s Trade Bulding (Trading/Snubbull)"
+    },
+    {
+        "id":  66,
+        "name":  "Machop",
+        "type1":  "Fighting",
+        "type2":  "",
+        "location":  "Johto Safari Zone (Wasteland)"
+    },
+    {
+        "id":  67,
+        "name":  "Machoke",
+        "type1":  "Fighting",
+        "type2":  "",
+        "location":  "Johto Safari Zone (Wasteland); Darkwood Grotto; Mt. Mortar; Cliff Edge Cave"
+    },
+    {
+        "id":  68,
+        "name":  "Machamp",
+        "type1":  "Fighting",
+        "type2":  "",
+        "location":  "Goldenrod\u0027s Trade Bulding (Trading/Magcargo)"
+    },
+    {
+        "id":  69,
+        "name":  "Bellsprout",
+        "type1":  "Grass",
+        "type2":  "Poison",
+        "location":  "Johto Safari Zone (Forest)"
+    },
+    {
+        "id":  70,
+        "name":  "Weepinbell",
+        "type1":  "Grass",
+        "type2":  "Poison",
+        "location":  "Route 31; Route 32; Route 47"
+    },
+    {
+        "id":  71,
+        "name":  "Victreebel",
+        "type1":  "Grass",
+        "type2":  "Poison",
+        "location":  "Evolve Weepinbell"
+    },
+    {
+        "id":  72,
+        "name":  "Tentacool",
+        "type1":  "Water",
+        "type2":  "Poison",
+        "location":  "Forlorn Cape; Serenity Isle; Turquoise Bay; Seaspray Bay; Haunted Isle (sea); Haunted Seaway; Temporal Sea; Soheal\u0027s Strait; Sunshore Beach; Spatial Sea; Loxsly Chanel; New Bark Town; Route 47; Evergreen Town"
+    },
+    {
+        "id":  73,
+        "name":  "Tentacruel",
+        "type1":  "Water",
+        "type2":  "Poison",
+        "location":  "Path of Victory; Route 32; Cianwood City; New Bark Town; Violet City; Evergreen Town"
+    },
+    {
+        "id":  74,
+        "name":  "Geodude",
+        "type1":  "Rock",
+        "type2":  "Ground",
+        "location":  "Johto Safari Zone (Peak)"
+    },
+    {
+        "id":  75,
+        "name":  "Graveler",
+        "type1":  "Rock",
+        "type2":  "Ground",
+        "location":  "Mt. Stratus; Route 46; Dark Cave; Union Cave; Johto Safari Zone (Peak); Johto Victory Road"
+    },
+    {
+        "id":  76,
+        "name":  "Golem",
+        "type1":  "Rock",
+        "type2":  "Ground",
+        "location":  "Goldenrod\u0027s Trade Bulding (Trading/Houndoom); Johto Victory Road"
+    },
+    {
+        "id":  77,
+        "name":  "Ponyta",
+        "type1":  "Fire",
+        "type2":  "",
+        "location":  "Tunod Safari Zone (Outside); Espo Clearing"
+    },
+    {
+        "id":  78,
+        "name":  "Rapidash",
+        "type1":  "Fire",
+        "type2":  "",
+        "location":  "Route 48; Johto Victory Road (Magma)"
+    },
+    {
+        "id":  79,
+        "name":  "Slowpoke",
+        "type1":  "Water",
+        "type2":  "Psychic",
+        "location":  "Blizzard Sloapes; Slowpoke\u0027s Well; Johto Safari Zone (Rocky Beach)"
+    },
+    {
+        "id":  80,
+        "name":  "Slowbro",
+        "type1":  "Water",
+        "type2":  "Psychic",
+        "location":  "Johto Safari Zone (Rocky Beach); Slowpoke\u0027s Well; Ice Path"
+    },
+    {
+        "id":  81,
+        "name":  "Magnemite",
+        "type1":  "Electric",
+        "type2":  "Steel",
+        "location":  "Abandoned Power Plant (Oceanview City); Johto Safari Zone (Peak/Wasteland)"
+    },
+    {
+        "id":  82,
+        "name":  "Magneton",
+        "type1":  "Electric",
+        "type2":  "Steel",
+        "location":  "Evolve Magnemite; Johto Safari Zone (Peak); Route 38; Route 39"
+    },
+    {
+        "id":  83,
+        "name":  "Oshawott",
+        "type1":  "Water",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  84,
+        "name":  "Dewott",
+        "type1":  "Water",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  85,
+        "name":  "Samurott",
+        "type1":  "Water",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  86,
+        "name":  "Seel",
+        "type1":  "Water",
+        "type2":  "",
+        "location":  "Route 47"
+    },
+    {
+        "id":  87,
+        "name":  "Dewgong",
+        "type1":  "Water",
+        "type2":  "Ice",
+        "location":  "Mt. Mortar"
+    },
+    {
+        "id":  88,
+        "name":  "Grimer",
+        "type1":  "Poison",
+        "type2":  "",
+        "location":  "Johto Safari Zone (Marsh)"
+    },
+    {
+        "id":  89,
+        "name":  "Muk",
+        "type1":  "Poison",
+        "type2":  "",
+        "location":  "Johto League (Peak); Alpha Sewers"
+    },
+    {
+        "id":  90,
+        "name":  "Shellder",
+        "type1":  "Water",
+        "type2":  "",
+        "location":  "Johto Safari Zone (Snow)"
+    },
+    {
+        "id":  91,
+        "name":  "Cloyster",
+        "type1":  "Water",
+        "type2":  "Ice",
+        "location":  "Ice Path; Johto Safari Zone (Snow)"
+    },
+    {
+        "id":  92,
+        "name":  "Gastly",
+        "type1":  "Ghost",
+        "type2":  "Poison",
+        "location":  "Haunted Isle; Haunted Rock; Johto Safari Zone (Forest)"
+    },
+    {
+        "id":  93,
+        "name":  "Haunter",
+        "type1":  "Ghost",
+        "type2":  "Poison",
+        "location":  "Haunted Isle; Haunted Rock; Johto Safari Zone (Forest); Brass Tower"
+    },
+    {
+        "id":  94,
+        "name":  "Gengar",
+        "type1":  "Ghost",
+        "type2":  "Poison",
+        "location":  "Evolve Haunter"
+    },
+    {
+        "id":  95,
+        "name":  "Onix",
+        "type1":  "Rock",
+        "type2":  "Ground",
+        "location":  "Oceanview City (Gift - Blazed Glazed); Tunod Victory Road; Cliff Edge Cave; Johto Safari Zone (Wasteland); Johto Victory Road"
+    },
+    {
+        "id":  96,
+        "name":  "Mienfoo",
+        "type1":  "Fighting",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  97,
+        "name":  "Mienshao",
+        "type1":  "Fighting",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  98,
+        "name":  "Krabby",
+        "type1":  "Water",
+        "type2":  "",
+        "location":  "Cianwood City (Rock Smash); Johto Safari Zone (Rocky Beach)"
+    },
+    {
+        "id":  99,
+        "name":  "Kingler",
+        "type1":  "Water",
+        "type2":  "",
+        "location":  "Cliff Edge Cave"
+    },
+    {
+        "id":  100,
+        "name":  "Giratina",
+        "type1":  "Ghost",
+        "type2":  "Dragon",
+        "location":  ""
+    },
+    {
+        "id":  101,
+        "name":  "Heatran",
+        "type1":  "Fire",
+        "type2":  "Steel",
+        "location":  ""
+    },
+    {
+        "id":  102,
+        "name":  "Skorupi",
+        "type1":  "Poison",
+        "type2":  "Bug",
+        "location":  "Geminite River"
+    },
+    {
+        "id":  103,
+        "name":  "Drapion",
+        "type1":  "Poison",
+        "type2":  "Bug",
+        "location":  "Evolve Skoropi"
+    },
+    {
+        "id":  104,
+        "name":  "Cubone",
+        "type1":  "Ground",
+        "type2":  "",
+        "location":  "Goldenrod Game Corner"
+    },
+    {
+        "id":  105,
+        "name":  "Marowak",
+        "type1":  "Ground",
+        "type2":  "",
+        "location":  "Johto Safari Zone (Rocky Beach)"
+    },
+    {
+        "id":  106,
+        "name":  "Hitmonlee",
+        "type1":  "Fighting",
+        "type2":  "",
+        "location":  "Mt. Mortar"
+    },
+    {
+        "id":  107,
+        "name":  "Hitmonchan",
+        "type1":  "Fighting",
+        "type2":  "",
+        "location":  "Mt. Mortar"
+    },
+    {
+        "id":  108,
+        "name":  "Lickitung",
+        "type1":  "Normal",
+        "type2":  "",
+        "location":  "Route 44; Bamboo Forest"
+    },
+    {
+        "id":  109,
+        "name":  "Koffing",
+        "type1":  "Poison",
+        "type2":  "",
+        "location":  "Mt. Furnace; Johto Safari Zone (Marsh)"
+    },
+    {
+        "id":  110,
+        "name":  "Weezing",
+        "type1":  "Poison",
+        "type2":  "",
+        "location":  "Mt. Furnace; Johto Safari Zone (Marsh); Nitro Isle (Gift...?)"
+    },
+    {
+        "id":  111,
+        "name":  "Rhyhorn",
+        "type1":  "Ground",
+        "type2":  "Rock",
+        "location":  "Tunod Safari Zone; Johto Safari Zone (Savannah)"
+    },
+    {
+        "id":  112,
+        "name":  "Rhydon",
+        "type1":  "Ground",
+        "type2":  "Rock",
+        "location":  "Johto Victory Road"
+    },
+    {
+        "id":  113,
+        "name":  "Chansey",
+        "type1":  "Normal",
+        "type2":  "",
+        "location":  "Palmtree Park; Johto League (Peak)"
+    },
+    {
+        "id":  114,
+        "name":  "Tangela",
+        "type1":  "Grass",
+        "type2":  "",
+        "location":  "Milkshake Swamp; Bamboo Forest;"
+    },
+    {
+        "id":  115,
+        "name":  "Kangaskhan",
+        "type1":  "Normal",
+        "type2":  "",
+        "location":  "Johto Safari Zone (Wasteland); Peaks of Alpha"
+    },
+    {
+        "id":  116,
+        "name":  "Horsea",
+        "type1":  "Water",
+        "type2":  "",
+        "location":  "Turquoise Bay; Evergreen Town; Route 49"
+    },
+    {
+        "id":  117,
+        "name":  "Seadra",
+        "type1":  "Water",
+        "type2":  "",
+        "location":  "Route 49; Evergreen Town; Whirl Island"
+    },
+    {
+        "id":  118,
+        "name":  "Goldeen",
+        "type1":  "Water",
+        "type2":  "",
+        "location":  "Springside Path; Route 42"
+    },
+    {
+        "id":  119,
+        "name":  "Seaking",
+        "type1":  "Water",
+        "type2":  "",
+        "location":  "Route 42; Johto Safari Zone (Ocean)"
+    },
+    {
+        "id":  120,
+        "name":  "Staryu",
+        "type1":  "Water",
+        "type2":  "",
+        "location":  "Cianwood City; Route 47"
+    },
+    {
+        "id":  121,
+        "name":  "Starmie",
+        "type1":  "Water",
+        "type2":  "Psychic",
+        "location":  "Evolve Staryu"
+    },
+    {
+        "id":  122,
+        "name":  "Manaphy",
+        "type1":  "Water",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  123,
+        "name":  "Scyther",
+        "type1":  "Bug",
+        "type2":  "Flying",
+        "location":  "Johto League (Peak)"
+    },
+    {
+        "id":  124,
+        "name":  "Jynx",
+        "type1":  "Ice",
+        "type2":  "Psychic",
+        "location":  "Northcoast Peak; Icicle Tunnel; Johto Safari Zone (Snow); Johto Victory Road (Ice); Mt. Frozon"
+    },
+    {
+        "id":  125,
+        "name":  "Electabuzz",
+        "type1":  "Electric",
+        "type2":  "",
+        "location":  "Evolve Elekid; Mt. Dyno"
+    },
+    {
+        "id":  126,
+        "name":  "Magmar",
+        "type1":  "Fire",
+        "type2":  "",
+        "location":  "Mt. Furnace; Johto Safari Zone (Peak); Johto Victory Road (Magma); Olcan Isle"
+    },
+    {
+        "id":  127,
+        "name":  "Pinsir",
+        "type1":  "Bug",
+        "type2":  "",
+        "location":  "Route 38; National Park (Bug Contest)"
+    },
+    {
+        "id":  128,
+        "name":  "Tauros",
+        "type1":  "Normal",
+        "type2":  "",
+        "location":  "Route 39; Johto Safari Zone (Savannah)"
+    },
+    {
+        "id":  129,
+        "name":  "Magikarp",
+        "type1":  "Water",
+        "type2":  "",
+        "location":  "Glenwood Town (surf); Sunshore Beach; Darkwood Town; Dark Cave; Johto Safari Zone (Meadow/Rocky Beach); Dragon\u0027s Den; Alpha Isle (Jolystan\u0027s House Gift)"
+    },
+    {
+        "id":  130,
+        "name":  "Gyarados",
+        "type1":  "Water",
+        "type2":  "Flying",
+        "location":  "Lake of Rage; Blackthorn City; Dark Cave; Undersea Grotto; Whirl Island"
+    },
+    {
+        "id":  131,
+        "name":  "Lapras",
+        "type1":  "Water",
+        "type2":  "Ice",
+        "location":  "Loxsly Channel (Egg); Union Cave; Johto Safari Zone (Rocky Beach)"
+    },
+    {
+        "id":  132,
+        "name":  "Ditto",
+        "type1":  "Normal",
+        "type2":  "",
+        "location":  "Oceanview City (Gift - Glazed); Geminite River; Route 47; Johto Safari Zone (Wetland); Mt. Silver"
+    },
+    {
+        "id":  133,
+        "name":  "Eevee",
+        "type1":  "Normal",
+        "type2":  "",
+        "location":  "Serenity Isle (Lighthouse Challenge\u0027s Prize)"
+    },
+    {
+        "id":  134,
+        "name":  "Vaporeon",
+        "type1":  "Water",
+        "type2":  "",
+        "location":  "Evolve Eevee"
+    },
+    {
+        "id":  135,
+        "name":  "Jolteon",
+        "type1":  "Electric",
+        "type2":  "",
+        "location":  "Evolve Eevee"
+    },
+    {
+        "id":  136,
+        "name":  "Flareon",
+        "type1":  "Fire",
+        "type2":  "",
+        "location":  "Evolve Eevee"
+    },
+    {
+        "id":  137,
+        "name":  "Porygon",
+        "type1":  "Normal",
+        "type2":  "",
+        "location":  "Abandoned Power Plant (Oceanview City)"
+    },
+    {
+        "id":  138,
+        "name":  "Omanyte",
+        "type1":  "Rock",
+        "type2":  "Water",
+        "location":  "Temporal Sea; Northcoast Museum (requires Helix Fossil)"
+    },
+    {
+        "id":  139,
+        "name":  "Omastar",
+        "type1":  "Rock",
+        "type2":  "Water",
+        "location":  "Evolve Omanyte"
+    },
+    {
+        "id":  140,
+        "name":  "Kabuto",
+        "type1":  "Rock",
+        "type2":  "Water",
+        "location":  "Temporal Sea; Northcoast Museum (requires Dome Fossil)"
+    },
+    {
+        "id":  141,
+        "name":  "Kabutops",
+        "type1":  "Rock",
+        "type2":  "Water",
+        "location":  "Evolve Kabuto"
+    },
+    {
+        "id":  142,
+        "name":  "Aerodactyl",
+        "type1":  "Rock",
+        "type2":  "Flying",
+        "location":  "Northcoast Museum (requires Old Amber)"
+    },
+    {
+        "id":  143,
+        "name":  "Snorlax",
+        "type1":  "Normal",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  144,
+        "name":  "Articuno",
+        "type1":  "Ice",
+        "type2":  "Flying",
+        "location":  "Mt. Frozon"
+    },
+    {
+        "id":  145,
+        "name":  "Zapdos",
+        "type1":  "Electric",
+        "type2":  "Flying",
+        "location":  "Mt. Dyno"
+    },
+    {
+        "id":  146,
+        "name":  "Moltres",
+        "type1":  "Fire",
+        "type2":  "Flying",
+        "location":  "Mt. Tritorch"
+    },
+    {
+        "id":  147,
+        "name":  "Dratini",
+        "type1":  "Dragon",
+        "type2":  "",
+        "location":  "Forlorn Cape; Goldenrod Game Corner; Blackthorn City; Dragon\u0027s Den"
+    },
+    {
+        "id":  148,
+        "name":  "Dragonair",
+        "type1":  "Dragon",
+        "type2":  "",
+        "location":  "Blackthorn City"
+    },
+    {
+        "id":  149,
+        "name":  "Dragonite",
+        "type1":  "Dragon",
+        "type2":  "Flying",
+        "location":  "Evolve Dragonair"
+    },
+    {
+        "id":  150,
+        "name":  "Mewtwo",
+        "type1":  "Psychic",
+        "type2":  "",
+        "location":  "New Island"
+    },
+    {
+        "id":  151,
+        "name":  "Mew",
+        "type1":  "Psychic",
+        "type2":  "",
+        "location":  "Fusion Lab"
+    },
+    {
+        "id":  152,
+        "name":  "Chikorita",
+        "type1":  "Grass",
+        "type2":  "",
+        "location":  "Mystery Island; New Bark Town"
+    },
+    {
+        "id":  153,
+        "name":  "Bayleef",
+        "type1":  "Grass",
+        "type2":  "",
+        "location":  "Evolve Chikorita"
+    },
+    {
+        "id":  154,
+        "name":  "Meganium",
+        "type1":  "Grass",
+        "type2":  "",
+        "location":  "Evolve Bayleef"
+    },
+    {
+        "id":  155,
+        "name":  "Cyndaquil",
+        "type1":  "Fire",
+        "type2":  "",
+        "location":  "Mystery Island; New Bark Town"
+    },
+    {
+        "id":  156,
+        "name":  "Quilava",
+        "type1":  "Fire",
+        "type2":  "",
+        "location":  "Evolve Cyndaquil; Path of Victory (Lucboi)"
+    },
+    {
+        "id":  157,
+        "name":  "Typhlosion",
+        "type1":  "Fire",
+        "type2":  "",
+        "location":  "Evolve Quilava"
+    },
+    {
+        "id":  158,
+        "name":  "Totodile",
+        "type1":  "Water",
+        "type2":  "",
+        "location":  "Mystery Island; New Bark Town"
+    },
+    {
+        "id":  159,
+        "name":  "Croconaw",
+        "type1":  "Water",
+        "type2":  "",
+        "location":  "Evolve Totodile"
+    },
+    {
+        "id":  160,
+        "name":  "Feraligatr",
+        "type1":  "Water",
+        "type2":  "",
+        "location":  "Evolve Croconaw"
+    },
+    {
+        "id":  161,
+        "name":  "Sentret",
+        "type1":  "Normal",
+        "type2":  "",
+        "location":  "Forest Pass; Johto Safari Zone (Wetland)"
+    },
+    {
+        "id":  162,
+        "name":  "Furret",
+        "type1":  "Normal",
+        "type2":  "",
+        "location":  "Blizzard Sloapes; Route 29; Route 48; Johto Safari Zone (Wetland)"
+    },
+    {
+        "id":  163,
+        "name":  "Hoothoot",
+        "type1":  "Normal",
+        "type2":  "Flying",
+        "location":  ""
+    },
+    {
+        "id":  164,
+        "name":  "Noctowl",
+        "type1":  "Normal",
+        "type2":  "Flying",
+        "location":  "Route 29; Route 33 (Headbutt); Route 36 (Headbutt)"
+    },
+    {
+        "id":  165,
+        "name":  "Ledyba",
+        "type1":  "Bug",
+        "type2":  "Flying",
+        "location":  ""
+    },
+    {
+        "id":  166,
+        "name":  "Ledian",
+        "type1":  "Bug",
+        "type2":  "Flying",
+        "location":  "Route 30; Route 31; Route 37; National Park; Brass Tower"
+    },
+    {
+        "id":  167,
+        "name":  "Spinarak",
+        "type1":  "Bug",
+        "type2":  "Poison",
+        "location":  "Route 29 (Headbutt); Route 33 (Headbutt); Route 36 (Headbutt); Route 38 (Headbutt)"
+    },
+    {
+        "id":  168,
+        "name":  "Ariados",
+        "type1":  "Bug",
+        "type2":  "Poison",
+        "location":  "Route 37"
+    },
+    {
+        "id":  169,
+        "name":  "Crobat",
+        "type1":  "Poison",
+        "type2":  "Flying",
+        "location":  "Evolve Golbat; Undersea Grotto"
+    },
+    {
+        "id":  170,
+        "name":  "Chinchou",
+        "type1":  "Water",
+        "type2":  "Electric",
+        "location":  "Tunod Sea Floor; Johto Sea Floor"
+    },
+    {
+        "id":  171,
+        "name":  "Lanturn",
+        "type1":  "Water",
+        "type2":  "Electric",
+        "location":  "Tunod Sea Floor; Johto Sea Floor"
+    },
+    {
+        "id":  172,
+        "name":  "Pichu",
+        "type1":  "Electric",
+        "type2":  "",
+        "location":  "Seaspray Dam"
+    },
+    {
+        "id":  173,
+        "name":  "Cleffa",
+        "type1":  "Fairy",
+        "type2":  "",
+        "location":  "Breed Clefairy/Clefable"
+    },
+    {
+        "id":  174,
+        "name":  "Igglybuff",
+        "type1":  "Normal",
+        "type2":  "Fairy",
+        "location":  "Breed Jigglypuff/Wigglytuff"
+    },
+    {
+        "id":  175,
+        "name":  "Togepi",
+        "type1":  "Fairy",
+        "type2":  "",
+        "location":  "Route 30 (Gift/Egg)"
+    },
+    {
+        "id":  176,
+        "name":  "Togetic",
+        "type1":  "Fairy",
+        "type2":  "Flying",
+        "location":  ""
+    },
+    {
+        "id":  177,
+        "name":  "Fraxure",
+        "type1":  "Dragon",
+        "type2":  "",
+        "location":  "Evolve Axew"
+    },
+    {
+        "id":  178,
+        "name":  "Haxorus",
+        "type1":  "Dragon",
+        "type2":  "",
+        "location":  "Evolve Faxure"
+    },
+    {
+        "id":  179,
+        "name":  "Mareep",
+        "type1":  "Electric",
+        "type2":  "",
+        "location":  "Oceanview Park"
+    },
+    {
+        "id":  180,
+        "name":  "Flaaffy",
+        "type1":  "Electric",
+        "type2":  "",
+        "location":  "Espo Clearing"
+    },
+    {
+        "id":  181,
+        "name":  "Ampharos",
+        "type1":  "Electric",
+        "type2":  "",
+        "location":  "Blackthorn City (Trading/Dragonair); Mt. Dyno"
+    },
+    {
+        "id":  182,
+        "name":  "Axew",
+        "type1":  "Dragon",
+        "type2":  "",
+        "location":  "Tunod Safari Zone"
+    },
+    {
+        "id":  183,
+        "name":  "Marill",
+        "type1":  "Water",
+        "type2":  "Fairy",
+        "location":  "Mt. Mortar; Johto Safari Zone (Meadow)"
+    },
+    {
+        "id":  184,
+        "name":  "Azumarill",
+        "type1":  "Water",
+        "type2":  "Fairy",
+        "location":  "Lake of Rage"
+    },
+    {
+        "id":  185,
+        "name":  "Sudowoodo",
+        "type1":  "Rock",
+        "type2":  "",
+        "location":  "Mt. Stratus (Regi Floor)"
+    },
+    {
+        "id":  186,
+        "name":  "Politoed",
+        "type1":  "Water",
+        "type2":  "",
+        "location":  "Evolve Poliwhirl"
+    },
+    {
+        "id":  187,
+        "name":  "Hoppip",
+        "type1":  "Grass",
+        "type2":  "Flying",
+        "location":  "Johto Safari Zone"
+    },
+    {
+        "id":  188,
+        "name":  "Skiploom",
+        "type1":  "Grass",
+        "type2":  "Flying",
+        "location":  "Route 32; Johto Safari Zone (Meadow); Bamboo Forest"
+    },
+    {
+        "id":  189,
+        "name":  "Jumpluff",
+        "type1":  "Grass",
+        "type2":  "Flying",
+        "location":  "Route 30; Route 32; Bamboo Forest"
+    },
+    {
+        "id":  190,
+        "name":  "Aipom",
+        "type1":  "Normal",
+        "type2":  "",
+        "location":  "Route 30; Route 31 (Headbutt); Route 42 (Headbutt)"
+    },
+    {
+        "id":  191,
+        "name":  "Scraggy",
+        "type1":  "Dark",
+        "type2":  "Fighting",
+        "location":  "Espo Clearing"
+    },
+    {
+        "id":  192,
+        "name":  "Scrafty",
+        "type1":  "Dark",
+        "type2":  "Fighting",
+        "location":  "Evolve Scraggy"
+    },
+    {
+        "id":  193,
+        "name":  "Yanma",
+        "type1":  "Bug",
+        "type2":  "Flying",
+        "location":  "Bamboo Forest"
+    },
+    {
+        "id":  194,
+        "name":  "Wooper",
+        "type1":  "Water",
+        "type2":  "Ground",
+        "location":  "Ruins of Alph; Johto Safari Zone (Meadow/Wetland/Marsh)"
+    },
+    {
+        "id":  195,
+        "name":  "Quagsire",
+        "type1":  "Water",
+        "type2":  "Ground",
+        "location":  "Route 32; Ruins of Alph; Lake of Rage; Union Cave; Cliff Edge Cave; Johto Safari Zone (Wetland)"
+    },
+    {
+        "id":  196,
+        "name":  "Espeon",
+        "type1":  "Psychic",
+        "type2":  "",
+        "location":  "Evolve Eevee"
+    },
+    {
+        "id":  197,
+        "name":  "Umbreon",
+        "type1":  "Dark",
+        "type2":  "",
+        "location":  "Sinistrus Forest"
+    },
+    {
+        "id":  198,
+        "name":  "Murkrow",
+        "type1":  "Dark",
+        "type2":  "Flying",
+        "location":  "Tunod Safari Zone (Outside); Sinistrus Forest"
+    },
+    {
+        "id":  199,
+        "name":  "Slowking",
+        "type1":  "Water",
+        "type2":  "Psychic",
+        "location":  "Evolve Slowpoke; Olivine City (Trading/Magikarp)"
+    },
+    {
+        "id":  200,
+        "name":  "Misdreavus",
+        "type1":  "Ghost",
+        "type2":  "",
+        "location":  "Haunted Rock; Johto Safari Zone (Forest)"
+    },
+    {
+        "id":  201,
+        "name":  "Unown",
+        "type1":  "Psychic",
+        "type2":  "",
+        "location":  "Temporal Tower; Ruins of Alph"
+    },
+    {
+        "id":  202,
+        "name":  "Wobbuffet",
+        "type1":  "Psychic",
+        "type2":  "",
+        "location":  "Tunod Safari Zone; Johto Safari Zone (Peak)"
+    },
+    {
+        "id":  203,
+        "name":  "Mawile",
+        "type1":  "Steel",
+        "type2":  "Fairy",
+        "location":  "Espo Forest"
+    },
+    {
+        "id":  204,
+        "name":  "Pineco",
+        "type1":  "Bug",
+        "type2":  "",
+        "location":  "Route 36 (Headbutt); Route 38 (Headbutt)"
+    },
+    {
+        "id":  205,
+        "name":  "Forretress",
+        "type1":  "Bug",
+        "type2":  "Steel",
+        "location":  "Bamboo Forest"
+    },
+    {
+        "id":  206,
+        "name":  "Dunsparce",
+        "type1":  "Normal",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  207,
+        "name":  "Gligar",
+        "type1":  "Ground",
+        "type2":  "Flying",
+        "location":  "Route 45; Route 48; Olcan Isle"
+    },
+    {
+        "id":  208,
+        "name":  "Steelix",
+        "type1":  "Steel",
+        "type2":  "Ground",
+        "location":  "Violet City (Trading/Bellsprout); Johto Victory Road; Undersea Grotto"
+    },
+    {
+        "id":  209,
+        "name":  "Snubbull",
+        "type1":  "Fairy",
+        "type2":  "",
+        "location":  "Seaspray Dam"
+    },
+    {
+        "id":  210,
+        "name":  "Granbull",
+        "type1":  "Fairy",
+        "type2":  "",
+        "location":  "Northcoast Peak; Route 35; Johto Victory Road (Ice)"
+    },
+    {
+        "id":  211,
+        "name":  "Qwilfish",
+        "type1":  "Water",
+        "type2":  "Poison",
+        "location":  "Johto Safari Zone (Ocean); New Bark Town"
+    },
+    {
+        "id":  212,
+        "name":  "Scizor",
+        "type1":  "Bug",
+        "type2":  "Steel",
+        "location":  "Evolve Scyther; Reefen Isle (Trading/Croagunk)"
+    },
+    {
+        "id":  213,
+        "name":  "Shuckle",
+        "type1":  "Bug",
+        "type2":  "Rock",
+        "location":  "Cianwood City (Rock Smash)"
+    },
+    {
+        "id":  214,
+        "name":  "Heracross",
+        "type1":  "Bug",
+        "type2":  "Fighting",
+        "location":  "Tunod Safari Zone; Path of Victory; Route 31 (Headbutt); Johto Safari Zone (Forest)"
+    },
+    {
+        "id":  215,
+        "name":  "Sneasel",
+        "type1":  "Dark",
+        "type2":  "Ice",
+        "location":  "Icebound Chasm; Blizzard Sloapes; Johto Victory Road (Ice)"
+    },
+    {
+        "id":  216,
+        "name":  "Teddiursa",
+        "type1":  "Normal",
+        "type2":  "",
+        "location":  "Breed Ursaring"
+    },
+    {
+        "id":  217,
+        "name":  "Ursaring",
+        "type1":  "Normal",
+        "type2":  "",
+        "location":  "Dark Cave; Johto League (Peak)"
+    },
+    {
+        "id":  218,
+        "name":  "Slugma",
+        "type1":  "Fire",
+        "type2":  "",
+        "location":  "Mt. Furnace"
+    },
+    {
+        "id":  219,
+        "name":  "Magcargo",
+        "type1":  "Fire",
+        "type2":  "Rock",
+        "location":  "Mt. Tritorch"
+    },
+    {
+        "id":  220,
+        "name":  "Swinub",
+        "type1":  "Ice",
+        "type2":  "Ground",
+        "location":  "Icebound Chasm"
+    },
+    {
+        "id":  221,
+        "name":  "Piloswine",
+        "type1":  "Ice",
+        "type2":  "Ground",
+        "location":  "Icicle Tunnel; Ice Path; Johto Victory Road (Ice); Mt. Frozon"
+    },
+    {
+        "id":  222,
+        "name":  "Trapinch",
+        "type1":  "Ground",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  223,
+        "name":  "Vibrava",
+        "type1":  "Ground",
+        "type2":  "Dragon",
+        "location":  ""
+    },
+    {
+        "id":  224,
+        "name":  "Flygon",
+        "type1":  "Ground",
+        "type2":  "Dragon",
+        "location":  ""
+    },
+    {
+        "id":  225,
+        "name":  "Delibird",
+        "type1":  "Ice",
+        "type2":  "Flying",
+        "location":  "Northcoast Peak; Icicle Tunnel; Blizzard Sloapes; Ice Path; Route 45; Johto Safari Zone (Snow); Johto Victory Road (Ice)"
+    },
+    {
+        "id":  226,
+        "name":  "Mantine",
+        "type1":  "Water",
+        "type2":  "Flying",
+        "location":  "Serenity Isle; Johto Safari Zone (Ocean); Whirl Island"
+    },
+    {
+        "id":  227,
+        "name":  "Skarmory",
+        "type1":  "Steel",
+        "type2":  "Flying",
+        "location":  "Mt Stratus (Regi Floor); Route 45; Olcan Isle"
+    },
+    {
+        "id":  228,
+        "name":  "Houndour",
+        "type1":  "Dark",
+        "type2":  "Fire",
+        "location":  ""
+    },
+    {
+        "id":  229,
+        "name":  "Houndoom",
+        "type1":  "Dark",
+        "type2":  "Fire",
+        "location":  "Sinistrous Forest; Johto Victory Road (Magma); Mt. Tritorch"
+    },
+    {
+        "id":  230,
+        "name":  "Kingdra",
+        "type1":  "Water",
+        "type2":  "Dragon",
+        "location":  "Evolve Seadra"
+    },
+    {
+        "id":  231,
+        "name":  "Phanpy",
+        "type1":  "Ground",
+        "type2":  "",
+        "location":  "Mt. Stratus; Johto Safari Zone (Desert)"
+    },
+    {
+        "id":  232,
+        "name":  "Donphan",
+        "type1":  "Ground",
+        "type2":  "",
+        "location":  "Johto Safari Zone (Desert); Mt. Silver"
+    },
+    {
+        "id":  233,
+        "name":  "Porygon2",
+        "type1":  "Normal",
+        "type2":  "",
+        "location":  "Evolve Porygon"
+    },
+    {
+        "id":  234,
+        "name":  "Roserade",
+        "type1":  "Grass",
+        "type2":  "Poison",
+        "location":  ""
+    },
+    {
+        "id":  235,
+        "name":  "Smeargle",
+        "type1":  "Normal",
+        "type2":  "",
+        "location":  "Johto Safari Zone (Plains)"
+    },
+    {
+        "id":  236,
+        "name":  "Tyrogue",
+        "type1":  "Fighting",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  237,
+        "name":  "Hitmontop",
+        "type1":  "Fighting",
+        "type2":  "",
+        "location":  "Mt. Mortar"
+    },
+    {
+        "id":  238,
+        "name":  "Smoochum",
+        "type1":  "Ice",
+        "type2":  "Psychic",
+        "location":  "Blizzard Sloapes; Northcoast Peak; Route 44; Johto Safari Zone (Snow)"
+    },
+    {
+        "id":  239,
+        "name":  "Elekid",
+        "type1":  "Electric",
+        "type2":  "",
+        "location":  "Abandoned Power Plant (Oceanview City)"
+    },
+    {
+        "id":  240,
+        "name":  "Magby",
+        "type1":  "Fire",
+        "type2":  "",
+        "location":  "Mt. Furnace"
+    },
+    {
+        "id":  241,
+        "name":  "Miltank",
+        "type1":  "Normal",
+        "type2":  "",
+        "location":  "Tunod Safari Zone Path 4; Route 39; Route 47"
+    },
+    {
+        "id":  242,
+        "name":  "Blissey",
+        "type1":  "Normal",
+        "type2":  "",
+        "location":  "Evolve Chansey"
+    },
+    {
+        "id":  243,
+        "name":  "Raikou",
+        "type1":  "Electric",
+        "type2":  "",
+        "location":  "Bell Tower"
+    },
+    {
+        "id":  244,
+        "name":  "Entei",
+        "type1":  "Fire",
+        "type2":  "",
+        "location":  "Bell Tower"
+    },
+    {
+        "id":  245,
+        "name":  "Suicune",
+        "type1":  "Water",
+        "type2":  "",
+        "location":  "Bell Tower"
+    },
+    {
+        "id":  246,
+        "name":  "Larvitar",
+        "type1":  "Rock",
+        "type2":  "Ground",
+        "location":  "Forlorn Cape; Mt. Silver"
+    },
+    {
+        "id":  247,
+        "name":  "Pupitar",
+        "type1":  "Rock",
+        "type2":  "Ground",
+        "location":  "Mt. Silver"
+    },
+    {
+        "id":  248,
+        "name":  "Tyranitar",
+        "type1":  "Rock",
+        "type2":  "Dark",
+        "location":  "Mt. Silver"
+    },
+    {
+        "id":  249,
+        "name":  "Lugia",
+        "type1":  "Psychic",
+        "type2":  "Flying",
+        "location":  "Whirl Island"
+    },
+    {
+        "id":  250,
+        "name":  "Ho-Oh",
+        "type1":  "Fire",
+        "type2":  "Flying",
+        "location":  "Brass Tower"
+    },
+    {
+        "id":  251,
+        "name":  "Celebi",
+        "type1":  "Psychic",
+        "type2":  "Grass",
+        "location":  "Ilex Forest"
+    },
+    {
+        "id":  252,
+        "name":  "Scarfed Pikachu",
+        "type1":  "Electric",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  253,
+        "name":  "Timburr",
+        "type1":  "Fighting",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  254,
+        "name":  "Gurdurr",
+        "type1":  "Fighting",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  255,
+        "name":  "Conkeldurr",
+        "type1":  "Fighting",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  256,
+        "name":  "Druddigon",
+        "type1":  "Dragon",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  257,
+        "name":  "Kyurem-B",
+        "type1":  "Ice",
+        "type2":  "Dragon",
+        "location":  ""
+    },
+    {
+        "id":  258,
+        "name":  "Kyurem-W",
+        "type1":  "Ice",
+        "type2":  "Dragon",
+        "location":  ""
+    },
+    {
+        "id":  259,
+        "name":  "Enraged Mew",
+        "type1":  "Psychic",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  260,
+        "name":  "Chespin",
+        "type1":  "Grass",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  261,
+        "name":  "Quilladin",
+        "type1":  "Grass",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  262,
+        "name":  "Chesnaught",
+        "type1":  "Grass",
+        "type2":  "Fighting",
+        "location":  ""
+    },
+    {
+        "id":  263,
+        "name":  "Fennekin",
+        "type1":  "Fire",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  264,
+        "name":  "Braixen",
+        "type1":  "Fire",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  265,
+        "name":  "Delphox",
+        "type1":  "Fire",
+        "type2":  "Psychic",
+        "location":  ""
+    },
+    {
+        "id":  266,
+        "name":  "Froakie",
+        "type1":  "Water",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  267,
+        "name":  "Frogadier",
+        "type1":  "Water",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  268,
+        "name":  "Greninja",
+        "type1":  "Water",
+        "type2":  "Dark",
+        "location":  ""
+    },
+    {
+        "id":  269,
+        "name":  "Mega Venusaur",
+        "type1":  "Grass",
+        "type2":  "Poison",
+        "location":  ""
+    },
+    {
+        "id":  270,
+        "name":  "Mega Charizard X",
+        "type1":  "Fire",
+        "type2":  "Dragon",
+        "location":  ""
+    },
+    {
+        "id":  271,
+        "name":  "Mega Blastoise",
+        "type1":  "Water",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  272,
+        "name":  "Mega Lucario",
+        "type1":  "Fighting",
+        "type2":  "Steel",
+        "location":  ""
+    },
+    {
+        "id":  273,
+        "name":  "Mega Charizard Y",
+        "type1":  "Fire",
+        "type2":  "Flying",
+        "location":  ""
+    },
+    {
+        "id":  274,
+        "name":  "Mega Salamence",
+        "type1":  "Dragon",
+        "type2":  "Flying",
+        "location":  ""
+    },
+    {
+        "id":  275,
+        "name":  "Mega Absol",
+        "type1":  "Dark",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  276,
+        "name":  "Mega Manectric",
+        "type1":  "Electric",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  277,
+        "name":  "Treecko",
+        "type1":  "Grass",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  278,
+        "name":  "Grovyle",
+        "type1":  "Grass",
+        "type2":  "",
+        "location":  "Pokemon Adoption Center"
+    },
+    {
+        "id":  279,
+        "name":  "Sceptile",
+        "type1":  "Grass",
+        "type2":  "",
+        "location":  "Evolve Grovyle"
+    },
+    {
+        "id":  280,
+        "name":  "Torchic",
+        "type1":  "Fire",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  281,
+        "name":  "Combusken",
+        "type1":  "Fire",
+        "type2":  "Fighting",
+        "location":  ""
+    },
+    {
+        "id":  282,
+        "name":  "Blaziken",
+        "type1":  "Fire",
+        "type2":  "Fighting",
+        "location":  ""
+    },
+    {
+        "id":  283,
+        "name":  "Mudkip",
+        "type1":  "Water",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  284,
+        "name":  "Marshtomp",
+        "type1":  "Water",
+        "type2":  "Ground",
+        "location":  ""
+    },
+    {
+        "id":  285,
+        "name":  "Swampert",
+        "type1":  "Water",
+        "type2":  "Ground",
+        "location":  ""
+    },
+    {
+        "id":  286,
+        "name":  "Poochyena",
+        "type1":  "Dark",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  287,
+        "name":  "Mightyena",
+        "type1":  "Dark",
+        "type2":  "",
+        "location":  "Evolve Poocheyena, Outside Tunod Safari Zone (Grass)"
+    },
+    {
+        "id":  288,
+        "name":  "Zigzagoon",
+        "type1":  "Normal",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  289,
+        "name":  "Linoone",
+        "type1":  "Normal",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  290,
+        "name":  "Snivy",
+        "type1":  "Grass",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  291,
+        "name":  "Servine",
+        "type1":  "Grass",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  292,
+        "name":  "Serperior",
+        "type1":  "Grass",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  293,
+        "name":  "Leafeon",
+        "type1":  "Grass",
+        "type2":  "",
+        "location":  "Espo Clearing"
+    },
+    {
+        "id":  294,
+        "name":  "Yanmega",
+        "type1":  "Bug",
+        "type2":  "Flying",
+        "location":  ""
+    },
+    {
+        "id":  295,
+        "name":  "Turtwig",
+        "type1":  "Grass",
+        "type2":  "",
+        "location":  "Can be chosen as one of the starters Pokémon from Prof. Willow in Glenwood Town"
+    },
+    {
+        "id":  296,
+        "name":  "Grotle",
+        "type1":  "Grass",
+        "type2":  "",
+        "location":  "Evolve Turtwig"
+    },
+    {
+        "id":  297,
+        "name":  "Torterra",
+        "type1":  "Grass",
+        "type2":  "Ground",
+        "location":  "Evolve Grotle"
+    },
+    {
+        "id":  298,
+        "name":  "Chimchar",
+        "type1":  "Fire",
+        "type2":  "",
+        "location":  "Can be chosen as one of the starters Pokémon from Prof. Willow in Glenwood Town"
+    },
+    {
+        "id":  299,
+        "name":  "Monferno",
+        "type1":  "Fire",
+        "type2":  "Fighting",
+        "location":  ""
+    },
+    {
+        "id":  300,
+        "name":  "Infernape",
+        "type1":  "Fire",
+        "type2":  "Fighting",
+        "location":  ""
+    },
+    {
+        "id":  301,
+        "name":  "Nincada",
+        "type1":  "Bug",
+        "type2":  "Ground",
+        "location":  "Outside Tunod Safari Zone (Grass)"
+    },
+    {
+        "id":  302,
+        "name":  "Ninjask",
+        "type1":  "Bug",
+        "type2":  "Flying",
+        "location":  "Evolve Nincada"
+    },
+    {
+        "id":  303,
+        "name":  "Shedinja",
+        "type1":  "Bug",
+        "type2":  "Ghost",
+        "location":  "Evolve Nincada with extra Pokeball"
+    },
+    {
+        "id":  304,
+        "name":  "Taillow",
+        "type1":  "Normal",
+        "type2":  "Flying",
+        "location":  "Forest Pass"
+    },
+    {
+        "id":  305,
+        "name":  "Swellow",
+        "type1":  "Normal",
+        "type2":  "Flying",
+        "location":  "Outside Tunod Safari Zone (Grass), Espo Clearing"
+    },
+    {
+        "id":  306,
+        "name":  "Shroomish",
+        "type1":  "Grass",
+        "type2":  "",
+        "location":  "Milkshake Swamp"
+    },
+    {
+        "id":  307,
+        "name":  "Breloom",
+        "type1":  "Grass",
+        "type2":  "Fighting",
+        "location":  "Evolve Shroomish"
+    },
+    {
+        "id":  308,
+        "name":  "Spinda",
+        "type1":  "Normal",
+        "type2":  "",
+        "location":  "Haunted Isle (grass)"
+    },
+    {
+        "id":  309,
+        "name":  "Wingull",
+        "type1":  "Water",
+        "type2":  "Flying",
+        "location":  "Soheal\u0027s Straight"
+    },
+    {
+        "id":  310,
+        "name":  "Pelipper",
+        "type1":  "Water",
+        "type2":  "Flying",
+        "location":  "Soheal\u0027s Straight"
+    },
+    {
+        "id":  311,
+        "name":  "Cobalion",
+        "type1":  "Steel",
+        "type2":  "Fighting",
+        "location":  ""
+    },
+    {
+        "id":  312,
+        "name":  "Terrakion",
+        "type1":  "Rock",
+        "type2":  "Fighting",
+        "location":  ""
+    },
+    {
+        "id":  313,
+        "name":  "Virizion",
+        "type1":  "Grass",
+        "type2":  "Fighting",
+        "location":  ""
+    },
+    {
+        "id":  314,
+        "name":  "Keldeo",
+        "type1":  "Water",
+        "type2":  "Fighting",
+        "location":  ""
+    },
+    {
+        "id":  315,
+        "name":  "Riolu",
+        "type1":  "Fighting",
+        "type2":  "",
+        "location":  "Can be chosen as one of the starters Pokémon from Prof. Willow in Glenwood Town"
+    },
+    {
+        "id":  316,
+        "name":  "Lucario",
+        "type1":  "Fighting",
+        "type2":  "Steel",
+        "location":  "Evolve Riolu"
+    },
+    {
+        "id":  317,
+        "name":  "Kecleon",
+        "type1":  "Normal",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  318,
+        "name":  "Ambipom",
+        "type1":  "Normal",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  319,
+        "name":  "Togekiss",
+        "type1":  "Fairy",
+        "type2":  "Flying",
+        "location":  ""
+    },
+    {
+        "id":  320,
+        "name":  "Zorua",
+        "type1":  "Dark",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  321,
+        "name":  "Zoroark",
+        "type1":  "Dark",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  322,
+        "name":  "Sableye",
+        "type1":  "Dark",
+        "type2":  "Ghost",
+        "location":  "Mt. Stratus (near Gemini River)"
+    },
+    {
+        "id":  323,
+        "name":  "Lickilicky",
+        "type1":  "Normal",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  324,
+        "name":  "Rhyperior",
+        "type1":  "Ground",
+        "type2":  "Rock",
+        "location":  ""
+    },
+    {
+        "id":  325,
+        "name":  "Buizel",
+        "type1":  "Water",
+        "type2":  "",
+        "location":  "Geminite River"
+    },
+    {
+        "id":  326,
+        "name":  "Floatzel",
+        "type1":  "Water",
+        "type2":  "",
+        "location":  "Evolve Buizel (level 26)"
+    },
+    {
+        "id":  327,
+        "name":  "Magnezone",
+        "type1":  "Electric",
+        "type2":  "Steel",
+        "location":  ""
+    },
+    {
+        "id":  328,
+        "name":  "Feebas",
+        "type1":  "Water",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  329,
+        "name":  "Milotic",
+        "type1":  "Water",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  330,
+        "name":  "Gible",
+        "type1":  "Dragon",
+        "type2":  "Ground",
+        "location":  "Geminite River"
+    },
+    {
+        "id":  331,
+        "name":  "Gabite",
+        "type1":  "Dragon",
+        "type2":  "Ground",
+        "location":  "Evolve Gible"
+    },
+    {
+        "id":  332,
+        "name":  "Garchomp",
+        "type1":  "Dragon",
+        "type2":  "Ground",
+        "location":  "Evolve Gabite"
+    },
+    {
+        "id":  333,
+        "name":  "Cresselia",
+        "type1":  "Psychic",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  334,
+        "name":  "Darkrai",
+        "type1":  "Dark",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  335,
+        "name":  "Shaymin",
+        "type1":  "Grass",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  336,
+        "name":  "Glaceon",
+        "type1":  "Ice",
+        "type2":  "",
+        "location":  "Icicle Cave"
+    },
+    {
+        "id":  337,
+        "name":  "Electrike",
+        "type1":  "Electric",
+        "type2":  "",
+        "location":  "Seaspray Dam (Grass)"
+    },
+    {
+        "id":  338,
+        "name":  "Manectric",
+        "type1":  "Electric",
+        "type2":  "",
+        "location":  "Evolve Electrike"
+    },
+    {
+        "id":  339,
+        "name":  "Electivire",
+        "type1":  "Electric",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  340,
+        "name":  "Magmortar",
+        "type1":  "Fire",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  341,
+        "name":  "Electrode",
+        "type1":  "Electric",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  342,
+        "name":  "Piplup",
+        "type1":  "Water",
+        "type2":  "",
+        "location":  "Can be chosen as one of the starters Pokémon from Prof. Willow in Glenwood Town"
+    },
+    {
+        "id":  343,
+        "name":  "Prinplup",
+        "type1":  "Water",
+        "type2":  "",
+        "location":  "Evolve Piplup"
+    },
+    {
+        "id":  344,
+        "name":  "Empoleon",
+        "type1":  "Water",
+        "type2":  "Steel",
+        "location":  "Evolve Prinplup"
+    },
+    {
+        "id":  345,
+        "name":  "Uxie",
+        "type1":  "Psychic",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  346,
+        "name":  "Snorunt",
+        "type1":  "Ice",
+        "type2":  "",
+        "location":  "Icebound Chasm, Blizzard Slopes"
+    },
+    {
+        "id":  347,
+        "name":  "Glalie",
+        "type1":  "Ice",
+        "type2":  "",
+        "location":  "Evolve  Snorunt"
+    },
+    {
+        "id":  348,
+        "name":  "Victini",
+        "type1":  "Psychic",
+        "type2":  "Fire",
+        "location":  ""
+    },
+    {
+        "id":  349,
+        "name":  "Voltorb",
+        "type1":  "Electric",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  350,
+        "name":  "Mesprit",
+        "type1":  "Psychic",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  351,
+        "name":  "Shinx",
+        "type1":  "Electric",
+        "type2":  "",
+        "location":  "Can be chosen as one of the starters Pokémon from Prof. Willow in Glenwood Town"
+    },
+    {
+        "id":  352,
+        "name":  "Palkia",
+        "type1":  "Water",
+        "type2":  "Dragon",
+        "location":  ""
+    },
+    {
+        "id":  353,
+        "name":  "Zekrom",
+        "type1":  "Electric",
+        "type2":  "Dragon",
+        "location":  ""
+    },
+    {
+        "id":  354,
+        "name":  "Reshiram",
+        "type1":  "Fire",
+        "type2":  "Dragon",
+        "location":  ""
+    },
+    {
+        "id":  355,
+        "name":  "Kyurem",
+        "type1":  "Ice",
+        "type2":  "Dragon",
+        "location":  ""
+    },
+    {
+        "id":  356,
+        "name":  "Gliscor",
+        "type1":  "Ground",
+        "type2":  "Flying",
+        "location":  ""
+    },
+    {
+        "id":  357,
+        "name":  "Mamoswine",
+        "type1":  "Ice",
+        "type2":  "Ground",
+        "location":  ""
+    },
+    {
+        "id":  358,
+        "name":  "Porygon-Z",
+        "type1":  "Normal",
+        "type2":  "",
+        "location":  "Evolve Porygon"
+    },
+    {
+        "id":  359,
+        "name":  "Gallade",
+        "type1":  "Psychic",
+        "type2":  "Fighting",
+        "location":  ""
+    },
+    {
+        "id":  360,
+        "name":  "Wynaut",
+        "type1":  "Psychic",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  361,
+        "name":  "Regigigas",
+        "type1":  "Normal",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  362,
+        "name":  "Frosslass",
+        "type1":  "Ice",
+        "type2":  "Ghost",
+        "location":  ""
+    },
+    {
+        "id":  363,
+        "name":  "Azelf",
+        "type1":  "Psychic",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  364,
+        "name":  "Tepig",
+        "type1":  "Fire",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  365,
+        "name":  "Pignite",
+        "type1":  "Fire",
+        "type2":  "Fighting",
+        "location":  ""
+    },
+    {
+        "id":  366,
+        "name":  "Emboar",
+        "type1":  "Fire",
+        "type2":  "Fighting",
+        "location":  ""
+    },
+    {
+        "id":  367,
+        "name":  "Croagunk",
+        "type1":  "Poison",
+        "type2":  "Fighting",
+        "location":  "Milkshake Swamp"
+    },
+    {
+        "id":  368,
+        "name":  "Toxicroak",
+        "type1":  "Poison",
+        "type2":  "Fighting",
+        "location":  "Evolve Croagunk"
+    },
+    {
+        "id":  369,
+        "name":  "Tangrowth",
+        "type1":  "Grass",
+        "type2":  "",
+        "location":  "Evolve Tangela"
+    },
+    {
+        "id":  370,
+        "name":  "Dialga",
+        "type1":  "Steel",
+        "type2":  "Dragon",
+        "location":  ""
+    },
+    {
+        "id":  371,
+        "name":  "Luxio",
+        "type1":  "Electric",
+        "type2":  "",
+        "location":  "Evolve Shinx"
+    },
+    {
+        "id":  372,
+        "name":  "Luxray",
+        "type1":  "Electric",
+        "type2":  "",
+        "location":  "Evolve Luxio"
+    },
+    {
+        "id":  373,
+        "name":  "Clamperl",
+        "type1":  "Water",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  374,
+        "name":  "Huntail",
+        "type1":  "Water",
+        "type2":  "",
+        "location":  "Evolve Clamperl"
+    },
+    {
+        "id":  375,
+        "name":  "Gorebyss",
+        "type1":  "Water",
+        "type2":  "",
+        "location":  "Evolve Clamperl"
+    },
+    {
+        "id":  376,
+        "name":  "Absol",
+        "type1":  "Dark",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  377,
+        "name":  "Shuppet",
+        "type1":  "Ghost",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  378,
+        "name":  "Banette",
+        "type1":  "Ghost",
+        "type2":  "",
+        "location":  "Evolve Shuppet, Haunted Isle/Haunted Rock"
+    },
+    {
+        "id":  379,
+        "name":  "Seviper",
+        "type1":  "Poison",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  380,
+        "name":  "Zangoose",
+        "type1":  "Normal",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  381,
+        "name":  "Mismagius",
+        "type1":  "Ghost",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  382,
+        "name":  "Aron",
+        "type1":  "Steel",
+        "type2":  "Rock",
+        "location":  "Mt. Stratus"
+    },
+    {
+        "id":  383,
+        "name":  "Lairon",
+        "type1":  "Steel",
+        "type2":  "Rock",
+        "location":  "Evolve Aron, Mt Stratus"
+    },
+    {
+        "id":  384,
+        "name":  "Aggron",
+        "type1":  "Steel",
+        "type2":  "Rock",
+        "location":  "Evolve Lairon"
+    },
+    {
+        "id":  385,
+        "name":  "Castform",
+        "type1":  "Normal",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  386,
+        "name":  "Honchkrow",
+        "type1":  "Dark",
+        "type2":  "Flying",
+        "location":  ""
+    },
+    {
+        "id":  387,
+        "name":  "Weavile",
+        "type1":  "Dark",
+        "type2":  "Ice",
+        "location":  ""
+    },
+    {
+        "id":  388,
+        "name":  "Lileep",
+        "type1":  "Rock",
+        "type2":  "Grass",
+        "location":  ""
+    },
+    {
+        "id":  389,
+        "name":  "Cradily",
+        "type1":  "Rock",
+        "type2":  "Grass",
+        "location":  ""
+    },
+    {
+        "id":  390,
+        "name":  "Anorith",
+        "type1":  "Rock",
+        "type2":  "Bug",
+        "location":  ""
+    },
+    {
+        "id":  391,
+        "name":  "Armaldo",
+        "type1":  "Rock",
+        "type2":  "Bug",
+        "location":  ""
+    },
+    {
+        "id":  392,
+        "name":  "Ralts",
+        "type1":  "Psychic",
+        "type2":  "Fairy",
+        "location":  "Forest Pass"
+    },
+    {
+        "id":  393,
+        "name":  "Kirlia",
+        "type1":  "Psychic",
+        "type2":  "Fairy",
+        "location":  "Evolve Ralts"
+    },
+    {
+        "id":  394,
+        "name":  "Gardevoir",
+        "type1":  "Psychic",
+        "type2":  "Fairy",
+        "location":  "Evolve Kirlia"
+    },
+    {
+        "id":  395,
+        "name":  "Bagon",
+        "type1":  "Dragon",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  396,
+        "name":  "Shelgon",
+        "type1":  "Dragon",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  397,
+        "name":  "Salamence",
+        "type1":  "Dragon",
+        "type2":  "Flying",
+        "location":  ""
+    },
+    {
+        "id":  398,
+        "name":  "Beldum",
+        "type1":  "Steel",
+        "type2":  "Psychic",
+        "location":  ""
+    },
+    {
+        "id":  399,
+        "name":  "Metang",
+        "type1":  "Steel",
+        "type2":  "Psychic",
+        "location":  ""
+    },
+    {
+        "id":  400,
+        "name":  "Metagross",
+        "type1":  "Steel",
+        "type2":  "Psychic",
+        "location":  ""
+    },
+    {
+        "id":  401,
+        "name":  "Regirock",
+        "type1":  "Rock",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  402,
+        "name":  "Regice",
+        "type1":  "Ice",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  403,
+        "name":  "Registeel",
+        "type1":  "Steel",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  404,
+        "name":  "Kyogre",
+        "type1":  "Water",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  405,
+        "name":  "Groudon",
+        "type1":  "Ground",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  406,
+        "name":  "Rayquaza",
+        "type1":  "Dragon",
+        "type2":  "Flying",
+        "location":  ""
+    },
+    {
+        "id":  407,
+        "name":  "Latias",
+        "type1":  "Dragon",
+        "type2":  "Psychic",
+        "location":  ""
+    },
+    {
+        "id":  408,
+        "name":  "Latios",
+        "type1":  "Dragon",
+        "type2":  "Psychic",
+        "location":  ""
+    },
+    {
+        "id":  409,
+        "name":  "Jirachi",
+        "type1":  "Steel",
+        "type2":  "Psychic",
+        "location":  "Wish Island"
+    },
+    {
+        "id":  410,
+        "name":  "Arceus",
+        "type1":  "Normal",
+        "type2":  "",
+        "location":  ""
+    },
+    {
+        "id":  411,
+        "name":  "Deoxys (Attack Forme)",
+        "type1":  "Psychic",
+        "type2":  "",
+        "location":  ""
+    }
+]

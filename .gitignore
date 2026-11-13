@@ -1,0 +1,8 @@
+# Build cache (wiki response, sprite sheet and CSS downloaded by the scripts)
+scripts/cache/
+
+# Temporary files
+_team-card.html
+*.tmp
+Thumbs.db
+.DS_Store
