@@ -139,6 +139,28 @@ $borderPen = New-Object System.Drawing.Pen ([System.Drawing.Color]::FromArgb(90,
 $g.DrawLine($borderPen, $left, $top, $left, $top + $mapH)
 $g.DrawLine($borderPen, $left, $top, $left + $mapW, $top)
 
+# coordinate labels inside every cell
+$cellFont = New-Object System.Drawing.Font 'Consolas', 9.5, ([System.Drawing.FontStyle]::Bold), ([System.Drawing.GraphicsUnit]::Pixel)
+$cellOutline = New-Object System.Drawing.SolidBrush ([System.Drawing.Color]::FromArgb(210, 0, 0, 0))
+$cellText = New-Object System.Drawing.SolidBrush ([System.Drawing.Color]::FromArgb(245, 255, 255, 255))
+$near = New-Object System.Drawing.StringFormat
+$near.Alignment = [System.Drawing.StringAlignment]::Near
+$near.LineAlignment = [System.Drawing.StringAlignment]::Near
+for ($r = 0; $r -lt $rows; $r++) {
+    for ($c = 0; $c -lt $cols; $c++) {
+        $label = ([string][char](65 + $r)) + ($c + 1).ToString()
+        $x = $left + $c * $cell + 4
+        $y = $top + $r * $cell + 3
+        foreach ($ox in -1, 0, 1) {
+            foreach ($oy in -1, 0, 1) {
+                if ($ox -eq 0 -and $oy -eq 0) { continue }
+                $g.DrawString($label, $cellFont, $cellOutline, ($x + $ox), ($y + $oy), $near)
+            }
+        }
+        $g.DrawString($label, $cellFont, $cellText, $x, $y, $near)
+    }
+}
+
 # footer
 $footerY = $top + $mapH
 $g.FillRectangle((New-Object System.Drawing.SolidBrush ([System.Drawing.Color]::FromArgb(15, 20, 29))), 0, $footerY, $canvasW, $footerH)

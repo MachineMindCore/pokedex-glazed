@@ -59,7 +59,7 @@ El script usa `team-card.html` y Microsoft Edge en modo headless para renderizar
 
 Las etiquetas del mapa son aproximadas. Para revisarlas:
 
-1. Abre `mapa/cuadricula.png`: es el mapa con una cuadrícula de ajedrez de **30×20**, con las **filas en letras (A–T)** y las **columnas en números (1–30)**.
+1. Abre `mapa/cuadricula.png`: es el mapa con una cuadrícula de ajedrez de **30×20**, con las **filas en letras (A–T)**, las **columnas en números (1–30)** y la etiqueta de cada casilla (`A1`, `B7`…) escrita dentro.
 2. Edita `mapa/localizaciones.csv` (600 filas). La columna `zona_actual` muestra lo que enseña ahora la app; escribe el nombre real en `zona_correcta`. Si una casilla ya es correcta, deja `zona_correcta` vacía.
 3. En el CSV, `fila` es la letra (A–T) y `columna` el número (1–30), igual que en la imagen.
 4. Cuando esté completo, se puede regenerar el mapa usando esa columna.
