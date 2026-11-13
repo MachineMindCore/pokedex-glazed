@@ -1,5 +1,7 @@
 # Pokédex Glazed
 
+**Demo online:** <https://machinemindcore.github.io/pokedex-glazed/>
+
 Catálogo web (HTML + CSS + JS, sin dependencias) con las **412 entradas** de la Pokédex de *Pokémon Glazed* (#000 a #411), sus **sprites de 64×64**, tipos y ubicaciones.
 
 ## Cómo abrirlo
