@@ -406,6 +406,123 @@
   .cover .bar{flex:1;height:7px;border:1px solid var(--line);border-radius:99px;background:var(--bg2);overflow:hidden}
   .cover .bar i{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,#6390f0,#7ac74c,#f7d02c);transition:width .3s ease}
 
+  /* ---------- tabs ---------- */
+  .tabbar{display:flex;gap:24px;margin-top:18px;border-bottom:1px solid var(--line);padding:0 2px}
+  .tab-btn{
+    position:relative;top:1px;display:inline-flex;align-items:center;gap:8px;
+    border:0;border-bottom:2px solid transparent;background:none;color:var(--muted);
+    padding:9px 2px 10px;font:700 12px/1 inherit;letter-spacing:.05em;cursor:pointer;transition:.15s;
+  }
+  .tab-btn svg{width:15px;height:15px;opacity:.85}
+  .tab-btn:hover{color:var(--txt)}
+  .tab-btn.on{color:var(--txt);border-bottom-color:var(--red2)}
+  .tab-btn.on svg{color:var(--red2);opacity:1}
+  .view[hidden]{display:none!important}
+
+  /* ---------- map ---------- */
+  .map-view{padding-top:18px}
+  .map-top{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;flex-wrap:wrap;margin-bottom:14px}
+  .map-kicker{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);font-weight:800}
+  .map-top h2{margin:4px 0 0;font-size:27px;line-height:1;letter-spacing:-.015em}
+  .map-top-right{display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-size:10.5px;color:var(--dim)}
+  .map-toggle{display:inline-flex;align-items:center;gap:6px;cursor:pointer;user-select:none}
+  .map-toggle input{accent-color:var(--red);width:14px;height:14px}
+  .map-layout{display:grid;grid-template-columns:minmax(0,960px) 334px;gap:18px;align-items:start;justify-content:center}
+  .map-screen-wrap{min-width:0}
+  .map-scroll{overflow:hidden}
+  .map-frame{
+    position:relative;border:10px solid #1b2333;border-radius:14px;background:#05070a;
+    box-shadow:0 26px 60px -26px #000,inset 0 0 0 2px #33405a;overflow:hidden;aspect-ratio:3/2;
+  }
+  .map-frame img{display:block;width:100%;height:100%;image-rendering:pixelated}
+  .map-grid{position:absolute;inset:0;display:grid;grid-template-columns:repeat(30,1fr);grid-template-rows:repeat(20,1fr)}
+  .map-cell{
+    position:relative;border:1px solid rgba(255,255,255,.07);background:transparent;padding:0;cursor:pointer;
+    transition:background .1s;
+  }
+  .map-view.no-grid .map-cell{border-color:transparent}
+  .map-cell:hover{background:rgba(255,255,255,.14);box-shadow:inset 0 0 0 1px rgba(255,255,255,.4)}
+  .map-cell:focus-visible{outline:2px solid #fff;outline-offset:-2px;z-index:3}
+  .map-cell.sel{background:rgba(255,211,77,.16);box-shadow:inset 0 0 0 2px #ffd34d,0 0 12px rgba(255,211,77,.45);z-index:2}
+  .map-cell.sel::after{
+    content:"";position:absolute;inset:3px;border:1px solid rgba(255,255,255,.55);
+    clip-path:polygon(0 0,28% 0,28% 12%,12% 12%,12% 28%,0 28%,0 0,100% 0,100% 28%,88% 28%,88% 12%,72% 12%,72% 0,100% 0,0 100%,28% 100%,28% 88%,12% 88%,12% 72%,0 72%,0 100%,100% 100%,100% 72%,88% 72%,88% 88%,72% 88%,72% 100%,100% 100%);
+    pointer-events:none;
+  }
+  .map-frame::after{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:repeating-linear-gradient(0deg,rgba(0,0,0,.045) 0 1px,transparent 1px 3px);
+  }
+  .map-legend{display:flex;flex-wrap:wrap;gap:14px;margin-top:10px;font-size:10.5px;color:var(--dim)}
+  .map-legend span{display:inline-flex;align-items:center;gap:5px}
+  .map-legend i{width:9px;height:9px;border-radius:2px;display:inline-block;border:1px solid rgba(0,0,0,.3)}
+  .dot.town{background:#e83e9a}
+  .dot.route{background:#e8d44d}
+  .dot.water{background:#63c8e8}
+  .dot.land{background:#88c46a}
+
+  .map-panel{
+    position:sticky;top:84px;
+    border:1px solid var(--line);border-radius:16px;padding:16px;
+    background:linear-gradient(180deg,var(--panel2),var(--panel));box-shadow:var(--shadow);
+  }
+  .map-zone-head h3{margin:6px 0 0;font-size:25px;line-height:1.05;letter-spacing:-.01em}
+  .map-badges{display:flex;align-items:center;flex-wrap:wrap;gap:6px;margin-top:9px}
+  .map-badge{
+    font:800 9px/1 inherit;letter-spacing:.08em;text-transform:uppercase;padding:5px 7px;border-radius:6px;
+    background:rgba(227,53,13,.14);border:1px solid rgba(227,53,13,.36);color:#ffb3a3;
+  }
+  .map-badge.ghost{background:rgba(59,130,246,.11);border-color:rgba(59,130,246,.36);color:#9cc3ff}
+  .map-coord{font:700 10px/1 ui-monospace,Consolas,monospace;color:var(--dim);padding:5px 2px}
+  .map-note{font-size:11.5px;line-height:1.55;color:var(--muted);margin:12px 0 0;min-height:36px}
+  .map-found{margin-top:14px;border-top:1px solid var(--line);padding-top:12px}
+  .map-found-head{display:flex;align-items:center;justify-content:space-between;font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--dim);font-weight:800}
+  .map-found-head b{color:var(--muted);font-size:10.5px;letter-spacing:0}
+  .map-found-list{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:9px 0 10px;min-height:58px}
+  .map-mon{
+    display:flex;flex-direction:column;align-items:center;gap:1px;min-width:0;
+    border:1px solid var(--line);border-radius:8px;background:var(--bg2);padding:4px 2px;cursor:pointer;transition:.15s;
+  }
+  .map-mon:hover{border-color:var(--line2);background:var(--panel2);transform:translateY(-1px)}
+  .map-mon img{width:40px;height:40px;image-rendering:pixelated}
+  .map-mon span{font-size:7.5px;color:var(--muted);max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .map-empty{grid-column:1/-1;font-size:10.5px;color:var(--dim);font-style:italic;padding:10px 0;line-height:1.4}
+  #zoneFilter{width:100%;justify-content:center}
+  #zoneFilter:disabled{opacity:.35;cursor:default}
+  .map-tip{font-size:9.5px;color:var(--dim);margin-top:10px;line-height:1.45}
+
+  .map-zones{margin-top:18px;border-top:1px solid var(--line);padding-top:12px}
+  .map-zones-head{display:flex;align-items:baseline;gap:10px;margin-bottom:8px}
+  .map-zones-hint{font-size:10.5px;color:var(--dim)}
+  .map-zone-chips{display:flex;flex-wrap:wrap;gap:6px}
+  .zone-chip{
+    --zc:#e83e9a;
+    display:inline-flex;align-items:center;gap:6px;
+    border:1px solid var(--line);background:var(--bg2);color:var(--muted);
+    border-radius:999px;padding:5px 9px;font:600 10.5px/1 inherit;cursor:pointer;transition:.15s;
+  }
+  .zone-chip i{width:6px;height:6px;border-radius:50%;background:var(--zc);flex:0 0 auto}
+  .zone-chip:hover{color:var(--txt);border-color:var(--line2);transform:translateY(-1px)}
+  .zone-chip.on{border-color:rgba(255,211,77,.6);color:#ffe08a;background:rgba(255,211,77,.1)}
+  .zone-chip.johto i{background:#6f8cff}
+  .zone-chip.sea i{background:#63c8e8}
+
+  @media (max-width:900px){
+    .map-layout{grid-template-columns:1fr}
+    .map-panel{position:static}
+  }
+  @media (max-width:680px){
+    .map-frame{border-width:6px;border-radius:10px;min-width:600px}
+    .map-scroll{overflow-x:auto;padding-bottom:6px;scrollbar-width:thin;scrollbar-color:var(--line2) transparent}
+    .map-scroll::-webkit-scrollbar{height:8px}
+    .map-scroll::-webkit-scrollbar-thumb{background:var(--line2);border-radius:99px}
+    .map-top h2{font-size:22px}
+    .map-top-right{gap:10px}
+    .map-credit{display:none}
+    .map-found-list{grid-template-columns:repeat(4,1fr)}
+    .map-zone-chips{gap:5px}
+  }
+
   /* ---------- modal ---------- */
   dialog{
     width:min(760px,calc(100vw - 32px));
@@ -568,6 +685,19 @@
     </div>
   </header>
 
+  <nav class="tabbar" role="tablist" aria-label="Secciones de la aplicación">
+    <button class="tab-btn on" type="button" role="tab" aria-selected="true" data-view="dex" aria-controls="viewDex">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><circle cx="12" cy="12" r="3"/></svg>
+      Pokédex
+    </button>
+    <button class="tab-btn" type="button" role="tab" aria-selected="false" data-view="map" aria-controls="viewMap">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M9 18 3 21V6l6-3 6 3 6-3v15l-6 3-6-3Z"/><path d="M9 3v15M15 6v15"/></svg>
+      Mapa
+    </button>
+  </nav>
+
+  <div class="view" id="viewDex" role="tabpanel" aria-label="Pokédex">
+
   <section class="team" id="teamPanel" aria-label="Planificador de equipos">
     <div class="team-head">
       <h2>Planificador</h2>
@@ -649,6 +779,66 @@
       <span>Prueba con otro nombre, tipo o lugar. Pulsa «Todos» para reiniciar.</span>
     </div>
   </main>
+
+  </div>
+
+  <section class="view map-view" id="viewMap" role="tabpanel" aria-label="Mapa del juego" hidden>
+    <div class="map-top">
+      <div>
+        <div class="map-kicker">Mapa del juego</div>
+        <h2>Tunod · Johto</h2>
+      </div>
+      <div class="map-top-right">
+        <label class="map-toggle"><input type="checkbox" id="mapGridToggle" checked> Cuadrícula</label>
+        <span class="map-credit">World map: redriders180 · 8× pixel-perfect</span>
+      </div>
+    </div>
+
+    <div class="map-layout">
+      <div class="map-screen-wrap">
+        <div class="map-scroll">
+          <div class="map-frame">
+            <img src="mapa/world-map.png" alt="Mapa del mundo de Pokémon Glazed" width="1920" height="1280">
+            <div class="map-grid" id="mapGrid" role="grid" aria-label="Casillas del mapa"></div>
+          </div>
+        </div>
+        <div class="map-legend">
+          <span><i class="dot town"></i>Pueblo / ciudad</span>
+          <span><i class="dot route"></i>Ruta</span>
+          <span><i class="dot water"></i>Mar</span>
+          <span><i class="dot land"></i>Tierra</span>
+          <span style="color:var(--dim);opacity:.8">Etiquetas de zona aproximadas</span>
+        </div>
+      </div>
+
+      <aside class="map-panel" aria-live="polite">
+        <div class="map-zone-head">
+          <span class="map-kicker">Zona seleccionada</span>
+          <h3 id="zoneName">—</h3>
+          <div class="map-badges">
+            <span class="map-badge" id="zoneRegion">Tunod</span>
+            <span class="map-badge ghost" id="zoneKind">Pueblo</span>
+            <span class="map-coord" id="zoneCell">1,1</span>
+          </div>
+        </div>
+        <p class="map-note" id="zoneNote">Selecciona una casilla del mapa.</p>
+        <div class="map-found">
+          <div class="map-found-head"><span>Pokémon en esta zona</span><b id="zoneFoundCount">0</b></div>
+          <div class="map-found-list" id="zoneFound"></div>
+          <button class="tbtn" id="zoneFilter" type="button" disabled>Ver en la Pokédex</button>
+        </div>
+        <div class="map-tip">Consejo: usa las flechas del teclado para moverte por las casillas.</div>
+      </aside>
+    </div>
+
+    <div class="map-zones">
+      <div class="map-zones-head">
+        <span class="map-kicker">Zonas del mapa</span>
+        <span class="map-zones-hint"><span id="zoneCount">0</span> zonas · pulsa una para saltar a su casilla</span>
+      </div>
+      <div class="map-zone-chips" id="zoneChips"></div>
+    </div>
+  </section>
 
   <footer>
     <div>
@@ -928,7 +1118,7 @@ function openDetail(idx, list){
   if (!dlg.open) dlg.showModal();
   dlg.focus();
   dlg.scrollTop = 0;
-  try { history.replaceState(null, "", location.pathname + "?p=" + pad(p.n)); } catch(e) {}
+  try { history.replaceState(null, "", location.pathname + "?p=" + pad(p.n) + location.hash); } catch(e) {}
 }
 
 function step(delta){
@@ -946,7 +1136,7 @@ dlg.addEventListener("click", (e) => {
 });
 
 dlg.addEventListener("close", () => {
-  try { history.replaceState(null, "", location.pathname); } catch(e) {}
+  try { history.replaceState(null, "", location.pathname + location.hash); } catch(e) {}
 });
 
 /* ---------- planner ---------- */
@@ -1549,6 +1739,248 @@ teamSlots.addEventListener("dragend", () => {
   setTimeout(() => { dragging = false; }, 80);
 });
 
+/* ---------- map tab ---------- */
+const MAP_ZONES = [
+  { name:"Haunted Isle", c:7, r:3, region:"Tunod", kind:"Isla" },
+  { name:"Northcoast Town", c:10, r:3, region:"Tunod", kind:"Pueblo" },
+  { name:"Seaspray Town", c:3, r:7, region:"Tunod", kind:"Ciudad" },
+  { name:"Mt. Stratus", c:9, r:6, region:"Tunod", kind:"Paraje" },
+  { name:"Chocco Town", c:11, r:6, region:"Tunod", kind:"Pueblo" },
+  { name:"Geminite Village", c:5, r:9, region:"Tunod", kind:"Pueblo" },
+  { name:"Glenwood Town", c:9, r:8, region:"Tunod", kind:"Pueblo" },
+  { name:"Palmtree Resort", c:11, r:8, region:"Tunod", kind:"Resort" },
+  { name:"Cape Azure", c:2, r:11, region:"Tunod", kind:"Pueblo" },
+  { name:"Southerly City", c:5, r:11, region:"Tunod", kind:"Ciudad" },
+  { name:"Serenity Isle", c:17, r:11, region:"Tunod", kind:"Isla" },
+  { name:"Darkwood Town", c:8, r:12, region:"Tunod", kind:"Pueblo" },
+  { name:"Tunod League", c:11, r:12, region:"Tunod", kind:"Liga" },
+  { name:"Oceanview City", c:15, r:12, region:"Tunod", kind:"Ciudad" },
+  { name:"Stormy City", c:4, r:14, region:"Tunod", kind:"Ciudad" },
+  { name:"Cianwood City", c:18, r:4, region:"Johto", kind:"Ciudad" },
+  { name:"Ecruteak City", c:22, r:7, region:"Johto", kind:"Ciudad" },
+  { name:"Bell Tower", c:24, r:7, region:"Johto", kind:"Paraje" },
+  { name:"Mahogany Town", c:27, r:7, region:"Johto", kind:"Pueblo" },
+  { name:"Azalea Town", c:19, r:9, region:"Johto", kind:"Pueblo" },
+  { name:"Violet City", c:23, r:9, region:"Johto", kind:"Ciudad" },
+  { name:"Olivine City", c:21, r:11, region:"Johto", kind:"Ciudad" },
+  { name:"Goldenrod City", c:22, r:13, region:"Johto", kind:"Ciudad" },
+  { name:"Cherrygrove City", c:25, r:12, region:"Johto", kind:"Ciudad" },
+  { name:"Blackthorn City", c:28, r:12, region:"Johto", kind:"Ciudad" },
+  { name:"New Bark Town", c:28, r:15, region:"Johto", kind:"Pueblo" }
+];
+
+const MAP_WATER = [
+  "111000000000000",
+  "111000000000000",
+  "110010000000000",
+  "100000000000000",
+  "100000011000000",
+  "000000100000000",
+  "001000100100000",
+  "000111111101100",
+  "111111111111111",
+  "111111111111111"
+];
+
+const mapGrid = $("#mapGrid");
+const zoneChips = $("#zoneChips");
+const mapZoneName = $("#zoneName");
+const mapZoneRegion = $("#zoneRegion");
+const mapZoneKind = $("#zoneKind");
+const mapZoneCell = $("#zoneCell");
+const mapZoneNote = $("#zoneNote");
+const mapZoneFound = $("#zoneFound");
+const mapZoneFoundCount = $("#zoneFoundCount");
+const mapZoneFilter = $("#zoneFilter");
+const mapZoneCount = $("#zoneCount");
+
+let mapInit = false;
+let mapSel = null;
+let mapFound = [];
+
+function isMapWater(c, r){
+  const row = MAP_WATER[Math.floor(r / 2)];
+  return !row || row[Math.floor(c / 2)] === "1";
+}
+
+function zoneFor(c, r){
+  if (isMapWater(c, r)){
+    return {
+      name: c <= 16 ? "Mar de Tunod" : "Mar de Johto",
+      region: c <= 16 ? "Tunod" : "Johto",
+      kind: "Mar",
+      sea: true,
+      exact: false
+    };
+  }
+  const exact = MAP_ZONES.find(z => z.c === c && z.r === r);
+  if (exact) return { ...exact, exact: true };
+
+  let best = MAP_ZONES[0];
+  let bestDist = Infinity;
+  for (const z of MAP_ZONES){
+    const d = (z.c - c) ** 2 + (z.r - r) ** 2;
+    if (d < bestDist){ bestDist = d; best = z; }
+  }
+  return { ...best, exact: false };
+}
+
+function renderZoneFound(zone){
+  mapFound = zone.sea ? [] : DEX.filter(p => p.loc.some(l => norm(l).includes(norm(zone.name))));
+  mapZoneFoundCount.textContent = mapFound.length;
+
+  if (mapFound.length){
+    mapZoneFound.innerHTML = mapFound.slice(0, 8).map((p, i) => `
+      <button class="map-mon" type="button" data-i="${i}" title="${esc(p.name)}">
+        <img src="sprites/${pad(p.n)}.png" alt="" width="40" height="40">
+        <span>${esc(p.name)}</span>
+      </button>`).join("");
+    mapZoneFilter.disabled = false;
+    mapZoneFilter.textContent = "Ver los " + mapFound.length + " en la Pokédex";
+  } else {
+    mapZoneFound.innerHTML = '<div class="map-empty">La wiki no registra Pokémon salvajes en esta casilla.</div>';
+    mapZoneFilter.disabled = true;
+    mapZoneFilter.textContent = "Sin datos de captura";
+  }
+  mapZoneFilter.dataset.zone = zone.name;
+}
+
+function selectMapCell(c, r, opts = {}){
+  c = Math.max(0, Math.min(29, c));
+  r = Math.max(0, Math.min(19, r));
+  mapSel = { c, r };
+
+  const zone = zoneFor(c, r);
+  mapZoneName.textContent = zone.name;
+  mapZoneRegion.textContent = zone.region;
+  mapZoneKind.textContent = zone.kind;
+  mapZoneCell.textContent = (c + 1) + ", " + (r + 1);
+
+  if (zone.sea){
+    mapZoneNote.textContent = "Aguas abiertas de la región de " + zone.region + ". La wiki no asigna capturas a esta casilla genérica.";
+  } else if (zone.exact){
+    mapZoneNote.textContent = zone.kind + " de " + zone.region + ". Marcador de zona del world map de Glazed.";
+  } else {
+    mapZoneNote.textContent = "Casilla de tierra · zona habitada más cercana: " + zone.name + ".";
+  }
+
+  mapGrid.querySelectorAll(".map-cell.sel").forEach(el => el.classList.remove("sel"));
+  mapGrid.querySelectorAll(".map-cell").forEach(el => { el.tabIndex = -1; });
+  const cell = mapGrid.querySelector('.map-cell[data-c="' + c + '"][data-r="' + r + '"]');
+  if (cell){
+    cell.classList.add("sel");
+    cell.tabIndex = 0;
+    if (opts.focus) cell.focus();
+  }
+
+  document.querySelectorAll(".zone-chip").forEach(ch => {
+    ch.classList.toggle("on", ch.dataset.zone === zone.name);
+  });
+
+  renderZoneFound(zone);
+}
+
+function initMap(){
+  if (mapInit) return;
+  mapInit = true;
+
+  let html = "";
+  for (let r = 0; r < 20; r++){
+    for (let c = 0; c < 30; c++){
+      const z = zoneFor(c, r);
+      html += `<button class="map-cell" type="button" role="gridcell" data-c="${c}" data-r="${r}" tabindex="-1" aria-label="Casilla ${c + 1}, ${r + 1}: ${esc(z.name)}"></button>`;
+    }
+  }
+  mapGrid.innerHTML = html;
+
+  const chip = (z, cls) => `<button class="zone-chip${cls ? " " + cls : ""}" type="button" data-zone="${esc(z.name)}" data-c="${z.c}" data-r="${z.r}" title="${esc(z.region)} · casilla ${z.c + 1},${z.r + 1}"><i></i>${esc(z.name)}</button>`;
+  const tunod = MAP_ZONES.filter(z => z.region === "Tunod");
+  const johto = MAP_ZONES.filter(z => z.region === "Johto");
+  const seaChip = (name, c, r) => `<button class="zone-chip sea" type="button" data-zone="${name}" data-c="${c}" data-r="${r}" title="Región marítima"><i></i>${name}</button>`;
+
+  zoneChips.innerHTML = [
+    ...tunod.map(z => chip(z, "")),
+    ...johto.map(z => chip(z, "johto")),
+    seaChip("Mar de Tunod", 0, 16),
+    seaChip("Mar de Johto", 28, 16)
+  ].join("");
+  mapZoneCount.textContent = tunod.length + johto.length + 2;
+
+  mapGrid.addEventListener("click", (e) => {
+    const cell = e.target.closest(".map-cell");
+    if (cell) selectMapCell(Number(cell.dataset.c), Number(cell.dataset.r));
+  });
+
+  mapGrid.addEventListener("keydown", (e) => {
+    const moves = {
+      ArrowLeft: [-1, 0], ArrowRight: [1, 0], ArrowUp: [0, -1], ArrowDown: [0, 1]
+    };
+    const m = moves[e.key];
+    if (!m || !mapSel) return;
+    e.preventDefault();
+    selectMapCell(mapSel.c + m[0], mapSel.r + m[1], { focus: true });
+  });
+
+  zoneChips.addEventListener("click", (e) => {
+    const chipEl = e.target.closest(".zone-chip");
+    if (!chipEl) return;
+    selectMapCell(Number(chipEl.dataset.c), Number(chipEl.dataset.r));
+    document.querySelector(".map-frame").scrollIntoView({ behavior: "smooth", block: "nearest" });
+  });
+
+  mapZoneFound.addEventListener("click", (e) => {
+    const btn = e.target.closest(".map-mon");
+    if (btn) openDetail(Number(btn.dataset.i), mapFound);
+  });
+
+  mapZoneFilter.addEventListener("click", () => {
+    if (!mapSel || !mapFound.length) return;
+    const zone = zoneFor(mapSel.c, mapSel.r);
+    q.value = zone.name;
+    typeSet.clear();
+    [...typeFilters.querySelectorAll(".chip")].forEach(c => c.classList.toggle("on", c === allChip));
+    render();
+    showView("dex");
+    document.querySelector(".controls").scrollIntoView({ behavior: "smooth", block: "start" });
+    toast("Pokédex filtrada: " + zone.name);
+  });
+
+  $("#mapGridToggle").addEventListener("change", (e) => {
+    $("#viewMap").classList.toggle("no-grid", !e.target.checked);
+  });
+
+  selectMapCell(9, 8);
+}
+
+function showView(name, updateHash = true){
+  const isMap = name === "map";
+  $("#viewDex").hidden = isMap;
+  $("#viewMap").hidden = !isMap;
+
+  document.querySelectorAll(".tab-btn").forEach(btn => {
+    const on = btn.dataset.view === name;
+    btn.classList.toggle("on", on);
+    btn.setAttribute("aria-selected", on ? "true" : "false");
+  });
+
+  if (isMap){
+    initMap();
+    if (!mapSel) selectMapCell(9, 8);
+  }
+
+  if (updateHash){
+    const base = location.pathname + location.search;
+    try { history.replaceState(null, "", base + (isMap ? "#mapa" : "")); } catch(e) {}
+    if (isMap){
+      document.querySelector(".tabbar").scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
+}
+
+document.querySelectorAll(".tab-btn").forEach(btn => {
+  btn.addEventListener("click", () => showView(btn.dataset.view));
+});
+
 /* ---------- boot ---------- */
 $("#statCount").textContent = DEX.length;
 $("#statTypes").textContent = TYPE_ORDER.filter(t => t !== "?" && counts[t]).length;
@@ -1570,6 +2002,11 @@ if (want) {
   const key = want.trim();
   const idx = view.findIndex(p => pad(p.n) === key.padStart(3, "0") || norm(p.name) === norm(key));
   if (idx >= 0) openDetail(idx, view);
+  showView("dex", false);
+} else if (location.hash === "#mapa") {
+  showView("map", false);
+} else {
+  showView("dex", false);
 }
 </script>
 </body>

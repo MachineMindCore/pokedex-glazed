@@ -33,7 +33,8 @@ El servidor es un script de PowerShell sin dependencias que sirve esta carpeta. 
   - Arrastra las miniaturas para cambiar el orden dentro del equipo.
   - Todo se guarda en `localStorage`; **Enlace** comparte el pool, los equipos, sus nombres y el equipo activo.
   - Análisis en vivo del equipo activo: **cobertura ofensiva** (tipos a los que golpea súper eficazmente con STAB, de 18, y cuáles faltan), **debilidades del equipo** (tipos que golpean a varios miembros) y **tipos repetidos**.
-- **Enlaces directos** a una ficha: `index.html?p=006` o `?p=charizard`.
+- **Pestaña Mapa**: world map de Glazed a 1920×1280 (8× pixel-perfect) con una cuadrícula interactiva de **30×20 casillas**. Al seleccionar una casilla muestra la zona, su región, los Pokémon registrados en ella y un botón para filtrar la Pokédex.
+- **Enlaces directos** a una ficha: `index.html?p=006` o `?p=charizard`. El mapa tiene su propio enlace: `#mapa`.
 - Atajos: `/` enfoca el buscador, `←`/`→` navegan entre fichas, `Esc` cierra.
 
 ## Imágenes de equipos
@@ -59,6 +60,7 @@ El script usa `team-card.html` y Microsoft Edge en modo headless para renderizar
 ```
 index.html              ← la Pokédex (todo el catálogo va incluido)
 sprites/000.png … 411.png
+mapa/world-map.png      ← world map 1920×1280 (8× pixel-perfect)
 equipos/                ← las tres tarjetas PNG + galería
 serve.ps1               ← servidor local opcional
 team-card.html          ← plantilla de las tarjetas de equipo
@@ -87,6 +89,7 @@ powershell -ExecutionPolicy Bypass -File .\scripts\build-html.ps1
 
 - **Datos de ubicación**: [Pokemon Locations and Availability – Fanmade Pokémon Glazed Wiki](https://fanmadepokemonglazed.fandom.com/wiki/Pokemon_Locations_and_Availability). La lista original tiene 134 entradas sin ubicación; aquí se muestran como «Sin datos».
 - **Sprites**: [DS-style 64×64 Pokémon Sprite Resource](https://www.pokecommunity.com/showthread.php?t=267728), obtenidos de la sábana del [TPP Global Pokédex (dex Tunod)](http://thatswhatyouget.github.io/tpp-progress/pokedex.html?dex=Tunod). Incluye las formas propias de Glazed (Scarfed Pikachu, Kyurem-B/W, Enraged Mew, megas…).
+- **World map**: [Pokemon Glazed World Map](https://www.deviantart.com/redriders180/art/Pokemon-Glazed-World-Map-347516294) de redriders180, escalado 8× con vecino más cercano. Las etiquetas de zona del mapa interactivo son aproximadas.
 
 No se han extraído gráficos del ROM: la wiki no aloja sprites y este es el set abierto que mejor reproduce el estilo del juego.
 
