@@ -55,12 +55,25 @@ powershell -ExecutionPolicy Bypass -File .\scripts\build-cards.ps1
 
 El script usa `team-card.html` y Microsoft Edge en modo headless para renderizar y recortar las imágenes.
 
+## Corregir las zonas del mapa
+
+Las etiquetas del mapa son aproximadas. Para revisarlas:
+
+1. Abre `mapa/cuadricula.png`: es el mapa con una cuadrícula de ajedrez de **30×20** y cada casilla etiquetada como **F(fila) C(columna)**.
+2. Edita `mapa/localizaciones.csv` (600 filas). La columna `zona_actual` muestra lo que enseña ahora la app; escribe el nombre real en `zona_correcta`. Si una casilla ya es correcta, deja `zona_correcta` vacía.
+3. Las coordenadas del CSV son 1-based y coinciden con las etiquetas de la imagen.
+4. Cuando esté completo, se puede regenerar el mapa usando esa columna.
+
+También tienes `mapa/LEEME.txt` con el resumen.
+
 ## Estructura
 
 ```
 index.html              ← la Pokédex (todo el catálogo va incluido)
 sprites/000.png … 411.png
 mapa/world-map.png      ← world map 1920×1280 (8× pixel-perfect)
+mapa/cuadricula.png     ← referencia 30×20 con etiquetas F/C
+mapa/localizaciones.csv ← plantilla para corregir las zonas
 equipos/                ← las tres tarjetas PNG + galería
 serve.ps1               ← servidor local opcional
 team-card.html          ← plantilla de las tarjetas de equipo
@@ -70,6 +83,7 @@ scripts/
   build-sprites.ps1     ← recorta/descarga los 412 sprites
   build-html.ps1        ← inyecta los datos en la plantilla
   build-cards.ps1       ← genera las imágenes de los equipos
+  build-map-reference.ps1 ← genera cuadricula.png y localizaciones.csv
   teams.json            ← equipos usados para las imágenes
   dex.json              ← datos intermedios
   cache/                ← respuestas descargadas (wiki, CSS y sábana de sprites)
