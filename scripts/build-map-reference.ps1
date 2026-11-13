@@ -12,6 +12,11 @@ $rows = 20
 $cell = 64
 $mapW = $cols * $cell
 $mapH = $rows * $cell
+$left = 56
+$top = 42
+$footerH = 62
+$canvasW = $left + $mapW
+$canvasH = $top + $mapH + $footerH
 
 $zones = @(
   @{ name='Haunted Isle'; c=7; r=3 },
@@ -62,80 +67,88 @@ function Is-Water($c, $r) {
 
 function Get-Zone($c, $r) {
   if (Is-Water $c $r) {
-    return [pscustomobject]@{ name = $(if ($c -le 16) { 'Mar de Tunod' } else { 'Mar de Johto' }); region = $(if ($c -le 16) { 'Tunod' } else { 'Johto' }) }
+    return [pscustomobject]@{ name = $(if ($c -le 16) { 'Mar de Tunod' } else { 'Mar de Johto' }) }
   }
   $exact = $zones | Where-Object { $_.c -eq $c -and $_.r -eq $r } | Select-Object -First 1
-  if ($exact) { return [pscustomobject]@{ name = $exact.name; region = 'Tunod' } }
+  if ($exact) { return [pscustomobject]@{ name = $exact.name } }
   $best = $zones[0]
   $bestD = [double]::MaxValue
   foreach ($z in $zones) {
     $d = [Math]::Pow($z.c - $c, 2) + [Math]::Pow($z.r - $r, 2)
     if ($d -lt $bestD) { $bestD = $d; $best = $z }
   }
-  return [pscustomobject]@{ name = $best.name; region = 'Tunod' }
+  return [pscustomobject]@{ name = $best.name }
 }
 
 # ---------- reference image ----------
 $src = [System.Drawing.Bitmap]::FromFile($mapPath)
-$bmp = New-Object System.Drawing.Bitmap $mapW, ($mapH + 62)
+$bmp = New-Object System.Drawing.Bitmap $canvasW, $canvasH
 $g = [System.Drawing.Graphics]::FromImage($bmp)
 $g.SmoothingMode = [System.Drawing.Drawing2D.SmoothingMode]::None
 $g.TextRenderingHint = [System.Drawing.Text.TextRenderingHint]::ClearTypeGridFit
 $g.Clear([System.Drawing.Color]::FromArgb(11, 14, 20))
-$g.DrawImage($src, 0, 0, $mapW, $mapH)
+
+# header bars
+$barBrush = New-Object System.Drawing.SolidBrush ([System.Drawing.Color]::FromArgb(15, 20, 29))
+$g.FillRectangle($barBrush, 0, 0, $left, $top + $mapH)
+$g.FillRectangle($barBrush, $left, 0, $mapW, $top)
+
+$g.DrawImage($src, $left, $top, $mapW, $mapH)
 
 $white = New-Object System.Drawing.SolidBrush ([System.Drawing.Color]::FromArgb(20, 255, 255, 255))
 $black = New-Object System.Drawing.SolidBrush ([System.Drawing.Color]::FromArgb(34, 0, 0, 0))
 for ($r = 0; $r -lt $rows; $r++) {
     for ($c = 0; $c -lt $cols; $c++) {
         $brush = if ((($r + $c) % 2) -eq 0) { $white } else { $black }
-        $g.FillRectangle($brush, $c * $cell, $r * $cell, $cell, $cell)
+        $g.FillRectangle($brush, $left + $c * $cell, $top + $r * $cell, $cell, $cell)
     }
 }
 
 $penDark = New-Object System.Drawing.Pen ([System.Drawing.Color]::FromArgb(120, 8, 10, 14)), 1
 $penLight = New-Object System.Drawing.Pen ([System.Drawing.Color]::FromArgb(35, 255, 255, 255)), 1
 for ($c = 0; $c -le $cols; $c++) {
-    $x = $c * $cell
-    $g.DrawLine($penDark, $x, 0, $x, $mapH)
-    if ($c -lt $cols) { $g.DrawLine($penLight, $x + 1, 0, $x + 1, $mapH) }
+    $x = $left + $c * $cell
+    $g.DrawLine($penDark, $x, $top, $x, $top + $mapH)
+    if ($c -lt $cols) { $g.DrawLine($penLight, $x + 1, $top, $x + 1, $top + $mapH) }
 }
 for ($r = 0; $r -le $rows; $r++) {
-    $y = $r * $cell
-    $g.DrawLine($penDark, 0, $y, $mapW, $y)
-    if ($r -lt $rows) { $g.DrawLine($penLight, 0, $y + 1, $mapW, $y + 1) }
+    $y = $top + $r * $cell
+    $g.DrawLine($penDark, $left, $y, $left + $mapW, $y)
+    if ($r -lt $rows) { $g.DrawLine($penLight, $left, $y + 1, $left + $mapW, $y + 1) }
 }
 
-$font = New-Object System.Drawing.Font 'Consolas', 9.5, ([System.Drawing.FontStyle]::Bold), ([System.Drawing.GraphicsUnit]::Pixel)
-$outline = New-Object System.Drawing.SolidBrush ([System.Drawing.Color]::FromArgb(210, 0, 0, 0))
-$label = New-Object System.Drawing.SolidBrush ([System.Drawing.Color]::FromArgb(245, 255, 255, 255))
-$fmt = New-Object System.Drawing.StringFormat
-$fmt.Alignment = [System.Drawing.StringAlignment]::Near
-$fmt.LineAlignment = [System.Drawing.StringAlignment]::Near
+# axis labels
+$axisFont = New-Object System.Drawing.Font 'Segoe UI', 17, ([System.Drawing.FontStyle]::Bold), ([System.Drawing.GraphicsUnit]::Pixel)
+$axisBrush = New-Object System.Drawing.SolidBrush ([System.Drawing.Color]::FromArgb(232, 237, 247))
+$axisMuted = New-Object System.Drawing.SolidBrush ([System.Drawing.Color]::FromArgb(139, 152, 176))
+$center = New-Object System.Drawing.StringFormat
+$center.Alignment = [System.Drawing.StringAlignment]::Center
+$center.LineAlignment = [System.Drawing.StringAlignment]::Center
+
+for ($c = 0; $c -lt $cols; $c++) {
+    $rect = New-Object System.Drawing.RectangleF ($left + $c * $cell), 0, $cell, $top
+    $g.DrawString(($c + 1).ToString(), $axisFont, $axisBrush, $rect, $center)
+}
 for ($r = 0; $r -lt $rows; $r++) {
-    for ($c = 0; $c -lt $cols; $c++) {
-        $text = 'F' + ($r + 1) + ' C' + ($c + 1)
-        $x = $c * $cell + 4
-        $y = $r * $cell + 3
-        foreach ($ox in -1, 0, 1) {
-            foreach ($oy in -1, 0, 1) {
-                if ($ox -eq 0 -and $oy -eq 0) { continue }
-                $g.DrawString($text, $font, $outline, ($x + $ox), ($y + $oy), $fmt)
-            }
-        }
-        $g.DrawString($text, $font, $label, $x, $y, $fmt)
-    }
+    $rect = New-Object System.Drawing.RectangleF 0, ($top + $r * $cell), $left, $cell
+    $letter = [string][char](65 + $r)
+    $g.DrawString($letter, $axisFont, $axisBrush, $rect, $center)
 }
 
-$footerY = $mapH
-$g.FillRectangle((New-Object System.Drawing.SolidBrush ([System.Drawing.Color]::FromArgb(15, 20, 29))), 0, $footerY, $mapW, 62)
-$g.DrawLine((New-Object System.Drawing.Pen ([System.Drawing.Color]::FromArgb(51, 64, 90)), 1), 0, $footerY, $mapW, $footerY)
+$borderPen = New-Object System.Drawing.Pen ([System.Drawing.Color]::FromArgb(90, 51, 64, 90)), 2
+$g.DrawLine($borderPen, $left, $top, $left, $top + $mapH)
+$g.DrawLine($borderPen, $left, $top, $left + $mapW, $top)
+
+# footer
+$footerY = $top + $mapH
+$g.FillRectangle((New-Object System.Drawing.SolidBrush ([System.Drawing.Color]::FromArgb(15, 20, 29))), 0, $footerY, $canvasW, $footerH)
+$g.DrawLine((New-Object System.Drawing.Pen ([System.Drawing.Color]::FromArgb(51, 64, 90)), 1), 0, $footerY, $canvasW, $footerY)
 $fontTitle = New-Object System.Drawing.Font 'Segoe UI', 17, ([System.Drawing.FontStyle]::Bold), ([System.Drawing.GraphicsUnit]::Pixel)
 $fontSub = New-Object System.Drawing.Font 'Segoe UI', 12, ([System.Drawing.FontStyle]::Regular), ([System.Drawing.GraphicsUnit]::Pixel)
 $whiteBrush = New-Object System.Drawing.SolidBrush ([System.Drawing.Color]::FromArgb(232, 237, 247))
 $mutedBrush = New-Object System.Drawing.SolidBrush ([System.Drawing.Color]::FromArgb(139, 152, 176))
-$g.DrawString('CUADRICULA DE REFERENCIA  -  30 x 20', $fontTitle, $whiteBrush, 24, $footerY + 10)
-$g.DrawString('F = fila  -  C = columna  -  1 casilla = 8 x 8 px del mapa original  -  edita mapa/localizaciones.csv', $fontSub, $mutedBrush, 24, $footerY + 34)
+$g.DrawString('CUADRICULA DE REFERENCIA  -  30 x 20', $fontTitle, $whiteBrush, 20, $footerY + 9)
+$g.DrawString('Filas = letras (A-T)  -  Columnas = numeros (1-30)  -  1 casilla = 8 x 8 px del mapa original  -  edita mapa/localizaciones.csv', $fontSub, $mutedBrush, 20, $footerY + 34)
 
 $bmp.Save($outImage, [System.Drawing.Imaging.ImageFormat]::Png)
 $g.Dispose(); $bmp.Dispose(); $src.Dispose()
@@ -143,10 +156,11 @@ $g.Dispose(); $bmp.Dispose(); $src.Dispose()
 # ---------- CSV ----------
 $csvRows = New-Object System.Collections.ArrayList
 for ($r = 0; $r -lt $rows; $r++) {
+    $letter = [string][char](65 + $r)
     for ($c = 0; $c -lt $cols; $c++) {
         $z = Get-Zone $c $r
         [void]$csvRows.Add([pscustomobject]@{
-            fila = $r + 1
+            fila = $letter
             columna = $c + 1
             zona_actual = $z.name
             zona_correcta = ''
@@ -161,19 +175,19 @@ $readme = @"
 MAPA - CUADRICULA DE REFERENCIA
 
 Archivos:
-- cuadricula.png: mapa 30x20 con patron de ajedrez y etiquetas F(fila) C(columna).
+- cuadricula.png: mapa 30x20 con patron de ajedrez. Las filas son letras (A-T) y las columnas numeros (1-30).
 - localizaciones.csv: una fila por casilla (600 filas).
 
 Columnas del CSV:
-- fila: 1..20 (coincide con la F de la imagen)
-- columna: 1..30 (coincide con la C de la imagen)
+- fila: letra de la fila, de A a T
+- columna: numero de columna, de 1 a 30
 - zona_actual: lo que muestra ahora la app en esa casilla
 - zona_correcta: escribe aqui el nombre real de la zona. Dejalo vacio si ya es correcto.
 - notas: opcional
 
 Ejemplo:
 fila,columna,zona_actual,zona_correcta,notas
-10,10,Glenwood Town,Glenwood Town,
+I,10,Glenwood Town,Glenwood Town,
 
 Cuando termines, avisame y regenero los datos del mapa usando la columna zona_correcta.
 "@

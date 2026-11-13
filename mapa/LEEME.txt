@@ -1,18 +1,18 @@
 ﻿MAPA - CUADRICULA DE REFERENCIA
 
 Archivos:
-- cuadricula.png: mapa 30x20 con patron de ajedrez y etiquetas F(fila) C(columna).
+- cuadricula.png: mapa 30x20 con patron de ajedrez. Las filas son letras (A-T) y las columnas numeros (1-30).
 - localizaciones.csv: una fila por casilla (600 filas).
 
 Columnas del CSV:
-- fila: 1..20 (coincide con la F de la imagen)
-- columna: 1..30 (coincide con la C de la imagen)
+- fila: letra de la fila, de A a T
+- columna: numero de columna, de 1 a 30
 - zona_actual: lo que muestra ahora la app en esa casilla
 - zona_correcta: escribe aqui el nombre real de la zona. Dejalo vacio si ya es correcto.
 - notas: opcional
 
 Ejemplo:
 fila,columna,zona_actual,zona_correcta,notas
-10,10,Glenwood Town,Glenwood Town,
+I,10,Glenwood Town,Glenwood Town,
 
 Cuando termines, avisame y regenero los datos del mapa usando la columna zona_correcta.

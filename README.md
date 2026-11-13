@@ -59,9 +59,9 @@ El script usa `team-card.html` y Microsoft Edge en modo headless para renderizar
 
 Las etiquetas del mapa son aproximadas. Para revisarlas:
 
-1. Abre `mapa/cuadricula.png`: es el mapa con una cuadrícula de ajedrez de **30×20** y cada casilla etiquetada como **F(fila) C(columna)**.
+1. Abre `mapa/cuadricula.png`: es el mapa con una cuadrícula de ajedrez de **30×20**, con las **filas en letras (A–T)** y las **columnas en números (1–30)**.
 2. Edita `mapa/localizaciones.csv` (600 filas). La columna `zona_actual` muestra lo que enseña ahora la app; escribe el nombre real en `zona_correcta`. Si una casilla ya es correcta, deja `zona_correcta` vacía.
-3. Las coordenadas del CSV son 1-based y coinciden con las etiquetas de la imagen.
+3. En el CSV, `fila` es la letra (A–T) y `columna` el número (1–30), igual que en la imagen.
 4. Cuando esté completo, se puede regenerar el mapa usando esa columna.
 
 También tienes `mapa/LEEME.txt` con el resumen.
@@ -72,7 +72,7 @@ También tienes `mapa/LEEME.txt` con el resumen.
 index.html              ← la Pokédex (todo el catálogo va incluido)
 sprites/000.png … 411.png
 mapa/world-map.png      ← world map 1920×1280 (8× pixel-perfect)
-mapa/cuadricula.png     ← referencia 30×20 con etiquetas F/C
+mapa/cuadricula.png     ← referencia 30×20 con filas A–T y columnas 1–30
 mapa/localizaciones.csv ← plantilla para corregir las zonas
 equipos/                ← las tres tarjetas PNG + galería
 serve.ps1               ← servidor local opcional
